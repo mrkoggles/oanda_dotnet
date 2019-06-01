@@ -13,18 +13,25 @@ namespace oanda_dotnet.api
             Client = client;
         }
 
-        public T Execute<T>(Restv20Request request)
+        protected T Execute<T>(Restv20Request request)
             where T : Restv20Response, new()
         {
+            if (!request.IsValid()) { /*throw custom exception*/ }
             IRestRequest restRequest = request.GenerateRestRequest();
             IRestResponse<T> restResponse = this.Client.Execute<T>(restRequest);
             
-            if (restResponse.ErrorException != null)
-            {
-                //error handling
-            }
-
+            if (restResponse.ErrorException != null) { /*error handling*/ }
             return restResponse.Data;
         }
+    }
+
+
+
+    public sealed class PricingApi : Restv20Api
+    {
+        public PricingApi(Restv20Client client) : base(client) { }
+
+        public T Execute<T>(PricingRequest request)
+            where T : PricingResponse, new() => this.Execute<T>(request);
     }
 }

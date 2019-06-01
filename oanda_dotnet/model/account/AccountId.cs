@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace oanda_dotnet.model.account
+namespace oanda_dotnet.model
 {
-    class Class1
+    public struct AccountId
     {
     }
 }
