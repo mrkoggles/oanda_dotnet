@@ -44,15 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="api\Class1.cs" />
+    <Compile Include="api\Restv20Api.cs" />
     <Compile Include="client\Restv20Client.cs" />
     <Compile Include="model\account\Class1.cs" />
     <Compile Include="model\instrument\Class1.cs" />
     <Compile Include="model\order\Class1.cs" />
     <Compile Include="model\position\Class1.cs" />
     <Compile Include="model\pricing\Class1.cs" />
-    <Compile Include="model\request\Class1.cs" />
-    <Compile Include="model\response\Class1.cs" />
+    <Compile Include="model\request\Restv20Request.cs" />
+    <Compile Include="model\response\Restv20Response.cs" />
     <Compile Include="model\trade\Class1.cs" />
     <Compile Include="model\transaction\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
