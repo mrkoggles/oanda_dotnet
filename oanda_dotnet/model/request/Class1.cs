@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace oanda_dotnet
+namespace oanda_dotnet.model.request
 {
-    public class Class1
+    class Class1
     {
     }
 }
