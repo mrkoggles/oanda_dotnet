@@ -49,10 +49,15 @@
     <Compile Include="client\Restv20Client.cs" />
     <Compile Include="model\account\AccountId.cs" />
     <Compile Include="model\instrument\Class1.cs" />
-    <Compile Include="model\order\Class1.cs" />
     <Compile Include="model\position\Class1.cs" />
     <Compile Include="model\pricing\HomeConversions.cs" />
     <Compile Include="model\pricing\Price.cs" />
+    <Compile Include="model\pricing\PriceBucket.cs" />
+    <Compile Include="model\pricing\PriceStatus.cs" />
+    <Compile Include="model\pricing\PriceValue.cs" />
+    <Compile Include="model\pricing\QuoteHomeConversionFactors.cs" />
+    <Compile Include="model\order\UnitsAvailable.cs" />
+    <Compile Include="model\order\UnitsAvailableDetails.cs" />
     <Compile Include="model\Primatives.cs" />
     <Compile Include="model\request\PricingRequest.cs" />
     <Compile Include="model\request\RequestParameterAttribute.cs" />
