@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace oanda_dotnet.model.pricing
 {
-    class Class1
+    public class Price
     {
+
     }
 }

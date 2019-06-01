@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace oanda_dotnet.model
+namespace oanda_dotnet.model.pricing
 {
     public abstract class PricingRequest : Restv20Request { }
 

@@ -1,6 +1,7 @@
 ﻿using oanda_dotnet.client;
 using oanda_dotnet.model;
 using RestSharp;
+using oanda_dotnet.model.pricing;
 
 namespace oanda_dotnet.api
 {
