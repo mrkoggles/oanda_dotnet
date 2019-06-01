@@ -6,6 +6,7 @@ namespace oanda_dotnet.test
     {
         private IConfiguration Configuration { get; set; }
         public string ApiKey => Configuration["Oanda:ApiKey"];
+        public string AccountId => Configuration["Oanda:AccountId"];
 
         public BaseTestClass()
         {
