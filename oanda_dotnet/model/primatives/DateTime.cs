@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace oanda_dotnet.model.primatives
+namespace oanda_dotnet.model
 {
     public struct UnixDateTime
     {

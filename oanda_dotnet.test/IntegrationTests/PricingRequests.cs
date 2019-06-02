@@ -12,6 +12,8 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetPrices()
         {
+            string test = new UnixDateTime(System.DateTime.Now.AddDays(-7)).ToString();
+
             GetPricingRequest request = new GetPricingRequest
             {
                 AcceptDateTimeFormat = AcceptDateTimeFormat.RFC3339,
