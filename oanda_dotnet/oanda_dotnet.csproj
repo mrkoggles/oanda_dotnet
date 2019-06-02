@@ -67,6 +67,7 @@
     <Compile Include="model\primatives\AcceptDateTimeFormat.cs" />
     <Compile Include="model\primatives\Currency.cs" />
     <Compile Include="model\primatives\InstrumentName.cs" />
+    <Compile Include="model\primatives\DateTime.cs" />
     <Compile Include="model\request\PricingRequest.cs" />
     <Compile Include="model\request\RequestParameterAttribute.cs" />
     <Compile Include="model\request\Restv20Request.cs" />

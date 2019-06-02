@@ -45,7 +45,7 @@ namespace oanda_dotnet.model.pricing
         /// will be provided, and are filtered independently. 
         /// </summary>
         [RequestParameter(Name = "since", Type = ParameterType.QueryString)]
-        public DateTime? Since { get; set; }
+        public System.DateTime? Since { get; set; }
 
 
         /// <summary>

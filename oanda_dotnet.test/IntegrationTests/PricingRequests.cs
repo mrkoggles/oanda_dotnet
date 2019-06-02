@@ -29,7 +29,8 @@ namespace oanda_dotnet.test.IntegrationTests
                         QuoteCurrency = Currency.CAD
                     }
                 },
-                IncludeHomeConversions = true
+                IncludeHomeConversions = true,
+                Since = System.DateTime.Now.AddDays(-7)
             };
 
             PricingApi api = new PricingApi(this.Client);
