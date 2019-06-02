@@ -8,11 +8,11 @@
         /// <summary>
         /// The units available for long Orders.
         /// </summary>
-        public DecimalNumber Long { get; set; }
+        public decimal Long { get; set; }
 
         /// <summary>
         /// The units available for short Orders.
         /// </summary>
-        public DecimalNumber Short { get; set; }
+        public decimal Short { get; set; }
     }
 }

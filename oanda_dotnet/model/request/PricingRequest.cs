@@ -63,6 +63,6 @@ namespace oanda_dotnet.model.pricing
         /// <para> [default=False] </para> 
         /// </summary>
         [RequestParameter(Name = "includeHomeConversions", Type = ParameterType.QueryString)]
-        public bool? includeHomeConversions { get; set; }
+        public bool? IncludeHomeConversions { get; set; }
     }
 }

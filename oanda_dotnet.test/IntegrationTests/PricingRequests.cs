@@ -28,7 +28,8 @@ namespace oanda_dotnet.test.IntegrationTests
                         BaseCurrency = Currency.USD,
                         QuoteCurrency = Currency.CAD
                     }
-                }
+                },
+                IncludeHomeConversions = true
             };
 
             PricingApi api = new PricingApi(this.Client);

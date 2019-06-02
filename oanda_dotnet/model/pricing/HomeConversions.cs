@@ -17,18 +17,18 @@
         /// realized P/L and positive financing amounts. Conversion is performed by 
         /// multiplying the positive P/L by the conversion factor. 
         /// </summary> 
-        public DecimalNumber AccountGain { get; set; }
+        public decimal AccountGain { get; set; }
 
         /// <summary> 
         /// The string representation of a decimal number. 
         /// </summary> 
-        public DecimalNumber AccountLoss { get; set; }
+        public decimal AccountLoss { get; set; }
 
         /// <summary> 
         /// The factor used to convert a Position or Trade Value in the specified 
         /// currency into the Account’s home currency. Conversion is performed by 
         /// multiplying the Position or Trade Value by the conversion factor. 
         /// </summary> 
-        public DecimalNumber PositionValue { get; set; }
+        public decimal PositionValue { get; set; }
     }
 }

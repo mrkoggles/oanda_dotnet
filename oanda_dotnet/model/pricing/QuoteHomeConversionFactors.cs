@@ -11,7 +11,7 @@
         /// Conversion is performed by multiplying the quote units by the conversion 
         /// factor. 
         /// </summary> 
-        public DecimalNumber PositiveUnits { get; set; }
+        public decimal PositiveUnits { get; set; }
 
         /// <summary> 
         /// The factor used to convert a negative amount of the Price’s Instrument’s 
@@ -19,6 +19,6 @@
         /// Conversion is performed by multiplying the quote units by the conversion 
         /// factor. 
         /// </summary> 
-        public DecimalNumber NegativeUnits { get; set; }
+        public decimal NegativeUnits { get; set; }
     }
 }
