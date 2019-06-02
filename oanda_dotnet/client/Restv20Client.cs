@@ -1,6 +1,7 @@
 ﻿using System;
 using RestSharp;
 using RestSharp.Authenticators;
+using oanda_dotnet.serialization;
 
 namespace oanda_dotnet.client
 {
@@ -13,6 +14,11 @@ namespace oanda_dotnet.client
         {
             this.BaseUrl = new Uri(Url);
             this.Authenticator = new JwtAuthenticator(bearerToken);
+            this.AddHandler("application/json", NewtonsoftJsonSerializer.Default);
+            this.AddHandler("text/json", NewtonsoftJsonSerializer.Default);
+            this.AddHandler("text/x-json", NewtonsoftJsonSerializer.Default);
+            this.AddHandler("text/javascript", NewtonsoftJsonSerializer.Default);
+            this.AddHandler("*+json", NewtonsoftJsonSerializer.Default);
         }
     }
 

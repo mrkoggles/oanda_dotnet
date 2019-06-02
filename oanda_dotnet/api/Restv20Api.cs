@@ -20,6 +20,7 @@ namespace oanda_dotnet.api
         {
             if (!request.IsValid()) { /*throw custom exception*/ }
             IRestRequest restRequest = request.GenerateRestRequest();
+            restRequest.RequestFormat = DataFormat.Json;
             IRestResponse<T> restResponse = this.Client.Execute<T>(restRequest);
             
             if (restResponse.ErrorException != null) { /*error handling*/ }
