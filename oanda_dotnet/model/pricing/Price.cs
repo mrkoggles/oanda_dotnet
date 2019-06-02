@@ -23,7 +23,7 @@ namespace oanda_dotnet.model.pricing
         /// <summary> 
         /// The date/time when the Price was created 
         /// </summary> 
-        public DateTime Time { get; set; }
+        public System.DateTime Time { get; set; }
 
         /// <summary> 
         /// The status of the Price. 

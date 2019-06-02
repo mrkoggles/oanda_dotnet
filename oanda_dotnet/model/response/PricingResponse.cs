@@ -6,6 +6,6 @@ namespace oanda_dotnet.model.pricing
     {
         public ICollection<Price> Prices { get; set; }
         public ICollection<HomeConversions> HomeConversions { get; set; }
-        public DateTime Time { get; set; }
+        public System.DateTime Time { get; set; }
     }
 }
