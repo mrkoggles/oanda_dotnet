@@ -1,4 +1,6 @@
 ﻿using RestSharp;
+using System.Collections;
+using System.Collections.Generic;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -27,17 +29,28 @@ namespace oanda_dotnet.model
             this.GetType().GetProperties()
                 .Where(property =>
                     Attribute.IsDefined(property, typeof(RequestParameterAttribute)) && //where is a request parameter
-                    (Nullable.GetUnderlyingType(property.PropertyType) == null ||  //and is either isn't nullable or is nullable and not null
-                        (Nullable.GetUnderlyingType(property.PropertyType) == null &&
-                        property.GetValue(this) != null)))
+                        property.GetValue(this) != null)
 
                 .ToList().ForEach(property =>
                 {
                     RequestParameterAttribute requestParameterAttribute = property.GetCustomAttribute<RequestParameterAttribute>();
-                    restRequest.AddParameter(requestParameterAttribute.Name, property.GetValue(this), requestParameterAttribute.Type);
+                    var value = property.GetValue(this);
+                    if (value.GetType().GetInterface(nameof(ICollection)) != null)
+                    {
+                        value = string.Join(",", ConvertDynamicToString((ICollection)value));
+                    }
+                    restRequest.AddParameter(requestParameterAttribute.Name, value, requestParameterAttribute.Type);
                 });
 
             return restRequest;
+        }
+
+        private static IEnumerable<string> ConvertDynamicToString(ICollection listOfObjects)
+        {
+            foreach (var item in listOfObjects)
+            {
+                yield return item.ToString();
+            }
         }
     }
 }

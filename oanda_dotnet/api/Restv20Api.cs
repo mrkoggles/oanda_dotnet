@@ -1,7 +1,7 @@
 ﻿using oanda_dotnet.client;
 using oanda_dotnet.model;
 using RestSharp;
-using oanda_dotnet.model.pricing;
+using System;
 
 namespace oanda_dotnet.api
 {
@@ -14,7 +14,8 @@ namespace oanda_dotnet.api
             Client = client;
         }
 
-        protected T Execute<T>(Restv20Request request)
+        [Obsolete("Unfinished method. Needs error handling")]
+        public T Execute<T>(Restv20Request request)
             where T : Restv20Response, new()
         {
             if (!request.IsValid()) { /*throw custom exception*/ }
@@ -24,15 +25,5 @@ namespace oanda_dotnet.api
             if (restResponse.ErrorException != null) { /*error handling*/ }
             return restResponse.Data;
         }
-    }
-
-
-
-    public sealed class PricingApi : Restv20Api
-    {
-        public PricingApi(Restv20Client client) : base(client) { }
-
-        public T Execute<T>(PricingRequest request)
-            where T : PricingResponse, new() => this.Execute<T>(request);
     }
 }

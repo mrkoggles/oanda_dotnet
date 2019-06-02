@@ -12,7 +12,7 @@ namespace oanda_dotnet.model.pricing
     /// </summary>
     public sealed class GetPricingRequest : PricingRequest
     {
-        public override string Endpoint => "/v3/accounts/{AccountId}/pricing";
+        public override string Endpoint => "/v3/accounts/{accountID}/pricing";
         public override Method Method => Method.GET;
 
 
