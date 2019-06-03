@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>5b6e8c04-1426-4909-ac0f-cfc06703ee0f</ProjectGuid>
+    <ProjectGuid>{5B6E8C04-1426-4909-AC0F-CFC06703EE0F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>oanda_dotnet</RootNamespace>
@@ -31,24 +31,56 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharpSigned.105.2.3\lib\net46\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="api\PricingApi.cs" />
+    <Compile Include="api\Restv20Api.cs" />
+    <Compile Include="client\Restv20Client.cs" />
+    <Compile Include="model\account\AccountId.cs" />
+    <Compile Include="model\instrument\Class1.cs" />
+    <Compile Include="model\position\Class1.cs" />
+    <Compile Include="model\pricing\HomeConversions.cs" />
+    <Compile Include="model\pricing\Price.cs" />
+    <Compile Include="model\pricing\PriceBucket.cs" />
+    <Compile Include="model\pricing\PriceStatus.cs" />
+    <Compile Include="model\pricing\PriceValue.cs" />
+    <Compile Include="model\pricing\QuoteHomeConversionFactors.cs" />
+    <Compile Include="model\order\UnitsAvailable.cs" />
+    <Compile Include="model\order\UnitsAvailableDetails.cs" />
+    <Compile Include="model\Primatives.cs" />
+    <Compile Include="model\primatives\AcceptDateTimeFormat.cs" />
+    <Compile Include="model\primatives\Currency.cs" />
+    <Compile Include="model\primatives\InstrumentName.cs" />
+    <Compile Include="model\primatives\DateTime.cs" />
+    <Compile Include="model\request\PricingRequest.cs" />
+    <Compile Include="model\request\RequestParameterAttribute.cs" />
+    <Compile Include="model\request\Restv20Request.cs" />
+    <Compile Include="model\response\PricingResponse.cs" />
+    <Compile Include="model\response\Restv20Response.cs" />
+    <Compile Include="model\trade\Class1.cs" />
+    <Compile Include="model\transaction\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="serialization\CustomNewtonsoftSerializer.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

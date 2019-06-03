@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace oanda_dotnet
+namespace oanda_dotnet.model
 {
-    public class Class1
+    public class Restv20Response
     {
+
     }
 }
