@@ -20,7 +20,7 @@ namespace oanda_dotnet.model
             return new InstrumentName()
             {
                 BaseCurrency = (Currency)Enum.Parse(typeof(Currency), currencies[0]),
-                QuoteCurrency = (Currency)Enum.Parse(typeof(Currency), currencies[0])
+                QuoteCurrency = (Currency)Enum.Parse(typeof(Currency), currencies[1])
             };
         }
 

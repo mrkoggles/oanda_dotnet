@@ -8,7 +8,7 @@
         /// <summary> 
         /// The start time of the candlestick 
         /// </summary> 
-        public DateTime Time { get; set; }
+        public System.DateTime Time { get; set; }
 
         /// <summary> 
         /// The candlestick data based on bids. Only provided if bid-based candles 
