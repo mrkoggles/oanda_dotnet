@@ -8,11 +8,10 @@ namespace oanda_dotnet.model.request
     /// <summary>
     /// Fetch candlestick data for an instrument.
     /// </summary>
-    public class GetInstrumentCandlesRequest : Restv20Request
+    public sealed class GetInstrumentCandlesRequest : Restv20Request
     {
         private uint? _count;
         private uint? _dailyAlignment;
-
 
 
         public override string Endpoint => "/v3/instruments/{instrument}/candles";
@@ -140,4 +139,35 @@ namespace oanda_dotnet.model.request
     }
 
 
+    /// <summary>
+    /// Fetch an order book for an instrument.
+    /// </summary>
+    public sealed class GetInstrumentOrderBookRequest : Restv20Request
+    {
+        public override string Endpoint => "/v3/instruments/{instrument}/orderBook";
+        public override Method Method => Method.GET;
+
+
+        /// <summary>
+        /// Format of DateTime fields in the request and response. 
+        /// </summary>
+        [Required]
+        [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
+
+
+        /// <summary>
+        /// Name of the Instrument
+        /// </summary>
+        [Required]
+        [RequestParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        public InstrumentName? Instrument { get; set; }
+
+
+        /// <summary>
+        /// The time of the snapshot to fetch. If not specified, then the most recent snapshot is fetched. 
+        /// </summary>
+        [RequestParameter(Name = "time", Type = ParameterType.UrlSegment)]
+        public System.DateTime? Time { get; set; }
+    }
 }
