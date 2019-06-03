@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\InstrumentApi.cs" />
     <Compile Include="api\PricingApi.cs" />
     <Compile Include="api\Restv20Api.cs" />
     <Compile Include="client\Restv20Client.cs" />
