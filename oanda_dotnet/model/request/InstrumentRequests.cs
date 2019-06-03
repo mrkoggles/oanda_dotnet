@@ -139,12 +139,8 @@ namespace oanda_dotnet.model.request
     }
 
 
-    /// <summary>
-    /// Fetch an order book for an instrument.
-    /// </summary>
-    public sealed class GetInstrumentOrderBookRequest : Restv20Request
+    public abstract class GetInstrumentBookRequest : Restv20Request
     {
-        public override string Endpoint => "/v3/instruments/{instrument}/orderBook";
         public override Method Method => Method.GET;
 
 
@@ -169,5 +165,22 @@ namespace oanda_dotnet.model.request
         /// </summary>
         [RequestParameter(Name = "time", Type = ParameterType.UrlSegment)]
         public System.DateTime? Time { get; set; }
+    }
+
+    /// <summary>
+    /// Fetch an order book for an instrument.
+    /// </summary>
+    public sealed class GetInstrumentOrderBookRequest : GetInstrumentBookRequest
+    {
+        public override string Endpoint => "/v3/instruments/{instrument}/orderBook";        
+    }
+
+
+    /// <summary>
+    /// Fetch an position book for an instrument.
+    /// </summary>
+    public sealed class GetInstrumentPositionBookRequest : GetInstrumentBookRequest
+    {
+        public override string Endpoint => "/v3/instruments/{instrument}/positionBook";
     }
 }
