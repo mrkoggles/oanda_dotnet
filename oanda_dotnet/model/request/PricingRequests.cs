@@ -5,12 +5,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.pricing
 {
-    public abstract class PricingRequest : Restv20Request { }
-
     /// <summary>
     /// Get pricing information for a specified list of Instruments within an Account.
     /// </summary>
-    public sealed class GetPricingRequest : PricingRequest
+    public sealed class GetPricingRequest : Restv20Request
     {
         public override string Endpoint => "/v3/accounts/{accountID}/pricing";
         public override Method Method => Method.GET;
@@ -19,7 +17,6 @@ namespace oanda_dotnet.model.pricing
         /// <summary>
         ///  Format of DateTime fields in the request and response. 
         /// </summary>
-        [Required]
         [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
