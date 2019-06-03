@@ -3,7 +3,7 @@ using RestSharp;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace oanda_dotnet.model.request
+namespace oanda_dotnet.model
 {
     /// <summary>
     /// Fetch candlestick data for an instrument.

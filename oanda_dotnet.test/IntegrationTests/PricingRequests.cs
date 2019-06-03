@@ -12,8 +12,6 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetPrices()
         {
-            string test = new UnixDateTime(System.DateTime.Now.AddDays(-7)).ToString();
-
             GetPricingRequest request = new GetPricingRequest
             {
                 AcceptDateTimeFormat = AcceptDateTimeFormat.RFC3339,
@@ -36,7 +34,7 @@ namespace oanda_dotnet.test.IntegrationTests
             };
 
             PricingApi api = new PricingApi(this.Client);
-            PricingResponse response = api.Execute<PricingResponse>(request);
+            GetPricingResponse response = api.Execute<GetPricingResponse>(request);
             Assert.AreEqual(response?.Prices?.Count, 2);
         }
     }
