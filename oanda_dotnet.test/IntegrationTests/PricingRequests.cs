@@ -37,7 +37,7 @@ namespace oanda_dotnet.test.IntegrationTests
 
             PricingApi api = new PricingApi(this.Client);
             PricingResponse response = api.Execute<PricingResponse>(request);
-            Assert.AreEqual(response?.Prices?.Count, 1);
+            Assert.AreEqual(response?.Prices?.Count, 2);
         }
     }
 }
