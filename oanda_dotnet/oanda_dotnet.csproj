@@ -49,11 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\InstrumentApi.cs" />
     <Compile Include="api\PricingApi.cs" />
     <Compile Include="api\Restv20Api.cs" />
     <Compile Include="client\Restv20Client.cs" />
     <Compile Include="model\account\AccountId.cs" />
-    <Compile Include="model\instrument\Class1.cs" />
+    <Compile Include="model\instrument\Candlestick.cs" />
+    <Compile Include="model\instrument\CandlestickData.cs" />
+    <Compile Include="model\instrument\CandlestickGranularity.cs" />
+    <Compile Include="model\instrument\Book.cs" />
+    <Compile Include="model\instrument\BookBucket.cs" />
     <Compile Include="model\position\Class1.cs" />
     <Compile Include="model\pricing\HomeConversions.cs" />
     <Compile Include="model\pricing\Price.cs" />
@@ -68,10 +73,12 @@
     <Compile Include="model\primatives\Currency.cs" />
     <Compile Include="model\primatives\InstrumentName.cs" />
     <Compile Include="model\primatives\DateTime.cs" />
-    <Compile Include="model\request\PricingRequest.cs" />
+    <Compile Include="model\request\InstrumentRequests.cs" />
+    <Compile Include="model\request\PricingRequests.cs" />
     <Compile Include="model\request\RequestParameterAttribute.cs" />
     <Compile Include="model\request\Restv20Request.cs" />
-    <Compile Include="model\response\PricingResponse.cs" />
+    <Compile Include="model\response\InstrumentResponses.cs" />
+    <Compile Include="model\response\PricingResponses.cs" />
     <Compile Include="model\response\Restv20Response.cs" />
     <Compile Include="model\trade\Class1.cs" />
     <Compile Include="model\transaction\Class1.cs" />

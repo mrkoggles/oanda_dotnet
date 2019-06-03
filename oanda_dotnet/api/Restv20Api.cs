@@ -2,6 +2,7 @@
 using oanda_dotnet.model;
 using RestSharp;
 using System;
+using System.Collections.Generic;
 
 namespace oanda_dotnet.api
 {
@@ -22,9 +23,16 @@ namespace oanda_dotnet.api
             IRestRequest restRequest = request.GenerateRestRequest();
             restRequest.RequestFormat = DataFormat.Json;
             IRestResponse<T> restResponse = this.Client.Execute<T>(restRequest);
-            
+
             if (restResponse.ErrorException != null) { /*error handling*/ }
             return restResponse.Data;
+        }
+
+
+        protected static ICollection<T> GenerateCollection<T>(T t)
+            where T : new()
+        {
+            return new List<T>() { t };
         }
     }
 }
