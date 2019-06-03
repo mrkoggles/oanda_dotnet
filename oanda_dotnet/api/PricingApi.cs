@@ -1,5 +1,8 @@
 ﻿using oanda_dotnet.client;
 using oanda_dotnet.model.pricing;
+using oanda_dotnet.model;
+using System.Collections.Generic;
+using System;
 
 namespace oanda_dotnet.api
 {
@@ -7,7 +10,10 @@ namespace oanda_dotnet.api
     {
         public PricingApi(Restv20Client client) : base(client) { }
 
-        //public T Execute<T>(PricingRequest request)
-        //    where T : PricingResponse, new() => this.Execute<T>(request);
+        private static ICollection<T> GenerateCollection<T>(T t)
+            where T: new()
+        {
+            return new List<T>() { t };
+        }
     }
 }

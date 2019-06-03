@@ -2,16 +2,21 @@
 
 namespace oanda_dotnet.model
 {
-    public struct UnixDateTime
+    public interface IOandaDateTime
     {
-        private System.DateTime _dateTime;
+        System.DateTime DateTime { get; }
+    }
 
-        public UnixDateTime(System.DateTime dateTime) => _dateTime = dateTime;
-        public UnixDateTime(string dateTime) { _dateTime = ((UnixDateTime)dateTime)._dateTime; }
+    public struct UnixDateTime : IOandaDateTime
+    {
+        public System.DateTime DateTime { get; private set; }
+
+        public UnixDateTime(System.DateTime dateTime) => DateTime = dateTime;
+        public UnixDateTime(string dateTime) { DateTime = ((UnixDateTime)dateTime).DateTime; }
 
         public override string ToString()
         {
-            return (new DateTimeOffset(this._dateTime).ToUnixTimeMilliseconds() / 1000M).ToString();
+            return (new DateTimeOffset(this.DateTime).ToUnixTimeMilliseconds() / 1000M).ToString();
         }
 
         public static implicit operator string(UnixDateTime unixDateTime) => unixDateTime.ToString();
@@ -22,11 +27,11 @@ namespace oanda_dotnet.model
                 DateTimeOffset.FromUnixTimeMilliseconds((long)(Convert.ToDecimal(dateTime) * 1000M)).Date
             );
         }
-        public static implicit operator System.DateTime(UnixDateTime unixDateTime) => unixDateTime._dateTime;
+        public static implicit operator System.DateTime(UnixDateTime unixDateTime) => unixDateTime.DateTime;
     }
 
-    public struct RFC3339DateTime
+    public struct RFC3339DateTime : IOandaDateTime
     {
-
+        public System.DateTime DateTime => throw new NotImplementedException();
     }
 }
