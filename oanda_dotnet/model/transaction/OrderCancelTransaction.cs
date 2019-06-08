@@ -16,7 +16,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// The date/time when the Transaction was created.
         /// </summary>
-        public DateTime Time { get; set; }
+        public System.DateTime Time { get; set; }
 
         /// <summary>
         /// The Id of the user that initiated the creation of the Transaction.

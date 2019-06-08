@@ -1,4 +1,5 @@
-﻿using oanda_dotnet.model.transaction;
+﻿using oanda_dotnet.model.account;
+using oanda_dotnet.model.transaction;
 using RestSharp;
 using System;
 using System.ComponentModel.DataAnnotations;

@@ -6,9 +6,9 @@
     /// </summary>
     public class ClientComment
     {
-        private string Comment { get; set; }
+        private string _clientComment;
 
-        public static implicit operator ClientComment(string comment) => new ClientComment() { Comment = comment };
-        public static implicit operator string(ClientComment clientComment) => clientComment.Comment;
+        public static implicit operator ClientComment(string comment) => new ClientComment() { _clientComment = comment };
+        public static implicit operator string(ClientComment clientComment) => clientComment._clientComment;
     }
 }

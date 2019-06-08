@@ -26,7 +26,7 @@ namespace oanda_dotnet.model.transaction
         /// The date when the Take Profit Order will be cancelled on if timeInForce 
         /// is GTD. 
         /// </summary> 
-        public DateTime GtdTime { get; set; }
+        public System.DateTime GtdTime { get; set; }
 
         /// <summary> 
         /// The Client Extensions to add to the Take Profit Order when created. 

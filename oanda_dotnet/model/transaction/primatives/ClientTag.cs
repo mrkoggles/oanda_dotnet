@@ -5,9 +5,9 @@
     /// </summary>
     public class ClientTag
     {
-        private string Tag { get; set; }
+        private string _clientTag;
 
-        public static implicit operator ClientTag(string clientTag) => new ClientTag() { Tag = ClientTag };
-        public static implicit operator string(ClientTag clientTag) => clientTag.Tag;
+        public static implicit operator ClientTag(string clientTag) => new ClientTag() { _clientTag = clientTag };
+        public static implicit operator string(ClientTag clientTag) => clientTag._clientTag;
     }
 }

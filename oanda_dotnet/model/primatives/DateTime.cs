@@ -2,6 +2,7 @@
 
 namespace oanda_dotnet.model
 {
+    [Obsolete("Needs development")]
     public interface IOandaDateTime
     {
         System.DateTime DateTime { get; }

@@ -5,9 +5,9 @@
     /// </summary>
     public class ClientId
     {
-        private string Id { get; set; }
+        private string _clientId;
 
-        public static implicit operator ClientId(string clientId) => new ClientId() { Id = clientId };
-        public static implicit operator string(ClientId clientId) => clientId.Id;
+        public static implicit operator ClientId(string clientId) => new ClientId() { _clientId = clientId };
+        public static implicit operator string(ClientId clientId) => clientId._clientId;
     }
 }

@@ -10,6 +10,7 @@ namespace oanda_dotnet.model.account
         public string UserId { get; set; }
         public string AccountNumber { get; set; }
 
+        [Obsolete("Needs error handling")]
         public static implicit operator AccountId(string accountId)
         {
             string[] ids = accountId.Split('-');
