@@ -1,4 +1,5 @@
 # oanda_dotnet
+A .NET API wrapper for Oanda's Restv20 & Streaming APIs. Documentation for both API's can be found here: http://developer.oanda.com/rest-live-v20/introduction/ 
 
 ## Unit Testing Configuration
 In order to run the unit tests you'll need to set up an api key user secret on your local machine.
