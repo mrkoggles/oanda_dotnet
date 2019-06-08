@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace oanda_dotnet.model.position
+namespace oanda_dotnet.model.transaction
 {
-    class Class1
+    public struct TransactionId
     {
     }
 }

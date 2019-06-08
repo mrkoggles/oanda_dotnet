@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace oanda_dotnet.model.transaction
 {
-    class Class1
+    public struct ClientComment
     {
+
     }
 }

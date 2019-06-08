@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace oanda_dotnet.model
+namespace oanda_dotnet.model.account
 {
     public struct AccountId
     {

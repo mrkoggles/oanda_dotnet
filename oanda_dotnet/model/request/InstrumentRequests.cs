@@ -1,9 +1,8 @@
-﻿using oanda_dotnet.model.instrument;
-using RestSharp;
+﻿using RestSharp;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace oanda_dotnet.model
+namespace oanda_dotnet.model.instrument
 {
     /// <summary>
     /// Fetch candlestick data for an instrument.

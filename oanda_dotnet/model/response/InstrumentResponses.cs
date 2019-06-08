@@ -1,7 +1,7 @@
 ﻿using oanda_dotnet.model.instrument;
 using System.Collections.Generic;
 
-namespace oanda_dotnet.model
+namespace oanda_dotnet.model.instrument
 {
     public class GetInstrumentCandlesResponse : Restv20Response
     {
