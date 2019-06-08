@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace oanda_dotnet.model
+namespace oanda_dotnet.model.account
 {
     public struct AccountId
     {
@@ -10,6 +10,7 @@ namespace oanda_dotnet.model
         public string UserId { get; set; }
         public string AccountNumber { get; set; }
 
+        [Obsolete("Needs error handling")]
         public static implicit operator AccountId(string accountId)
         {
             string[] ids = accountId.Split('-');
