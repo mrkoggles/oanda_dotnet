@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace oanda_dotnet.model.transaction
 {
-    public struct ClientComment
+    public class TrailingStopLossDetails
     {
-
     }
 }

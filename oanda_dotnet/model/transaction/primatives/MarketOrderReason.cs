@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace oanda_dotnet.model.transaction
 {
-    public struct ClientTag
+    public enum MarketOrderReason
     {
     }
 }

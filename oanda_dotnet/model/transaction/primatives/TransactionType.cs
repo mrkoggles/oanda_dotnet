@@ -9,6 +9,8 @@ namespace oanda_dotnet.model.transaction
     public enum TransactionType
     {
         OrderFill,
-        OrderCancel
+        OrderCancel,
+        MarketOrderReject,
+        MarketOrder
     }
 }
