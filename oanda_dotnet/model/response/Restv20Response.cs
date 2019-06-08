@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace oanda_dotnet.model
+﻿namespace oanda_dotnet.model
 {
     public class Restv20Response
     {
-
+        public string ErrorCode { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }

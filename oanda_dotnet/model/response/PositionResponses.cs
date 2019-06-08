@@ -18,7 +18,6 @@ namespace oanda_dotnet.model.position
 
     }
 
-
     public class CloseInstrumentPositionResponse : Restv20Response
     {
         /// <summary> 
