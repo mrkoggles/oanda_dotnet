@@ -17,7 +17,7 @@
         public string Alias { get; set; }
 
         /// <summary>
-        /// The margin rate overrIde for the Account.
+        /// The margin rate override for the Account.
         /// </summary>
         public decimal MarginRate { get; set; }
     }

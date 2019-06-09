@@ -10,7 +10,7 @@ namespace oanda_dotnet.model.transaction
     public class TradeOpen
     {
         /// <summary> 
-        /// The ID of the Trade that was opened 
+        /// The Id of the Trade that was opened 
         /// </summary> 
         public TradeId TradeId { get; set; }
 

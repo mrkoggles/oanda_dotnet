@@ -53,15 +53,15 @@ namespace oanda_dotnet.model.position
         public OrderCancelTransaction ShortOrderCancelTransaction { get; set; }
 
         /// <summary> 
-        /// The IDs of all Transactions that were created while satisfying the 
+        /// The Ids of all Transactions that were created while satisfying the 
         /// request. 
         /// </summary> 
-        public ICollection<long> RelatedTransactionIDs { get; set; }
+        public ICollection<long> RelatedTransactionIds { get; set; }
 
         /// <summary> 
-        /// The ID of the most recent Transaction created for the Account 
+        /// The Id of the most recent Transaction created for the Account 
         /// </summary> 
-        public long LastTransactionID { get; set; }
+        public long LastTransactionId { get; set; }
     }
 
 
@@ -80,15 +80,15 @@ namespace oanda_dotnet.model.position
         public MarketOrderRejectTransaction ShortOrderRejectTransaction { get; set; }
 
         /// <summary> 
-        /// The IDs of all Transactions that were created while satisfying the 
+        /// The Ids of all Transactions that were created while satisfying the 
         /// request. 
         /// </summary> 
-        public ICollection<long> RelatedTransactionIDs { get; set; }
+        public ICollection<long> RelatedTransactionIds { get; set; }
 
         /// <summary> 
-        /// The ID of the most recent Transaction created for the Account 
+        /// The Id of the most recent Transaction created for the Account 
         /// </summary> 
-        public long LastTransactionID { get; set; }
+        public long LastTransactionId { get; set; }
 
         /// <summary> 
         /// The code of the error that has occurred. This field may not be returned 

@@ -81,10 +81,10 @@ namespace oanda_dotnet.model.account
         public AccountUnits GuaranteedExecutionFees { get; set; }
 
         /// <summary> 
-        /// Client-provIded margin rate overrIde for the Account. The effective 
+        /// Client-provIded margin rate override for the Account. The effective 
         /// margin rate of the Account is the lesser of this value and the OANDA 
         /// margin rate for the Account’s division. This value is only provIded if a 
-        /// margin rate overrIde exists for the Account. 
+        /// margin rate override exists for the Account. 
         /// </summary> 
         public decimal MarginRate { get; set; }
 

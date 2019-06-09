@@ -6,7 +6,7 @@
     public class CalculatedTradeState
     {
         /// <summary> 
-        /// The Trade’s ID. 
+        /// The Trade’s Id. 
         /// </summary> 
         public TradeId Id { get; set; }
 
