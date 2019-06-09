@@ -6,10 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.order
 {
+    public abstract class OrderRestv20EndpointRequest : Restv20EndpointRequest { }
+
     /// <summary>
     /// Create an Order for an Account
     /// </summary>
-    public sealed class CreateOrderEndpoint : Restv20EndpointRequest
+    public sealed class CreateOrderEndpoint : OrderRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders";
         public override Method Method => Method.POST;
@@ -42,7 +44,7 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// Get a list of Orders for an Account
     /// </summary>
-    public sealed class GetOrdersEndpoint : Restv20EndpointRequest
+    public sealed class GetOrdersEndpoint : OrderRestv20EndpointRequest
     {
         private uint? _count;
 
@@ -109,7 +111,7 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// List all pending Orders in an Account
     /// </summary>
-    public sealed class GetPendingOrdersEndpoint : Restv20EndpointRequest
+    public sealed class GetPendingOrdersEndpoint : OrderRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/pendingOrders";
         public override Method Method => Method.GET;
@@ -134,7 +136,7 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// Get details for a single Order in an Account
     /// </summary>
-    public sealed class GetOrderEndpoint : Restv20EndpointRequest
+    public sealed class GetOrderEndpoint : OrderRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}";
         public override Method Method => Method.GET;
@@ -167,7 +169,7 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// Replace an Order in an Account by simultaneously cancelling it and creating a replacement Order
     /// </summary>
-    public sealed class ReplaceOrderEndpoint : Restv20EndpointRequest
+    public sealed class ReplaceOrderEndpoint : OrderRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}";
         public override Method Method => Method.PUT;
@@ -208,7 +210,7 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// Cancel a pending Order in an Account
     /// </summary>
-    public sealed class CancelPendingOrderEndpoint : Restv20EndpointRequest
+    public sealed class CancelPendingOrderEndpoint : OrderRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}/cancel";
         public override Method Method => Method.PUT;
@@ -241,7 +243,7 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// Update the Client Extensions for an Order in an Account. Do not set, modify, or delete clientExtensions if your account is associated with MT4.
     /// </summary>
-    public sealed class UpdateOrderClientExtensionsEndpoint : Restv20EndpointRequest
+    public sealed class UpdateOrderClientExtensionsEndpoint : OrderRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}/clientExtensions";
         public override Method Method => Method.PUT;

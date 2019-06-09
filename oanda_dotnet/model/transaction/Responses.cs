@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 namespace oanda_dotnet.model.transaction
 {
-    public sealed class GetTransactionsPageResponse : Restv20EndpointResponse
+    public abstract class TransactionRestv20EndpointResponse : Restv20EndpointResponse { }
+
+    public sealed class GetTransactionsPageResponse : TransactionRestv20EndpointResponse
     {
         /// <summary>
         /// The starting time provIded in the request.
@@ -43,7 +45,7 @@ namespace oanda_dotnet.model.transaction
 
     }
 
-    public sealed class GetTransactionResponse : Restv20EndpointResponse
+    public sealed class GetTransactionResponse : TransactionRestv20EndpointResponse
     {
         /// <summary>
         /// The details of the Transaction requested
@@ -56,7 +58,7 @@ namespace oanda_dotnet.model.transaction
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class GetTransactionsResponse : Restv20EndpointResponse
+    public sealed class GetTransactionsResponse : TransactionRestv20EndpointResponse
     {
         /// <summary>
         /// The list of Transactions that satisfy the request.

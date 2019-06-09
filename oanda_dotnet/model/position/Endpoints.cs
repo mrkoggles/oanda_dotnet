@@ -6,10 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.position
 {
+    public abstract class PositionRestv20EndpointRequest : Restv20EndpointRequest { }
+
     /// <summary>
     /// List all Positions for an Account. The Positions returned are for every instrument that has had a position during the lifetime of an the Account.
     /// </summary>
-    public sealed class GetPositionsEndpoint : Restv20EndpointRequest
+    public sealed class GetPositionsEndpoint : PositionRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/positions";
         public override Method Method => Method.GET;
@@ -27,7 +29,7 @@ namespace oanda_dotnet.model.position
     /// <summary>
     /// List all open Positions for an Account. An open Position is a Position in an Account that currently has a Trade opened for it.
     /// </summary>
-    public sealed class GetOpenPositionsEndpoint : Restv20EndpointRequest
+    public sealed class GetOpenPositionsEndpoint : PositionRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/openPositions";
         public override Method Method => Method.GET;
@@ -45,7 +47,7 @@ namespace oanda_dotnet.model.position
     /// <summary>
     /// Get the details of a single Instrument’s Position in an Account. The Position may by open or not.
     /// </summary>
-    public sealed class GetInstrumentPositionEndpoint : Restv20EndpointRequest
+    public sealed class GetInstrumentPositionEndpoint : PositionRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/positions/{instrument}";
         public override Method Method => Method.GET;
@@ -71,7 +73,7 @@ namespace oanda_dotnet.model.position
     /// <summary>
     /// Closeout the open Position for a specific instrument in an Account.
     /// </summary>
-    public sealed partial class CloseInstrumentPositionEndpoint : Restv20EndpointRequest
+    public sealed partial class CloseInstrumentPositionEndpoint : PositionRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/positions/{instrument}/close";
         public override Method Method => Method.GET;

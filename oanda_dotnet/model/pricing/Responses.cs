@@ -2,7 +2,9 @@
 
 namespace oanda_dotnet.model.pricing
 {
-    public sealed class GetPricingResponse : Restv20EndpointResponse
+    public abstract class PricingRestv20EndpointResponse : Restv20EndpointResponse { }
+
+    public sealed class GetPricingResponse : PricingRestv20EndpointResponse
     {
         public ICollection<Price> Prices { get; set; }
         public ICollection<HomeConversions> HomeConversions { get; set; }

@@ -5,10 +5,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.account
 {
+    public abstract class AccountRestv20EndpointRequest : Restv20EndpointRequest { }
+
+
     /// <summary>
     /// Get a list of all Accounts authorized for the provided token.
     /// </summary>
-    public sealed class GetAccountsEndpoint : Restv20EndpointRequest
+    public sealed class GetAccountsEndpoint : AccountRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts";
         public override Method Method => Method.GET;
@@ -18,7 +21,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Get the full details for a single Account that a client has access to. Full pending Order, open Trade and open Position representations are provided.
     /// </summary>
-    public sealed class GetAccountDetailEndpoint : Restv20EndpointRequest
+    public sealed class GetAccountDetailEndpoint : AccountRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}";
         public override Method Method => Method.GET;
@@ -43,7 +46,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Get a summary for a single Account that a client has access to.
     /// </summary>
-    public sealed class GetAccountSummaryEndpoint : Restv20EndpointRequest
+    public sealed class GetAccountSummaryEndpoint : AccountRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/summary";
         public override Method Method => Method.GET;
@@ -70,7 +73,7 @@ namespace oanda_dotnet.model.account
     /// The list of tradeable instruments is dependent on the regulatory division that the Account is located in, 
     /// thus should be the same for all Accounts owned by a single user.
     /// </summary>
-    public sealed class GetAccountInstrumentsEndpoint : Restv20EndpointRequest
+    public sealed class GetAccountInstrumentsEndpoint : AccountRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/instruments";
         public override Method Method => Method.GET;
@@ -95,7 +98,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Set the client-configurable portions of an Account.
     /// </summary>
-    public sealed partial class ConfigureAccountEndpoint : Restv20EndpointRequest
+    public sealed partial class ConfigureAccountEndpoint : AccountRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/configuration";
         public override Method Method => Method.PATCH;
@@ -127,7 +130,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Endpoint used to poll an Account for its current state and changes since a specified TransactionID.
     /// </summary>
-    public sealed class GetAccountChangesEndpoint : Restv20EndpointRequest
+    public sealed class GetAccountChangesEndpoint : AccountRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/changes";
         public override Method Method => Method.GET;

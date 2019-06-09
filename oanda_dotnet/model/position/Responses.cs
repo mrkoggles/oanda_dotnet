@@ -4,21 +4,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.position
 {
-    public sealed class GetPositionsResponse : Restv20EndpointResponse
+    public abstract class PositionRestv20EndpointResponse : Restv20EndpointResponse { }
+    public sealed class GetPositionsResponse : PositionRestv20EndpointResponse
     {
         public long LastTransactionId { get; set; }
         public ICollection<Position> Positions { get; set; }
     }
 
-
-    public sealed class GetPositionResponse : Restv20EndpointResponse
+    public sealed class GetPositionResponse : PositionRestv20EndpointResponse
     {
         public long LastTransactionId { get; set; }
         public Position Position { get; set; }
 
     }
 
-    public sealed class CloseInstrumentPositionResponse : Restv20EndpointResponse
+    public sealed class CloseInstrumentPositionResponse : PositionRestv20EndpointResponse
     {
         /// <summary> 
         /// The MarketOrderTransaction created to close the long Position. 
@@ -64,8 +64,7 @@ namespace oanda_dotnet.model.position
         public long LastTransactionId { get; set; }
     }
 
-
-    public sealed class RejectedCloseInstrumentPositionResponse : Restv20EndpointResponse
+    public sealed class RejectedCloseInstrumentPositionResponse : PositionRestv20EndpointResponse
     {
         /// <summary> 
         /// The Transaction created that rejects the creation of a MarketOrder to 

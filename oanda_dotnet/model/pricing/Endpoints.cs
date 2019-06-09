@@ -6,10 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.pricing
 {
+    public abstract class PricingRestv20EndpointRequest : Restv20EndpointRequest { }
+
     /// <summary>
     /// Get pricing information for a specified list of Instruments within an Account.
     /// </summary>
-    public sealed class GetPricingEndpoint : Restv20EndpointRequest
+    public sealed class GetPricingEndpoint : PricingRestv20EndpointRequest
     {
         public override string Endpoint => "/v3/accounts/{accountID}/pricing";
         public override Method Method => Method.GET;

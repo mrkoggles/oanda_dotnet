@@ -7,10 +7,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.trade
 {
+    public abstract class TradeRestv20EndpointRequest : Restv20EndpointRequest { }
+
     /// <summary>
     /// Get a list of Trades for an Account
     /// </summary>
-    public class GetTradesEndpoint : Restv20EndpointRequest
+    public class GetTradesEndpoint : TradeRestv20EndpointRequest
     {
         private uint? _count;
 
@@ -77,7 +79,7 @@ namespace oanda_dotnet.model.trade
     /// <summary>
     /// Get the list of open Trades for an Account
     /// </summary>
-    public class GetOpenTradesEndpoint : Restv20EndpointRequest
+    public class GetOpenTradesEndpoint : TradeRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/openTrades";
         public override Method Method => Method.GET;
@@ -102,7 +104,7 @@ namespace oanda_dotnet.model.trade
     /// <summary>
     /// Get the details of a specific Trade in an Account
     /// </summary>
-    public class GetTradeEndpoint : Restv20EndpointRequest
+    public class GetTradeEndpoint : TradeRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/trades/{tradeSpecifier}";
         public override Method Method => Method.GET;
@@ -135,7 +137,7 @@ namespace oanda_dotnet.model.trade
     /// <summary>
     /// Close (partially or fully) a specific open Trade in an Account
     /// </summary>
-    public class CloseTradeEndpoint : Restv20EndpointRequest
+    public class CloseTradeEndpoint : TradeRestv20EndpointRequest
     {
         private bool? _closeAll;
         private decimal? _closeAmount;
@@ -212,7 +214,7 @@ namespace oanda_dotnet.model.trade
     /// <summary>
     /// Update the Client Extensions for a Trade. Do not add, update, or delete the Client Extensions if your account is associated with MT4.
     /// </summary>
-    public class UpdateTradeClientExtensionsEndpoint : Restv20EndpointRequest
+    public class UpdateTradeClientExtensionsEndpoint : TradeRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/trades/{tradeSpecifier}/clientExtensions";
         public override Method Method => Method.PUT;
@@ -255,7 +257,7 @@ namespace oanda_dotnet.model.trade
     /// <summary>
     /// Create, replace and cancel a Trade’s dependent Orders (Take Profit, Stop Loss and Trailing Stop Loss) through the Trade itself
     /// </summary>
-    public class SetTradeOrdersEndpoint : Restv20EndpointRequest
+    public class SetTradeOrdersEndpoint : TradeRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/trades/{tradeSpecifier}/orders";
         public override Method Method => Method.PUT;

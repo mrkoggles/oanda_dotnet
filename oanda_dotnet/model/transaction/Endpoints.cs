@@ -5,12 +5,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.transaction
 {
+    public abstract class TransactionRestv20EndpointRequest : Restv20EndpointRequest { }
+
     public class Endpoints
     {
         /// <summary>
         /// Get a list of Transactions pages that satisfy a time-based Transaction query.
         /// </summary>
-        public sealed class GetTransactionsPageEndpoint : Restv20EndpointRequest
+        public sealed class GetTransactionsPageEndpoint : TransactionRestv20EndpointRequest
         {
             private uint? _pageSize;
 
@@ -69,7 +71,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// Get the details of a single Account Transaction.
         /// </summary>
-        public sealed class GetTransactionEndpoint : Restv20EndpointRequest
+        public sealed class GetTransactionEndpoint : TransactionRestv20EndpointRequest
         {
             public override string Endpoint => @"/v3/accounts/{accountID}/transactions/{transactionID}";
             public override Method Method => Method.GET;
@@ -102,7 +104,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// Get a range of Transactions for an Account based on the Transaction IDs.
         /// </summary>
-        public sealed class GetTransactionsByIdsEndpoint : Restv20EndpointRequest
+        public sealed class GetTransactionsByIdsEndpoint : TransactionRestv20EndpointRequest
         {
             public override string Endpoint => @"/v3/accounts/{accountID}/transactions/idrange";
             public override Method Method => Method.GET;
@@ -150,7 +152,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// /v3/accounts/{accountID}/transactions/sinceid
         /// </summary>
-        public sealed class GetTransactionsSinceIdEndpoint : Restv20EndpointRequest
+        public sealed class GetTransactionsSinceIdEndpoint : TransactionRestv20EndpointRequest
         {
             public override string Endpoint => @"";
             public override Method Method => Method.GET;

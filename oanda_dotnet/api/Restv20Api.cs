@@ -6,7 +6,9 @@ using System.Collections.Generic;
 
 namespace oanda_dotnet.api
 {
-    public abstract class Restv20Api
+    public abstract class Restv20Api<T, U>
+        where T : Restv20EndpointRequest
+        where U : Restv20EndpointResponse
     {
         public Restv20Client Client { get; private set; }
 
@@ -16,19 +18,19 @@ namespace oanda_dotnet.api
         }
 
         [Obsolete("Unfinished method. Needs error handling")]
-        public T Execute<T>(Restv20EndpointRequest request)
-            where T : Restv20EndpointResponse, new()
+        public V Execute<V>(T request)
+            where V : U, new() 
         {
             if (!request.IsValid()) { /*throw custom exception*/ }
             IRestRequest restRequest = request.GenerateRestRequest();
             restRequest.RequestFormat = DataFormat.Json;
-            IRestResponse<T> restResponse = this.Client.Execute<T>(restRequest);
+            IRestResponse<V> restResponse = this.Client.Execute<V>(restRequest);
 
             if (restResponse.ErrorException != null) { /*error handling*/ }
             return restResponse.Data;
         }
 
-
+        [Obsolete("Belongs somewhere else")]
         protected static ICollection<T> GenerateCollection<T>(T t)
             where T : new()
         {

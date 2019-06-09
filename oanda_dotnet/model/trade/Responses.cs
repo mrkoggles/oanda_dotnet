@@ -4,7 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.trade
 {
-    public sealed class GetTradesResponse : Restv20EndpointResponse
+    public abstract class TradeRestv20EndpointResponse : Restv20EndpointResponse { }
+
+    public sealed class GetTradesResponse : TradeRestv20EndpointResponse
     {
         /// <summary>
         /// The list of Trade detail objects
@@ -17,7 +19,7 @@ namespace oanda_dotnet.model.trade
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class GetTradeResponse : Restv20EndpointResponse
+    public sealed class GetTradeResponse : TradeRestv20EndpointResponse
     {
         /// <summary>
         /// The Account’s list of open Trades
@@ -30,7 +32,7 @@ namespace oanda_dotnet.model.trade
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class CloseTradeResponse : Restv20EndpointResponse
+    public sealed class CloseTradeResponse : TradeRestv20EndpointResponse
     {
         /// <summary>
         /// The MarketOrder Transaction created to close the Order.
@@ -61,7 +63,7 @@ namespace oanda_dotnet.model.trade
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class CloseTradeErrorResponse : Restv20EndpointResponse
+    public sealed class CloseTradeErrorResponse : TradeRestv20EndpointResponse
     {
         /// <summary>
         /// The MarketTradeReject Transaction that rejects the creation of the Trade-
@@ -94,7 +96,7 @@ namespace oanda_dotnet.model.trade
         public string ErrorMessage { get; set; }
     }
 
-    public sealed class UpdateTradeClientExtensionsResponse : Restv20EndpointResponse
+    public sealed class UpdateTradeClientExtensionsResponse : TradeRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that modified the Client Extensions for the Trade
@@ -113,7 +115,7 @@ namespace oanda_dotnet.model.trade
         public ICollection<TransactionId> RelatedTransactionIds { get; set; }
     }
 
-    public sealed class UpdateTradeClientExtensionsErrorResponse : Restv20EndpointResponse
+    public sealed class UpdateTradeClientExtensionsErrorResponse : TradeRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that rejected the modification of the Client Extensions
@@ -145,7 +147,7 @@ namespace oanda_dotnet.model.trade
         public string ErrorMessage { get; set; }
     }
 
-    public sealed class SetTradeOrdersResponse : Restv20EndpointResponse
+    public sealed class SetTradeOrdersResponse : TradeRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction created that cancels the Trade’s existing Take Profit
@@ -221,7 +223,7 @@ namespace oanda_dotnet.model.trade
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class SetTradeOrdersErrorResponse : Restv20EndpointResponse
+    public sealed class SetTradeOrdersErrorResponse : TradeRestv20EndpointResponse
     {
         /// <summary>
         /// An OrderCancelRejectTransaction represents the rejection of the

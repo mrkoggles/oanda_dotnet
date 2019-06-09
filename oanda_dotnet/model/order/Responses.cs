@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.order
 {
-    public sealed class CreateOrderResponse : Restv20EndpointResponse
+    public abstract class OrderRestv20EndpointResponse : Restv20EndpointResponse { }
+    public sealed class CreateOrderResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that created the Order specified by the request.
@@ -49,7 +50,7 @@ namespace oanda_dotnet.model.order
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class CreateOrderErrorResponse : Restv20EndpointResponse
+    public sealed class CreateOrderErrorResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that rejected the creation of the Order as requested
@@ -81,7 +82,7 @@ namespace oanda_dotnet.model.order
 
     }
 
-    public sealed class GetOrdersResponse : Restv20EndpointResponse
+    public sealed class GetOrdersResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// The list of Order detail objects
@@ -94,7 +95,7 @@ namespace oanda_dotnet.model.order
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class GetOrderDetailsResponse : Restv20EndpointResponse
+    public sealed class GetOrderDetailsResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// The details of the Order requested
@@ -107,7 +108,7 @@ namespace oanda_dotnet.model.order
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class ReplaceOrderResponse : Restv20EndpointResponse
+    public sealed class ReplaceOrderResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// Specification of the replacing Order
@@ -115,7 +116,7 @@ namespace oanda_dotnet.model.order
         public OrderRequest Order { get; set; }
     }
 
-    public sealed class CancelPendingOrderResponse : Restv20EndpointResponse
+    public sealed class CancelPendingOrderResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that cancelled the Order
@@ -134,7 +135,7 @@ namespace oanda_dotnet.model.order
         public TransactionId LastTransactionId { get; set; }
     }
 
-    public sealed class CancelPendingOrderErrorResponse : Restv20EndpointResponse
+    public sealed class CancelPendingOrderErrorResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that rejected the cancellation of the Order. Only present
@@ -168,7 +169,7 @@ namespace oanda_dotnet.model.order
 
     }
 
-    public sealed class UpdateOrderClientExtensionsResponse : Restv20EndpointResponse
+    public sealed class UpdateOrderClientExtensionsResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that modified the Client Extensions for the Order
@@ -187,7 +188,7 @@ namespace oanda_dotnet.model.order
         public ICollection<TransactionId> RelatedTransactionIds { get; set; }
     }
 
-    public sealed class UpdateOrderClientExtensionsErrorResponse : Restv20EndpointResponse
+    public sealed class UpdateOrderClientExtensionsErrorResponse : OrderRestv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that rejected the modification of the Client Extensions

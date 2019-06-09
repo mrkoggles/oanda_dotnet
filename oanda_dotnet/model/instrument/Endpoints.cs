@@ -4,10 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.instrument
 {
+    public abstract class InstrumentRestv20EndpointRequest : Restv20EndpointRequest { }
+
     /// <summary>
     /// Fetch candlestick data for an instrument.
     /// </summary>
-    public sealed class GetInstrumentCandlesEndpoint : Restv20EndpointRequest
+    public sealed class GetInstrumentCandlesEndpoint : InstrumentRestv20EndpointRequest
     {
         private uint? _count;
         private uint? _dailyAlignment;
@@ -138,7 +140,7 @@ namespace oanda_dotnet.model.instrument
     }
 
 
-    public abstract class GetInstrumentBookEndpoint : Restv20EndpointRequest
+    public abstract class GetInstrumentBookEndpoint : InstrumentRestv20EndpointRequest
     {
         public override Method Method => Method.GET;
 
@@ -165,6 +167,7 @@ namespace oanda_dotnet.model.instrument
         [EndpointParameter(Name = "time", Type = ParameterType.UrlSegment)]
         public System.DateTime? Time { get; set; }
     }
+
 
     /// <summary>
     /// Fetch an order book for an instrument.
