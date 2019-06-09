@@ -105,7 +105,7 @@ namespace oanda_dotnet.model.position
         /// Request Data for the Body
         /// </summary>
         [Required]
-        [RequestParameter(Name = "instrument", Type = ParameterType.RequestBody)]
+        [RequestParameter(Type = ParameterType.RequestBody)]
         public RequestInfo RequestData { get; set; }
     }
 
