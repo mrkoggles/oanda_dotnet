@@ -33,21 +33,21 @@ namespace oanda_dotnet.model.trade
     public sealed class CloseTradeResponse : Restv20EndpointResponse
     {
         /// <summary>
-        /// The MarketTrade Transaction created to close the Trade.
+        /// The MarketOrder Transaction created to close the Order.
         /// </summary>
-        public MarketTradeTransaction TradeCreateTransaction { get; set; }
+        public MarketOrderTransaction OrderCreateTransaction { get; set; }
 
         /// <summary>
-        /// The TradeFill Transaction that fills the Trade-closing MarketTrade and
-        /// closes the Trade.
+        /// The OrderFill Transaction that fills the Order-closing MarketOrder and
+        /// closes the Order.
         /// </summary>
-        public TradeFillTransaction TradeFillTransaction { get; set; }
+        public OrderFillTransaction OrderFillTransaction { get; set; }
 
         /// <summary>
-        /// The TradeCancel Transaction that immediately cancelled the Trade-closing
-        /// MarketTrade.
+        /// The OrderCancel Transaction that immediately cancelled the Order-closing
+        /// MarketOrder.
         /// </summary>
-        public TradeCancelTransaction TradeCancelTransaction { get; set; }
+        public OrderCancelTransaction OrderCancelTransaction { get; set; }
 
         /// <summary>
         /// The Ids of all Transactions that were created while satisfying the
@@ -67,7 +67,7 @@ namespace oanda_dotnet.model.trade
         /// The MarketTradeReject Transaction that rejects the creation of the Trade-
         /// closing MarketTrade. Only present if the Account exists.
         /// </summary>
-        public MarketTradeRejectTransaction TradeRejectTransaction { get; set; }
+        public MarketOrderRejectTransaction TradeRejectTransaction { get; set; }
 
         /// <summary>
         /// The Id of the most recent Transaction created for the Account. Only

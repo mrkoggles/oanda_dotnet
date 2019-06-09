@@ -2,11 +2,7 @@
 using oanda_dotnet.model.pricing;
 using oanda_dotnet.model.trade;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace oanda_dotnet.model.transaction
 {
