@@ -26,6 +26,7 @@ namespace oanda_dotnet.model
         {
             RestRequest restRequest = new RestRequest(this.Endpoint, this.Method);
 
+
             this.GetType().GetProperties()
                 .Where(property =>
                     Attribute.IsDefined(property, typeof(EndpointParameterAttribute)) && //where is a request parameter
