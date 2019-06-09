@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="api\AccountApi.cs" />
     <Compile Include="api\InstrumentApi.cs" />
+    <Compile Include="api\OrderApi.cs" />
     <Compile Include="api\PositionApi.cs" />
     <Compile Include="api\PricingApi.cs" />
     <Compile Include="api\Restv20Api.cs" />
