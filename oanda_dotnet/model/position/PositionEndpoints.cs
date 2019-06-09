@@ -9,7 +9,7 @@ namespace oanda_dotnet.model.position
     /// <summary>
     /// List all Positions for an Account. The Positions returned are for every instrument that has had a position during the lifetime of an the Account.
     /// </summary>
-    public sealed class GetPositionsRequest : Restv20Request
+    public sealed class GetPositionsEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/positions";
         public override Method Method => Method.GET;
@@ -19,7 +19,7 @@ namespace oanda_dotnet.model.position
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -27,7 +27,7 @@ namespace oanda_dotnet.model.position
     /// <summary>
     /// List all open Positions for an Account. An open Position is a Position in an Account that currently has a Trade opened for it.
     /// </summary>
-    public sealed class GetOpenPositionsRequest : Restv20Request
+    public sealed class GetOpenPositionsEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/openPositions";
         public override Method Method => Method.GET;
@@ -37,7 +37,7 @@ namespace oanda_dotnet.model.position
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -45,7 +45,7 @@ namespace oanda_dotnet.model.position
     /// <summary>
     /// Get the details of a single Instrument’s Position in an Account. The Position may by open or not.
     /// </summary>
-    public sealed class GetInstrumentPositionRequest : Restv20Request
+    public sealed class GetInstrumentPositionEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/positions/{instrument}";
         public override Method Method => Method.GET;
@@ -55,7 +55,7 @@ namespace oanda_dotnet.model.position
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -63,7 +63,7 @@ namespace oanda_dotnet.model.position
         /// Name of the Instrument
         /// </summary>
         [Required]
-        [RequestParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
         public InstrumentName? Instrument { get; set; }
     }
 
@@ -71,7 +71,7 @@ namespace oanda_dotnet.model.position
     /// <summary>
     /// Closeout the open Position for a specific instrument in an Account.
     /// </summary>
-    public sealed partial class CloseInstrumentPositionRequest : Restv20Request
+    public sealed partial class CloseInstrumentPositionEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/positions/{instrument}/close";
         public override Method Method => Method.GET;
@@ -81,7 +81,7 @@ namespace oanda_dotnet.model.position
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -89,7 +89,7 @@ namespace oanda_dotnet.model.position
         /// Format of DateTime fields in the request and response. 
         /// </summary>
         [Required]
-        [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -97,7 +97,7 @@ namespace oanda_dotnet.model.position
         /// Name of the Instrument
         /// </summary>
         [Required]
-        [RequestParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
         public InstrumentName? Instrument { get; set; }
 
 
@@ -105,7 +105,7 @@ namespace oanda_dotnet.model.position
         /// Request Data for the Body
         /// </summary>
         [Required]
-        [RequestParameter(Type = ParameterType.RequestBody)]
+        [EndpointParameter(Type = ParameterType.RequestBody)]
         public RequestInfo RequestData { get; set; }
     }
 
@@ -114,7 +114,7 @@ namespace oanda_dotnet.model.position
     /// <summary>
     /// Dependencies for the CloseInstrumentPositionRequest
     /// </summary>
-    public sealed partial class CloseInstrumentPositionRequest
+    public sealed partial class CloseInstrumentPositionEndpoint
     {
         [Obsolete("Needs error handling")]
         public struct CloseOutUnits

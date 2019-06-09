@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace oanda_dotnet.model.instrument
 {
-    public class GetInstrumentCandlesResponse : Restv20Response
+    public class GetInstrumentCandlesResponse : Restv20EndpointResponse
     {
         public ICollection<Candlestick> Candles { get; set; }
         public CandlestickGranularity Granularity { get; set; }
@@ -11,13 +11,13 @@ namespace oanda_dotnet.model.instrument
     }
 
 
-    public class GetInstrumentOrderBookResponse : Restv20Response
+    public class GetInstrumentOrderBookResponse : Restv20EndpointResponse
     {
         public Book OrderBook { get; set; }
     }
 
 
-    public class GetInstrumentPositionBookResponse : Restv20Response
+    public class GetInstrumentPositionBookResponse : Restv20EndpointResponse
     {
         public Book PositionBook { get; set; }
     }

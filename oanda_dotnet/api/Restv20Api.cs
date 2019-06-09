@@ -16,8 +16,8 @@ namespace oanda_dotnet.api
         }
 
         [Obsolete("Unfinished method. Needs error handling")]
-        public T Execute<T>(Restv20Request request)
-            where T : Restv20Response, new()
+        public T Execute<T>(Restv20EndpointRequest request)
+            where T : Restv20EndpointResponse, new()
         {
             if (!request.IsValid()) { /*throw custom exception*/ }
             IRestRequest restRequest = request.GenerateRestRequest();

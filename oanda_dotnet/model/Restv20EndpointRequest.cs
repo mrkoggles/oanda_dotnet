@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace oanda_dotnet.model
 {
-    public abstract class Restv20Request
+    public abstract class Restv20EndpointRequest
     {
         public abstract string Endpoint { get; }
         public abstract Method Method { get; }
@@ -28,12 +28,12 @@ namespace oanda_dotnet.model
 
             this.GetType().GetProperties()
                 .Where(property =>
-                    Attribute.IsDefined(property, typeof(RequestParameterAttribute)) && //where is a request parameter
+                    Attribute.IsDefined(property, typeof(EndpointParameterAttribute)) && //where is a request parameter
                         property.GetValue(this) != null)
 
                 .ToList().ForEach(property =>
                 {
-                    RequestParameterAttribute requestParameterAttribute = property.GetCustomAttribute<RequestParameterAttribute>();
+                    EndpointParameterAttribute requestParameterAttribute = property.GetCustomAttribute<EndpointParameterAttribute>();
                     var value = property.GetValue(this);
                     if (value.GetType().GetInterface(nameof(ICollection)) != null)
                     {

@@ -7,7 +7,7 @@ namespace oanda_dotnet.model.instrument
     /// <summary>
     /// Fetch candlestick data for an instrument.
     /// </summary>
-    public sealed class GetInstrumentCandlesRequest : Restv20Request
+    public sealed class GetInstrumentCandlesEndpoint : Restv20EndpointRequest
     {
         private uint? _count;
         private uint? _dailyAlignment;
@@ -26,7 +26,7 @@ namespace oanda_dotnet.model.instrument
         /// Format of DateTime fields in the request and response. 
         /// </summary>
         [Required]
-        [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -34,7 +34,7 @@ namespace oanda_dotnet.model.instrument
         /// Name of the Instrument
         /// </summary>
         [Required]
-        [RequestParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
         public InstrumentName? Instrument { get; set; }
 
 
@@ -44,7 +44,7 @@ namespace oanda_dotnet.model.instrument
         /// “B” (bid candles) and “A” (ask candles). 
         /// [default=M] 
         /// </summary>
-        [RequestParameter(Name = "price", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "price", Type = ParameterType.QueryString)]
         public string Price =>
             string.Concat(
                 (IncludeAskCandles ? "A" : null),
@@ -56,7 +56,7 @@ namespace oanda_dotnet.model.instrument
         /// The granularity of the candlesticks to fetch
         /// [default=S5] 
         /// </summary>
-        [RequestParameter(Name = "granularity", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "granularity", Type = ParameterType.QueryString)]
         public CandlestickGranularity? CandlestickGranularity { get; set; }
 
 
@@ -66,7 +66,7 @@ namespace oanda_dotnet.model.instrument
         /// as the time range combined with the graularity will determine the number of candlesticks to return.
         /// [default=500, maximum=5000] 
         /// </summary>
-        [RequestParameter(Name = "count", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "count", Type = ParameterType.QueryString)]
         public uint? Count
         {
             get => _count;
@@ -77,14 +77,14 @@ namespace oanda_dotnet.model.instrument
         /// <summary>
         /// The start of the time range to fetch candlesticks for. 
         /// </summary>
-        [RequestParameter(Name = "from", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "from", Type = ParameterType.QueryString)]
         public System.DateTime? From { get; set; }
 
 
         /// <summary>
         /// The end of the time range to fetch candlesticks for. 
         /// </summary>
-        [RequestParameter(Name = "to", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "to", Type = ParameterType.QueryString)]
         public System.DateTime? To { get; set; }
 
 
@@ -93,7 +93,7 @@ namespace oanda_dotnet.model.instrument
         /// A smoothed candlestick uses the previous candle’s close price as its open price, 
         /// while an unsmoothed candlestick uses the first price from its time range as its open price. 
         /// </summary>
-        [RequestParameter(Name = "smooth", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "smooth", Type = ParameterType.QueryString)]
         public bool? Smooth { get; set; }
 
 
@@ -103,7 +103,7 @@ namespace oanda_dotnet.model.instrument
         /// to poll for future candlesticks but avoid receiving the previous candlestick repeatedly.
         /// [default=True] 
         /// </summary>
-        [RequestParameter(Name = "includeFirst", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "includeFirst", Type = ParameterType.QueryString)]
         public bool? IncludeFirst { get; set; }
 
 
@@ -111,7 +111,7 @@ namespace oanda_dotnet.model.instrument
         /// The hour of the day (in the specified timezone) to use for granularities that have daily alignments. 
         /// [default=17, minimum=0, maximum=23] 
         /// </summary>
-        [RequestParameter(Name = "dailyAlignment", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "dailyAlignment", Type = ParameterType.QueryString)]
         public uint? DailyAlignment
         {
             get => _dailyAlignment;
@@ -125,7 +125,7 @@ namespace oanda_dotnet.model.instrument
         /// Note that the returned times will still be represented in UTC. 
         /// [default=America/New_York] 
         /// </summary>
-        [RequestParameter(Name = "alignmentTimezone", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "alignmentTimezone", Type = ParameterType.QueryString)]
         public TimeZone AlignmentTimeZone { get; set; }
 
 
@@ -133,12 +133,12 @@ namespace oanda_dotnet.model.instrument
         /// The day of the week used for granularities that have weekly alignment.
         /// [default=Friday] 
         /// </summary>
-        [RequestParameter(Name = "weeklyAlignment", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "weeklyAlignment", Type = ParameterType.QueryString)]
         public DayOfWeek? WeeklyAlignment { get; set; }
     }
 
 
-    public abstract class GetInstrumentBookRequest : Restv20Request
+    public abstract class GetInstrumentBookEndpoint : Restv20EndpointRequest
     {
         public override Method Method => Method.GET;
 
@@ -147,7 +147,7 @@ namespace oanda_dotnet.model.instrument
         /// Format of DateTime fields in the request and response. 
         /// </summary>
         [Required]
-        [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -155,21 +155,21 @@ namespace oanda_dotnet.model.instrument
         /// Name of the Instrument
         /// </summary>
         [Required]
-        [RequestParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
         public InstrumentName? Instrument { get; set; }
 
 
         /// <summary>
         /// The time of the snapshot to fetch. If not specified, then the most recent snapshot is fetched. 
         /// </summary>
-        [RequestParameter(Name = "time", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "time", Type = ParameterType.UrlSegment)]
         public System.DateTime? Time { get; set; }
     }
 
     /// <summary>
     /// Fetch an order book for an instrument.
     /// </summary>
-    public sealed class GetInstrumentOrderBookRequest : GetInstrumentBookRequest
+    public sealed class GetInstrumentOrderBookEndpoint : GetInstrumentBookEndpoint
     {
         public override string Endpoint => "/v3/instruments/{instrument}/orderBook";        
     }
@@ -178,7 +178,7 @@ namespace oanda_dotnet.model.instrument
     /// <summary>
     /// Fetch an position book for an instrument.
     /// </summary>
-    public sealed class GetInstrumentPositionBookRequest : GetInstrumentBookRequest
+    public sealed class GetInstrumentPositionBookEndpoint : GetInstrumentBookEndpoint
     {
         public override string Endpoint => "/v3/instruments/{instrument}/positionBook";
     }

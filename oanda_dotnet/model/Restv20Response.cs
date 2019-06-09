@@ -2,7 +2,7 @@
 
 namespace oanda_dotnet.model
 {
-    public class Restv20Response
+    public class Restv20EndpointResponse
     {
         public TransactionId LastTransactionId { get; set; }
         public string ErrorCode { get; set; }

@@ -16,7 +16,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetPositions()
         {
-            GetPositionsRequest request = new GetPositionsRequest()
+            GetPositionsEndpoint request = new GetPositionsEndpoint()
             {
                 AccountId = this.AccountId
             };
@@ -29,7 +29,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetOpenPositions()
         {
-            GetOpenPositionsRequest request = new GetOpenPositionsRequest()
+            GetOpenPositionsEndpoint request = new GetOpenPositionsEndpoint()
             {
                 AccountId = this.AccountId
             };
@@ -42,7 +42,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetInstrumentsPositions()
         {
-            GetInstrumentPositionRequest request = new GetInstrumentPositionRequest()
+            GetInstrumentPositionEndpoint request = new GetInstrumentPositionEndpoint()
             {
                 AccountId = this.AccountId,
                 Instrument = new InstrumentName

@@ -21,7 +21,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetInstrumentCandlesRequest()
         {
-            GetInstrumentCandlesRequest request = new GetInstrumentCandlesRequest()
+            GetInstrumentCandlesEndpoint request = new GetInstrumentCandlesEndpoint()
             {
                 Instrument = new InstrumentName()
                 {
@@ -42,7 +42,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetInstrumentOrderBookRequest()
         {
-            GetInstrumentOrderBookRequest request = new GetInstrumentOrderBookRequest()
+            GetInstrumentOrderBookEndpoint request = new GetInstrumentOrderBookEndpoint()
             {
                 Instrument = new InstrumentName()
                 {
@@ -59,7 +59,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetInstrumentPositionBookRequest()
         {
-            GetInstrumentPositionBookRequest request = new GetInstrumentPositionBookRequest()
+            GetInstrumentPositionBookEndpoint request = new GetInstrumentPositionBookEndpoint()
             {
                 Instrument = new InstrumentName()
                 {

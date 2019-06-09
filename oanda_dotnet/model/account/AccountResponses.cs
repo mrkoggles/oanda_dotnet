@@ -7,32 +7,32 @@ using oanda_dotnet.model.transaction;
 
 namespace oanda_dotnet.model.account
 {
-    public sealed class GetAccountsResponse : Restv20Response
+    public sealed class GetAccountsResponse : Restv20EndpointResponse
     {
         public ICollection<AccountProperties> Accounts { get; set; }
     }
 
-    public sealed class GetAccountDetailResponse : Restv20Response
+    public sealed class GetAccountDetailResponse : Restv20EndpointResponse
     {
         public Account Account { get; set; }
     }
 
-    public sealed class GetAccountSummaryResponse : Restv20Response
+    public sealed class GetAccountSummaryResponse : Restv20EndpointResponse
     {
         public AccountSummary Account { get; set; }
     }
 
-    public sealed class GetAccountInstrumentsResponse : Restv20Response
+    public sealed class GetAccountInstrumentsResponse : Restv20EndpointResponse
     {
         public ICollection<InstrumentName> Instruments { get; set; }
     }
 
-    public sealed class ConfigureAccountResponse : Restv20Response
+    public sealed class ConfigureAccountResponse : Restv20EndpointResponse
     {
         public ClientConfigureTransaction ClientConfigureTransaction { get; set; }
     }
 
-    public sealed class GetAccountChangesResponse : Restv20Response
+    public sealed class GetAccountChangesResponse : Restv20EndpointResponse
     {
         public AccountChanges Changes { get; set; }
     }

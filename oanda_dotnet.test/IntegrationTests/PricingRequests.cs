@@ -12,7 +12,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetPrices()
         {
-            GetPricingRequest request = new GetPricingRequest
+            GetPricingEndpoint request = new GetPricingEndpoint
             {
                 AcceptDateTimeFormat = AcceptDateTimeFormat.RFC3339,
                 AccountId = this.AccountId,

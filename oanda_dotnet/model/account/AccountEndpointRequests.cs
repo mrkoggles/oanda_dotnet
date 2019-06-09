@@ -8,7 +8,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Get a list of all Accounts authorized for the provided token.
     /// </summary>
-    public sealed class GetAccountsRequests : Restv20Request
+    public sealed class GetAccountsEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts";
         public override Method Method => Method.GET;
@@ -18,7 +18,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Get the full details for a single Account that a client has access to. Full pending Order, open Trade and open Position representations are provided.
     /// </summary>
-    public sealed class GetAccountDetailRequest : Restv20Request
+    public sealed class GetAccountDetailEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}";
         public override Method Method => Method.GET;
@@ -27,7 +27,7 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -35,7 +35,7 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -43,7 +43,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Get a summary for a single Account that a client has access to.
     /// </summary>
-    public sealed class GetAccountSummaryRequest : Restv20Request
+    public sealed class GetAccountSummaryEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/summary";
         public override Method Method => Method.GET;
@@ -52,7 +52,7 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -60,7 +60,7 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -70,7 +70,7 @@ namespace oanda_dotnet.model.account
     /// The list of tradeable instruments is dependent on the regulatory division that the Account is located in, 
     /// thus should be the same for all Accounts owned by a single user.
     /// </summary>
-    public sealed class GetAccountInstrumentsRequest : Restv20Request
+    public sealed class GetAccountInstrumentsEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/instruments";
         public override Method Method => Method.GET;
@@ -80,14 +80,14 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
         /// <summary>
         /// List of instruments to query specifically. 
         /// </summary>
-        [RequestParameter(Name = "instruments", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "instruments", Type = ParameterType.QueryString)]
         public ICollection<InstrumentName> Instruments { get; set; }
     }
 
@@ -95,7 +95,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Set the client-configurable portions of an Account.
     /// </summary>
-    public sealed partial class ConfigureAccountRequest : Restv20Request
+    public sealed partial class ConfigureAccountEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/configuration";
         public override Method Method => Method.PATCH;
@@ -104,7 +104,7 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -112,14 +112,14 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
         /// <summary>
         /// Request Data for the Body
         /// </summary>
-        [RequestParameter(Type = ParameterType.RequestBody)]
+        [EndpointParameter(Type = ParameterType.RequestBody)]
         public ConfigurationInfo Configuration { get; set; }
     }
 
@@ -127,7 +127,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Endpoint used to poll an Account for its current state and changes since a specified TransactionID.
     /// </summary>
-    public sealed class GetAccountChangesRequest : Restv20Request
+    public sealed class GetAccountChangesEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/changes";
         public override Method Method => Method.GET;
@@ -136,7 +136,7 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [RequestParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -144,19 +144,19 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [RequestParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
         /// <summary>
         /// ID of the Transaction to get Account changes since. 
         /// </summary>
-        [RequestParameter(Name = "sinceTransactionID", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name = "sinceTransactionID", Type = ParameterType.QueryString)]
         public TransactionId SinceTransactionId { get; set; }
     }
 
 
-    public sealed partial class ConfigureAccountRequest
+    public sealed partial class ConfigureAccountEndpoint
     {
         public class ConfigurationInfo
         {
