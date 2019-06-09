@@ -21,7 +21,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Get the full details for a single Account that a client has access to. Full pending Order, open Trade and open Position representations are provided.
     /// </summary>
-    public sealed class GetAccountDetailEndpoint : AccountRestv20EndpointRequest
+    public sealed class GetAccountEndpoint : AccountRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}";
         public override Method Method => Method.GET;
@@ -98,7 +98,7 @@ namespace oanda_dotnet.model.account
     /// <summary>
     /// Set the client-configurable portions of an Account.
     /// </summary>
-    public sealed partial class ConfigureAccountEndpoint : AccountRestv20EndpointRequest
+    public sealed class ConfigureAccountEndpoint : AccountRestv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/configuration";
         public override Method Method => Method.PATCH;
@@ -120,10 +120,19 @@ namespace oanda_dotnet.model.account
 
 
         /// <summary>
-        /// Request Data for the Body
+        /// Client-defined alias (name) for the Account
         /// </summary>
+        [Required]
         [EndpointParameter(Type = ParameterType.RequestBody)]
-        public ConfigurationInfo Configuration { get; set; }
+        public string Alias { get; set; }
+
+
+        /// <summary>
+        /// The string representation of a decimal number.
+        /// </summary>
+        [Required]
+        [EndpointParameter(Type = ParameterType.RequestBody)]
+        public decimal? MarginRate { get; set; }
     }
 
 
@@ -154,25 +163,8 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// ID of the Transaction to get Account changes since. 
         /// </summary>
+        [Required]
         [EndpointParameter(Name = "sinceTransactionID", Type = ParameterType.QueryString)]
-        public TransactionId SinceTransactionId { get; set; }
-    }
-
-
-    public sealed partial class ConfigureAccountEndpoint
-    {
-        public class ConfigurationInfo
-        {
-            /// <summary>
-            /// Client-defined alias (name) for the Account
-            /// </summary>
-            public string Alias { get; set; }
-
-
-            /// <summary>
-            /// The string representation of a decimal number.
-            /// </summary>
-            public decimal MarginRate { get; set; }
-        }
+        public TransactionId? SinceTransactionId { get; set; }
     }
 }

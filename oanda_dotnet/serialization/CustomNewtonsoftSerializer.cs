@@ -2,6 +2,7 @@
 using RestSharp.Deserializers;
 using RestSharp.Serializers;
 using System.IO;
+using Newtonsoft.Json.Serialization;
 
 namespace oanda_dotnet.serialization
 {
@@ -9,7 +10,11 @@ namespace oanda_dotnet.serialization
     {
         private Newtonsoft.Json.JsonSerializer _serializer;
 
-        public NewtonsoftJsonSerializer(Newtonsoft.Json.JsonSerializer serializer) { this._serializer = serializer; }
+        public NewtonsoftJsonSerializer(Newtonsoft.Json.JsonSerializer serializer)
+        {
+            this._serializer = serializer;
+            this._serializer.Error += HandleDeserializationError;
+        }
 
         public string ContentType
         {
@@ -35,14 +40,33 @@ namespace oanda_dotnet.serialization
             using (StringReader stringReader = new StringReader(response.Content))
             using (JsonTextReader jsonTextReader = new JsonTextReader(stringReader))
             {
-                return _serializer.Deserialize<T>(jsonTextReader);
+                return _serializer.Deserialize <T>(jsonTextReader);
             }
         }
+
 
         public static NewtonsoftJsonSerializer Default
             => new NewtonsoftJsonSerializer(new Newtonsoft.Json.JsonSerializer()
                 {
                     NullValueHandling = NullValueHandling.Ignore
                 });
+
+
+        public void HandleDeserializationError(object sender, Newtonsoft.Json.Serialization.ErrorEventArgs errorEventArgs)
+        {
+            if (IsHandled(errorEventArgs))
+            {
+                errorEventArgs.ErrorContext.Handled = true;
+            }
+        }
+
+        private static bool IsHandled(Newtonsoft.Json.Serialization.ErrorEventArgs errorEventArgs)
+            => IgnoreZeroAsDate(errorEventArgs);
+
+        private static bool IgnoreZeroAsDate(Newtonsoft.Json.Serialization.ErrorEventArgs errorEventArgs)
+        {
+            //need logic to ignore if the value = 0 on a DateTime Field
+            return true;
+        }
     }
 }

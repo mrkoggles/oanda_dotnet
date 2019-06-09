@@ -38,6 +38,7 @@ namespace oanda_dotnet.model
         CHW,
         CLF,
         CLP,
+        CNH,
         CNY,
         COP,
         COU,
