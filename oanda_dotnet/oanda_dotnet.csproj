@@ -137,7 +137,7 @@
     <Compile Include="model\instrument\Responses.cs" />
     <Compile Include="model\position\Responses.cs" />
     <Compile Include="model\pricing\Responses.cs" />
-    <Compile Include="model\Restv20Response.cs" />
+    <Compile Include="model\Restv20EndpointResponse.cs" />
     <Compile Include="model\trade\primatives\TradeId.cs" />
     <Compile Include="model\transaction\primatives\ClientComment.cs" />
     <Compile Include="model\transaction\primatives\ClientExtensions.cs" />

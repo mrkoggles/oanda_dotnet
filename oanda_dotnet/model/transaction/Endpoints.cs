@@ -10,7 +10,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// Get a list of Transactions pages that satisfy a time-based Transaction query.
         /// </summary>
-        public sealed class GetTransactionsByDateEndpoint : Restv20EndpointRequest
+        public sealed class GetTransactionsPageEndpoint : Restv20EndpointRequest
         {
             private uint? _pageSize;
 
