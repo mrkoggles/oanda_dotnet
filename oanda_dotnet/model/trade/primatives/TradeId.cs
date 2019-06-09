@@ -5,7 +5,7 @@ namespace oanda_dotnet.model.trade
     /// <summary>
     /// The Trade’s identifier, unique within the Trade’s Account.
     /// </summary>
-    public class TradeId
+    public struct TradeId
     {
         private uint _tradeId;
 

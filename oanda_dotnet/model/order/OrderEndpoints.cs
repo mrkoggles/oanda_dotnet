@@ -241,7 +241,7 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// Update the Client Extensions for an Order in an Account. Do not set, modify, or delete clientExtensions if your account is associated with MT4.
     /// </summary>
-    public sealed class UpdateOrdersClientExtensionsEndpoint : Restv20EndpointRequest
+    public sealed class UpdateOrderClientExtensionsEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}/clientExtensions";
         public override Method Method => Method.PUT;

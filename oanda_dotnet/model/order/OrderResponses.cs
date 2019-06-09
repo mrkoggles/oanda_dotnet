@@ -168,7 +168,7 @@ namespace oanda_dotnet.model.order
 
     }
 
-    public sealed class UpdateOrdersClientExtensionsResponse : Restv20EndpointResponse
+    public sealed class UpdateOrderClientExtensionsResponse : Restv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that modified the Client Extensions for the Order
@@ -187,7 +187,7 @@ namespace oanda_dotnet.model.order
         public ICollection<TransactionId> RelatedTransactionIds { get; set; }
     }
 
-    public sealed class UpdateOrdersClientExtensionsErrorResponse : Restv20EndpointResponse
+    public sealed class UpdateOrderClientExtensionsErrorResponse : Restv20EndpointResponse
     {
         /// <summary>
         /// The Transaction that rejected the modification of the Client Extensions

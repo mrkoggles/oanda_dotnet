@@ -93,7 +93,10 @@
     <Compile Include="model\account\AccountResponses.cs" />
     <Compile Include="model\order\OrderResponses.cs" />
     <Compile Include="model\trade\CalculatedTradeState.cs" />
+    <Compile Include="model\trade\primatives\TradeSpecifier.cs" />
     <Compile Include="model\trade\primatives\TradeState.cs" />
+    <Compile Include="model\trade\primatives\TradeStateFilter.cs" />
+    <Compile Include="model\trade\TradeEndpoints.cs" />
     <Compile Include="model\trade\TradeSummary.cs" />
     <Compile Include="model\transaction\ClientConfigureTransaction.cs" />
     <Compile Include="model\transaction\OrderCancelRejectTransaction.cs" />
