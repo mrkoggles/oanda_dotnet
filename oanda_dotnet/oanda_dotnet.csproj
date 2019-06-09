@@ -55,6 +55,8 @@
     <Compile Include="api\PositionApi.cs" />
     <Compile Include="api\PricingApi.cs" />
     <Compile Include="api\Restv20Api.cs" />
+    <Compile Include="api\TradeApi.cs" />
+    <Compile Include="api\TransactionApi.cs" />
     <Compile Include="client\Restv20Client.cs" />
     <Compile Include="model\account\Account.cs" />
     <Compile Include="model\account\AccountChanges.cs" />
