@@ -93,6 +93,9 @@
     <Compile Include="model\trade\primatives\TradeState.cs" />
     <Compile Include="model\trade\TradeSummary.cs" />
     <Compile Include="model\transaction\ClientConfigureTransaction.cs" />
+    <Compile Include="model\transaction\OrderCancelRejectTransaction.cs" />
+    <Compile Include="model\transaction\OrderClientExtensionsModifyRejectTransaction.cs" />
+    <Compile Include="model\transaction\OrderClientExtensionsModifyTransaction.cs" />
     <Compile Include="model\transaction\primatives\OrderCancelReason.cs" />
     <Compile Include="model\order\primatives\OrderId.cs" />
     <Compile Include="model\order\primatives\OrderPositionFill.cs" />

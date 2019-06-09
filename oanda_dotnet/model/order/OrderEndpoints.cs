@@ -134,7 +134,7 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// Get details for a single Order in an Account
     /// </summary>
-    public sealed class GetOrderDetailsEndpoint : Restv20EndpointRequest
+    public sealed class GetOrderEndpoint : Restv20EndpointRequest
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}";
         public override Method Method => Method.GET;
