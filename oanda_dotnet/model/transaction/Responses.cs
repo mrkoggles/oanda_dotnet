@@ -5,7 +5,7 @@ namespace oanda_dotnet.model.transaction
 {
     public abstract class TransactionRestv20EndpointResponse : Restv20EndpointResponse { }
 
-    public sealed class GetTransactionsPageResponse : TransactionRestv20EndpointResponse
+    public sealed class GetTransactionsPagesResponse : TransactionRestv20EndpointResponse
     {
         /// <summary>
         /// The starting time provIded in the request.
