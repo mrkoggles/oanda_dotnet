@@ -185,4 +185,10 @@ namespace oanda_dotnet.model.instrument
     {
         public override string Endpoint => "/v3/instruments/{instrument}/positionBook";
     }
+
+    public enum CandleSmoothingMethod
+    {
+        Smoothed,
+        Unsmoothed
+    }
 }
