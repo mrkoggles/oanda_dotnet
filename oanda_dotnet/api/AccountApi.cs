@@ -26,6 +26,14 @@ namespace oanda_dotnet.api
                         AccountId = accountId,
                         Instruments = instruments
                     });
+
+        public ConfigureAccountResponse ConfigureAccount(AccountId accountId, string newAlias, decimal newMarginRate)
+            => Execute<ConfigureAccountResponse>(new ConfigureAccountEndpoint()
+            {
+                AccountId = accountId,
+                Alias = newAlias,
+                MarginRate = newMarginRate
+            });
         
         public GetAccountChangesResponse GetAccountChanges(AccountId accountId, TransactionId sinceTransactionId)
             => Execute<GetAccountChangesResponse>(new GetAccountChangesEndpoint()

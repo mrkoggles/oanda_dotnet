@@ -94,7 +94,7 @@ namespace oanda_dotnet.model.transaction
         /// A filter for restricting the types of Transactions to retreive. 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "TransactionID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name = "transactionID", Type = ParameterType.UrlSegment)]
         public TransactionId? TransactionId { get; set; }
     }
 

@@ -48,27 +48,29 @@ namespace oanda_dotnet.test.IntegrationTests
         public void GetAccountInstruments()
         {
             GetAccountInstrumentsResponse response = _api.GetAccountInstruments(this.AccountId);
-            Assert.IsTrue(response.Instruments != null);
+            Assert.IsTrue(response.Instruments.Count > 0);
         }
 
 
         [TestMethod]
         public void GetSelectAccountInstruments()
         {
-            GetAccountInstrumentsResponse response = _api.GetAccountInstruments(this.AccountId, new List<InstrumentName>()
-            {
-                "EUR_USD"
-            });
-
+            GetAccountInstrumentsResponse response = _api.GetAccountInstruments(this.AccountId, new List<InstrumentName>() { "EUR_USD" });
             Assert.IsTrue(response.Instruments.Count == 1);
         }
 
 
         [TestMethod]
-        [Obsolete("Need this functionality")]
         public void ConfigureAccount()
         {
+            string newAlias = "NewAlias";
+            string oldAlias = "OldAlias";
+            string aliasTouse = newAlias;
+            AccountSummary accountSummary = _api.GetAccountSummary(this.AccountId).Account;
+            if (accountSummary.Alias == newAlias) { aliasTouse = oldAlias; }
 
+            ConfigureAccountResponse response = _api.ConfigureAccount(this.AccountId, aliasTouse, 0.1M);
+            Assert.IsTrue(response.ClientConfigureTransaction.Alias == aliasTouse);
         }
 
 

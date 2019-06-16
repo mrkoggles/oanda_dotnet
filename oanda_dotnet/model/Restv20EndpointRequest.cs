@@ -36,11 +36,15 @@ namespace oanda_dotnet.model
                 {
                     EndpointParameterAttribute requestParameterAttribute = property.GetCustomAttribute<EndpointParameterAttribute>();
                     var value = property.GetValue(this);
-                    if (value.GetType().GetInterface(nameof(ICollection)) != null)
+                    if (value.GetType().GetInterface(nameof(ICollection)) != null) { value = string.Join(",", ConvertDynamicToString((ICollection)value)); }
+                    if (requestParameterAttribute.Type == ParameterType.RequestBody)
                     {
-                        value = string.Join(",", ConvertDynamicToString((ICollection)value));
+                        restRequest.AddJsonBody(value);
                     }
-                    restRequest.AddParameter(requestParameterAttribute.Name, value, requestParameterAttribute.Type);
+                    else
+                    {
+                        restRequest.AddParameter(requestParameterAttribute.Name, value, requestParameterAttribute.Type);
+                    }                    
                 });
 
             return restRequest;

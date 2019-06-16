@@ -1,62 +1,61 @@
 ﻿using oanda_dotnet.model.order;
 using oanda_dotnet.model.pricing;
-using oanda_dotnet.model.trade;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace oanda_dotnet.model.transaction
 {
     /// <summary>
-    /// A StopLossOrderTransaction represents the creation of a StopLoss Order in the user’s Account.
+    /// A LimitOrderTransaction represents the creation of a Limit Order in the user’s Account.
     /// </summary>
-    public class StopLossOrderTransaction : Transaction
+    public class LimitOrderTransaction : Transaction
     {
         /// <summary>
-        /// The Type of the Transaction. Always set to “STOP_LOSS_ORDER” in a
-        /// StopLossOrderTransaction.
+        /// The Type of the Transaction. Always set to “LIMIT_ORDER” in a
+        /// LimitOrderTransaction.
         /// </summary>
-        public override TransactionType Type => TransactionType.StopLossOrder;
+        public override TransactionType Type => TransactionType.LimitOrder;
 
         /// <summary>
-        /// The Id of the Trade to close when the price threshold is breached.
+        /// The Limit Order’s Instrument.
         /// </summary>
         [Required]
-        public TradeId TradeId { get; set; }
+        public InstrumentName Instrument { get; set; }
 
         /// <summary>
-        /// The client Id of the Trade to be closed when the price threshold is
-        /// breached.
+        /// The quantity requested to be filled by the Limit Order. A posititive
+        /// number of units results in a long Order, and a negative number of units
+        /// results in a short Order.
         /// </summary>
-        public ClientId ClientTradeId { get; set; }
+        [Required]
+        public decimal Units { get; set; }
 
         /// <summary>
-        /// The price threshold specified for the Stop Loss Order. If the guaranteed
-        /// flag is false, the associated Trade will be closed by a market price that
-        /// is equal to or worse than this threshold. If the flag is true the
-        /// associated Trade will be closed at this price.
+        /// The price threshold specified for the Limit Order. The Limit Order will
+        /// only be filled by a market price that is equal to or better than this
+        /// price.
         /// </summary>
         [Required]
         public PriceValue Price { get; set; }
 
         /// <summary>
-        /// Specifies the distance (in price units) from the Account’s current price
-        /// to use as the Stop Loss Order price. If the Trade is short the
-        /// Instrument’s bId price is used, and for long Trades the ask is used.
-        /// </summary>
-        public decimal Distance { get; set; }
-
-        /// <summary>
-        /// The time-in-force requested for the StopLoss Order. Restricted to “GTC”,
-        /// “GFD” and “GTD” for StopLoss Orders.
+        /// The time-in-force requested for the Limit Order.
         /// </summary>
         [Required]
         public TimeInForce TimeInForce { get; set; } = TimeInForce.GTC;
 
         /// <summary>
-        /// The date/time when the StopLoss Order will be cancelled if its
-        /// timeInForce is “GTD”.
+        /// The date/time when the Limit Order will be cancelled if its timeInForce
+        /// is “GTD”.
         /// </summary>
         public DateTime GtdTime { get; set; }
+
+        /// <summary>
+        /// Specification of how Positions in the Account are modified when the Order
+        /// is filled.
+        /// </summary>
+        [Required]
+        public OrderPositionFill PositionFill { get; set; } = OrderPositionFill.Default;
 
         /// <summary>
         /// Specification of which price component should be used when determining if
@@ -81,25 +80,9 @@ namespace oanda_dotnet.model.transaction
         public OrderTriggerCondition TriggerCondition { get; set; } = OrderTriggerCondition.Default;
 
         /// <summary>
-        /// Flag indicating that the Stop Loss Order is guaranteed. The default value
-        /// depends on the GuaranteedStopLossOrderMode of the account, if it is
-        /// REQUIRED, the default will be true, for DISABLED or ENABLED the default
-        /// is false.
+        /// The reason that the Limit Order was initiated
         /// </summary>
-        public bool Guaranteed { get; set; }
-
-        /// <summary>
-        /// The fee that will be charged if the Stop Loss Order is guaranteed and the
-        /// Order is filled at the guaranteed price. The value is determined at Order
-        /// creation time. It is in price units and is charged for each unit of the
-        /// Trade.
-        /// </summary>
-        public decimal GuaranteedExecutionPremium { get; set; }
-
-        /// <summary>
-        /// The reason that the Stop Loss Order was initiated
-        /// </summary>
-        public StopLossOrderReason Reason { get; set; }
+        public LimitOrderReason Reason { get; set; }
 
         /// <summary>
         /// Client Extensions to add to the Order (only provIded if the Order is
@@ -108,11 +91,30 @@ namespace oanda_dotnet.model.transaction
         public ClientExtensions ClientExtensions { get; set; }
 
         /// <summary>
-        /// The Id of the OrderFill Transaction that caused this Order to be created
-        /// (only provIded if this Order was created automatically when another Order
-        /// was filled).
+        /// The specification of the Take Profit Order that should be created for a
+        /// Trade opened when the Order is filled (if such a Trade is created).
         /// </summary>
-        public TransactionId OrderFillTransactionId { get; set; }
+        public TakeProfitDetails TakeProfitOnFill { get; set; }
+
+        /// <summary>
+        /// The specification of the Stop Loss Order that should be created for a
+        /// Trade opened when the Order is filled (if such a Trade is created).
+        /// </summary>
+        public StopLossDetails StopLossOnFill { get; set; }
+
+        /// <summary>
+        /// The specification of the Trailing Stop Loss Order that should be created
+        /// for a Trade that is opened when the Order is filled (if such a Trade is
+        /// created).
+        /// </summary>
+        public TrailingStopLossDetails TrailingStopLossOnFill { get; set; }
+
+        /// <summary>
+        /// Client Extensions to add to the Trade created when the Order is filled
+        /// (if such a Trade is created). Do not set, modify, delete
+        /// tradeClientExtensions if your account is associated with MT4.
+        /// </summary>
+        public ClientExtensions TradeClientExtensions { get; set; }
 
         /// <summary>
         /// The Id of the Order that this Order replaces (only provIded if this Order
@@ -129,56 +131,56 @@ namespace oanda_dotnet.model.transaction
 
 
     /// <summary>
-    /// A StopLossOrderRejectTransaction represents the rejection of the creation of a StopLoss Order.
+    /// A LimitOrderRejectTransaction represents the rejection of the creation of a Limit Order.
     /// </summary>
-    public class StopLossOrderRejectTransaction : Transaction
+    public class LimitOrderRejectTransaction : Transaction
     {
         /// <summary>
-        /// The Type of the Transaction. Always set to “STOP_LOSS_ORDER_REJECT” in a
-        /// StopLossOrderRejectTransaction.
+        /// The Type of the Transaction. Always set to “LIMIT_ORDER_REJECT” in a
+        /// LimitOrderRejectTransaction.
         /// </summary>
-        public override TransactionType Type => TransactionType.StopLossOrderReject;
+        public override TransactionType Type => TransactionType.LimitOrderReject;
 
         /// <summary>
-        /// The Id of the Trade to close when the price threshold is breached.
+        /// The Limit Order’s Instrument.
         /// </summary>
         [Required]
-        public TradeId TradeId { get; set; }
+        public InstrumentName Instrument { get; set; }
 
         /// <summary>
-        /// The client Id of the Trade to be closed when the price threshold is
-        /// breached.
+        /// The quantity requested to be filled by the Limit Order. A posititive
+        /// number of units results in a long Order, and a negative number of units
+        /// results in a short Order.
         /// </summary>
-        public ClientId ClientTradeId { get; set; }
+        [Required]
+        public decimal Units { get; set; }
 
         /// <summary>
-        /// The price threshold specified for the Stop Loss Order. If the guaranteed
-        /// flag is false, the associated Trade will be closed by a market price that
-        /// is equal to or worse than this threshold. If the flag is true the
-        /// associated Trade will be closed at this price.
+        /// The price threshold specified for the Limit Order. The Limit Order will
+        /// only be filled by a market price that is equal to or better than this
+        /// price.
         /// </summary>
         [Required]
         public PriceValue Price { get; set; }
 
         /// <summary>
-        /// Specifies the distance (in price units) from the Account’s current price
-        /// to use as the Stop Loss Order price. If the Trade is short the
-        /// Instrument’s bId price is used, and for long Trades the ask is used.
-        /// </summary>
-        public decimal Distance { get; set; }
-
-        /// <summary>
-        /// The time-in-force requested for the StopLoss Order. Restricted to “GTC”,
-        /// “GFD” and “GTD” for StopLoss Orders.
+        /// The time-in-force requested for the Limit Order.
         /// </summary>
         [Required]
         public TimeInForce TimeInForce { get; set; } = TimeInForce.GTC;
 
         /// <summary>
-        /// The date/time when the StopLoss Order will be cancelled if its
-        /// timeInForce is “GTD”.
+        /// The date/time when the Limit Order will be cancelled if its timeInForce
+        /// is “GTD”.
         /// </summary>
         public DateTime GtdTime { get; set; }
+
+        /// <summary>
+        /// Specification of how Positions in the Account are modified when the Order
+        /// is filled.
+        /// </summary>
+        [Required]
+        public OrderPositionFill PositionFill { get; set; } = OrderPositionFill.Default;
 
         /// <summary>
         /// Specification of which price component should be used when determining if
@@ -203,17 +205,9 @@ namespace oanda_dotnet.model.transaction
         public OrderTriggerCondition TriggerCondition { get; set; } = OrderTriggerCondition.Default;
 
         /// <summary>
-        /// Flag indicating that the Stop Loss Order is guaranteed. The default value
-        /// depends on the GuaranteedStopLossOrderMode of the account, if it is
-        /// REQUIRED, the default will be true, for DISABLED or ENABLED the default
-        /// is false.
+        /// The reason that the Limit Order was initiated
         /// </summary>
-        public bool Guaranteed { get; set; }
-
-        /// <summary>
-        /// The reason that the Stop Loss Order was initiated
-        /// </summary>
-        public StopLossOrderReason Reason { get; set; }
+        public LimitOrderReason Reason { get; set; }
 
         /// <summary>
         /// Client Extensions to add to the Order (only provIded if the Order is
@@ -222,11 +216,30 @@ namespace oanda_dotnet.model.transaction
         public ClientExtensions ClientExtensions { get; set; }
 
         /// <summary>
-        /// The Id of the OrderFill Transaction that caused this Order to be created
-        /// (only provIded if this Order was created automatically when another Order
-        /// was filled).
+        /// The specification of the Take Profit Order that should be created for a
+        /// Trade opened when the Order is filled (if such a Trade is created).
         /// </summary>
-        public TransactionId OrderFillTransactionId { get; set; }
+        public TakeProfitDetails TakeProfitOnFill { get; set; }
+
+        /// <summary>
+        /// The specification of the Stop Loss Order that should be created for a
+        /// Trade opened when the Order is filled (if such a Trade is created).
+        /// </summary>
+        public StopLossDetails StopLossOnFill { get; set; }
+
+        /// <summary>
+        /// The specification of the Trailing Stop Loss Order that should be created
+        /// for a Trade that is opened when the Order is filled (if such a Trade is
+        /// created).
+        /// </summary>
+        public TrailingStopLossDetails TrailingStopLossOnFill { get; set; }
+
+        /// <summary>
+        /// Client Extensions to add to the Trade created when the Order is filled
+        /// (if such a Trade is created). Do not set, modify, delete
+        /// tradeClientExtensions if your account is associated with MT4.
+        /// </summary>
+        public ClientExtensions TradeClientExtensions { get; set; }
 
         /// <summary>
         /// The Id of the Order that this Order was intended to replace (only

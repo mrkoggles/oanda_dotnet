@@ -36,8 +36,14 @@ namespace oanda_dotnet.model.order
         /// Specification of the Order to create
         /// </summary>
         [Required]
+        public OrderRequest Order { get; set; }
+
+
+        /// <summary>
+        /// Request Body input for the request
+        /// </summary>
         [EndpointParameter(Type = ParameterType.RequestBody)]
-        public OrderRequest Order { get; set; } 
+        public object RequestBody => new { order = this.Order };
     }
 
 

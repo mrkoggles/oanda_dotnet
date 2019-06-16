@@ -1,5 +1,6 @@
 ﻿using oanda_dotnet.model.transaction;
 using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -123,7 +124,6 @@ namespace oanda_dotnet.model.account
         /// Client-defined alias (name) for the Account
         /// </summary>
         [Required]
-        [EndpointParameter(Type = ParameterType.RequestBody)]
         public string Alias { get; set; }
 
 
@@ -131,8 +131,19 @@ namespace oanda_dotnet.model.account
         /// The string representation of a decimal number.
         /// </summary>
         [Required]
-        [EndpointParameter(Type = ParameterType.RequestBody)]
         public decimal? MarginRate { get; set; }
+
+
+        /// <summary>
+        /// The object expression required for the Request Body 
+        /// Get Only
+        /// </summary>
+        [EndpointParameter(Type = ParameterType.RequestBody)]
+        public object RequestBody => new
+        {
+            alias = this.Alias,
+            marginRate = Convert.ToString(this.MarginRate)
+        };
     }
 
 

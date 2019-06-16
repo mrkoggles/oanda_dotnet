@@ -3,6 +3,7 @@ using RestSharp.Deserializers;
 using RestSharp.Serializers;
 using System.IO;
 using Newtonsoft.Json.Serialization;
+using System;
 
 namespace oanda_dotnet.serialization
 {
@@ -37,11 +38,19 @@ namespace oanda_dotnet.serialization
 
         public T Deserialize<T>(RestSharp.IRestResponse response)
         {
-            using (StringReader stringReader = new StringReader(response.Content))
-            using (JsonTextReader jsonTextReader = new JsonTextReader(stringReader))
+            try
             {
-                return _serializer.Deserialize <T>(jsonTextReader);
+                using (StringReader stringReader = new StringReader(response.Content))
+                using (JsonTextReader jsonTextReader = new JsonTextReader(stringReader))
+                {
+                    return _serializer.Deserialize<T>(jsonTextReader);
+                }
             }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            
         }
 
 

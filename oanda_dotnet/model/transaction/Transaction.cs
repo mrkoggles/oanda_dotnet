@@ -1,5 +1,6 @@
 ﻿using oanda_dotnet.model.account;
 using System;
+using Newtonsoft.Json.Converters;
 
 namespace oanda_dotnet.model.transaction
 {
@@ -18,6 +19,7 @@ namespace oanda_dotnet.model.transaction
     /// <summary>
     /// The base Transaction specification. Specifies properties that are common between all Transaction.
     /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.TransactionConverter))]
     public abstract class Transaction : ITransaction
     {
         public abstract TransactionType Type { get; }

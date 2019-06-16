@@ -1,4 +1,5 @@
 ﻿using oanda_dotnet.model.transaction;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -67,6 +68,7 @@ namespace oanda_dotnet.model.account
         public TransactionId LastTransactionId { get; set; }
     }
 
+    [Obsolete("Need to handle this response possibility")]
     public sealed class ConfigureAccountErrorResponse : AccountRestv20EndpointResponse
     {
         /// <summary>

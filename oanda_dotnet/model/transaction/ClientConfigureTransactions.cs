@@ -31,7 +31,7 @@
         /// The Type of the Transaction. Always set to “CLIENT_CONFIGURE_REJECT” in a
         /// ClientConfigureRejectTransaction.
         /// </summary>
-        public override TransactionType Type => TransactionType.ClientConfigure_Reject;
+        public override TransactionType Type => TransactionType.ClientConfigureReject;
 
         /// <summary>
         /// The reason that the Reject Transaction was created

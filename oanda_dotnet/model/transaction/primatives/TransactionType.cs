@@ -39,7 +39,7 @@ namespace oanda_dotnet.model.transaction
         /// Client Configuration Reject Transaction
         /// </summary>
         [EnumMember(Value = "CLIENT_CONFIGURE_REJECT")]
-        ClientConfigure_Reject,
+        ClientConfigureReject,
 
         /// <summary>
         /// Transfer Funds Transaction
