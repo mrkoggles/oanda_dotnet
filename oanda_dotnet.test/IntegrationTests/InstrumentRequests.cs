@@ -3,6 +3,8 @@ using oanda_dotnet.api;
 using oanda_dotnet.model;
 using oanda_dotnet.model.instrument;
 using System;
+using System.Runtime;
+
 
 namespace oanda_dotnet.test.IntegrationTests
 {
@@ -19,8 +21,8 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetInstrumentCandlesRequest()
         {
-            //GetInstrumentCandlesResponse response = this._api.GetCandles("EUR_USD");
-            //Assert.IsTrue(response?.Candles != null && response.Candles.Count > 0);
+            GetInstrumentCandlesResponse response = this._api.GetCandles("EUR_USD", from: DateTime.Now.AddDays(-7), includeAskCandles: true);
+            Assert.IsTrue(response?.Candles != null && response.Candles.Count > 0);
         }
 
 

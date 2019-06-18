@@ -5,7 +5,7 @@ namespace oanda_dotnet.model.transaction
 {
     public abstract class TransactionRestv20EndpointResponse : Restv20EndpointResponse { }
 
-    public sealed class GetTransactionsPagesResponse : TransactionRestv20EndpointResponse
+    public sealed class GetTransactionPagesResponse : TransactionRestv20EndpointResponse
     {
         /// <summary>
         /// The starting time provIded in the request.
@@ -63,7 +63,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// The list of Transactions that satisfy the request.
         /// </summary>
-        public ICollection<Transaction> Transaction { get; set; }
+        public ICollection<Transaction> Transactions { get; set; }
 
         /// <summary>
         /// The Id of the most recent Transaction created for the Account

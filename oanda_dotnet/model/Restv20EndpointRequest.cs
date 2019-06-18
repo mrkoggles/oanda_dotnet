@@ -5,6 +5,10 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using System.ComponentModel;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Runtime.Serialization;
 
 namespace oanda_dotnet.model
 {
@@ -26,7 +30,6 @@ namespace oanda_dotnet.model
         {
             RestRequest restRequest = new RestRequest(this.Endpoint, this.Method);
 
-
             this.GetType().GetProperties()
                 .Where(property =>
                     Attribute.IsDefined(property, typeof(EndpointParameterAttribute)) && //where is a request parameter
@@ -36,6 +39,7 @@ namespace oanda_dotnet.model
                 {
                     EndpointParameterAttribute requestParameterAttribute = property.GetCustomAttribute<EndpointParameterAttribute>();
                     var value = property.GetValue(this);
+                    if (value.GetType().IsEnum) { value = GetEnumValue((Enum)value); };
                     if (value.GetType().GetInterface(nameof(ICollection)) != null) { value = string.Join(",", ConvertDynamicToString((ICollection)value)); }
                     if (requestParameterAttribute.Type == ParameterType.RequestBody)
                     {
@@ -54,8 +58,15 @@ namespace oanda_dotnet.model
         {
             foreach (var item in listOfObjects)
             {
-                yield return item.ToString();
+                yield return (item.GetType().IsEnum ? GetEnumValue((Enum)item) : item.ToString());
             }
         }
+
+        private static string GetEnumValue<T>(T enumMember)
+            where T : Enum
+                => enumMember.GetType().GetMember(enumMember.ToString()).FirstOrDefault().GetCustomAttribute<EnumMemberAttribute>().Value;
+
+            
+        
     }
 }

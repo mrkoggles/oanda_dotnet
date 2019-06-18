@@ -10,7 +10,7 @@ namespace oanda_dotnet.model.transaction
     /// <summary>
     /// Get a list of Transactions pages that satisfy a time-based Transaction query.
     /// </summary>
-    public sealed class GetTransactionsPageEndpoint : TransactionRestv20EndpointRequest
+    public sealed class GetTransactionPagesEndpoint : TransactionRestv20EndpointRequest
     {
         private uint? _pageSize;
 
@@ -152,7 +152,7 @@ namespace oanda_dotnet.model.transaction
     /// </summary>
     public sealed class GetTransactionsSinceIdEndpoint : TransactionRestv20EndpointRequest
     {
-        public override string Endpoint => @"";
+        public override string Endpoint => @"/v3/accounts/{accountID}/transactions/sinceid";
         public override Method Method => Method.GET;
 
 

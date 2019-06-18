@@ -2,14 +2,9 @@
 using oanda_dotnet.api;
 using oanda_dotnet.model.transaction;
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using oanda_dotnet.model.transaction;
-using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
 
 namespace oanda_dotnet.test.IntegrationTests
 {
@@ -24,6 +19,14 @@ namespace oanda_dotnet.test.IntegrationTests
         }
 
         [TestMethod]
+        public void GetTransactionPage()
+        {
+            var response = _api.GetTransactionPages(this.AccountId);
+            Assert.IsTrue(response.Pages.Count > 0);
+        }
+
+
+        [TestMethod]
         public void GetTransaction()
         {
             var response = _api.GetTransaction(this.AccountId, 3);
@@ -31,24 +34,26 @@ namespace oanda_dotnet.test.IntegrationTests
         }
 
         [TestMethod]
-        public void GetTransactionsInRange()
+        public void GetTransactionsSince()
         {
             var response = _api.GetTransactions(this.AccountId, 3);
-            Assert.IsTrue(response.LastTransactionId > 0);
+            Assert.IsTrue(response.Transactions.Count > 0);
         }
 
         [TestMethod]
-        public void GetTransactionsSince()
+        public void GetTransactionsInRange()
         {
-            var response = _api.GetTransactions(this.AccountId, 3, 3);
-            Assert.IsTrue(response.LastTransactionId > 0);
+            var getTransaction = _api.GetTransaction(this.AccountId, 3);
+            var response = _api.GetTransactions(this.AccountId, 3, getTransaction.LastTransactionId);
+            Assert.IsTrue(response.Transactions.Count > 0);
         }
 
         [TestMethod]
         public void GetTransactionsSinceWithFilter()
         {
-            var response = _api.GetTransactions(this.AccountId, 0, 1500, TransactionFilter.ClientConfigure);
-            Assert.IsTrue(response.LastTransactionId > 0);
+            var getTransaction = _api.GetTransaction(this.AccountId, 3);
+            var response = _api.GetTransactions(this.AccountId, 3, getTransaction.LastTransactionId, TransactionFilter.ClientConfigure);
+            Assert.IsTrue(response.Transactions.Count > 0);
         }
 
         [TestMethod]

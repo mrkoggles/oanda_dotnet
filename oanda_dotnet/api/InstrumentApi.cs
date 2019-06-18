@@ -10,28 +10,28 @@ namespace oanda_dotnet.api
         public InstrumentApi(Restv20Client client) : base(client) { }
 
         public GetInstrumentCandlesResponse GetCandles(InstrumentName instrument,
-            (bool? IncludeMidpointCandles, bool? IncludeBidCandles, bool? IncludeAskCandles)? priceFilter = null,
+            bool? includeMidpointCandles = null, bool? includeBidCandles = null, bool? includeAskCandles = null,
             CandlestickGranularity? granulartiry = null,
             uint? count = null,
-            (DateTime? From, DateTime? To)? dateFilter = null, 
+            DateTime? from = null, DateTime? to = null, 
             CandleSmoothingMethod? candleSmoothing = null,
             bool? includeFirst = null,
-            (uint? DailyAlignment, TimeZone AlignmentTimeZone, DayOfWeek? WeeklyAlignment)? alignmentFilter = null)
+            uint? dailyAlignment = null, TimeZone alignmentTimeZone = null, DayOfWeek? weeklyAlignment = null)
                 => Execute<GetInstrumentCandlesResponse>(new GetInstrumentCandlesEndpoint()
                     {
                         Instrument = instrument,
-                        IncludeMidpointCandles = priceFilter?.IncludeMidpointCandles ?? false,
-                        IncludeBidCandles = priceFilter?.IncludeBidCandles ?? false,
-                        IncludeAskCandles = priceFilter?.IncludeAskCandles ?? false,
+                        IncludeMidpointCandles = includeMidpointCandles ?? false,
+                        IncludeBidCandles = includeBidCandles ?? false,
+                        IncludeAskCandles = includeAskCandles ?? false,
                         CandlestickGranularity = granulartiry,
                         Count = count,
-                        From = dateFilter?.From,
-                        To = dateFilter?.To,
+                        From = from,
+                        To = to,
                         Smooth = ((candleSmoothing ?? CandleSmoothingMethod.Unsmoothed) == CandleSmoothingMethod.Smoothed ? true : false),
                         IncludeFirst = includeFirst,
-                        DailyAlignment = alignmentFilter?.DailyAlignment,
-                        AlignmentTimeZone = alignmentFilter?.AlignmentTimeZone,
-                        WeeklyAlignment = alignmentFilter?.WeeklyAlignment
+                        DailyAlignment = dailyAlignment,
+                        AlignmentTimeZone = alignmentTimeZone,
+                        WeeklyAlignment = weeklyAlignment
                     });
 
 
