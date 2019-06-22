@@ -100,7 +100,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// The details of the Order requested
         /// </summary>
-        public Order Orders { get; set; }
+        public Order Order { get; set; }
 
         /// <summary>
         /// The Id of the most recent Transaction created for the Account
