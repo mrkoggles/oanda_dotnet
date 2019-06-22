@@ -119,6 +119,7 @@ namespace oanda_dotnet.model.position
     public sealed partial class CloseInstrumentPositionEndpoint
     {
         [Obsolete("Needs error handling")]
+        [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
         public struct CloseOutUnits
         {
             private CloseOutMethod? _closeOutMethod;

@@ -3,7 +3,8 @@
     /// <summary>
     /// A client-provided identifier, used by clients to refer to their Orders or Trades with an identifier that they have provided.
     /// </summary>
-    public class ClientTag
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
+    public struct ClientTag
     {
         private string _clientTag;
 

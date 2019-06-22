@@ -5,6 +5,8 @@ namespace oanda_dotnet.model.order
     /// <summary>
     /// The Order’s identifier, unique within the Order’s Account.
     /// </summary>
+    /// 
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct OrderId
     {
         private uint _orderId;

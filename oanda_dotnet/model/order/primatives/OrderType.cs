@@ -1,48 +1,61 @@
-﻿namespace oanda_dotnet.model.order
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Runtime.Serialization;
+
+namespace oanda_dotnet.model.order
 {
     /// <summary>
     /// The type of the Order.
     /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum OrderType
     {
-        ///<summary>
+        /// <summary>
         /// A Market Order
         /// </summary>
+        [EnumMember(Value = "MARKET")]
         Market,
 
-        ///<summary>
+        /// <summary>
         /// A Limit Order
         /// </summary>
+        [EnumMember(Value = "LIMIT")]
         Limit,
 
-        ///<summary>
+        /// <summary>
         /// A Stop Order
         /// </summary>
+        [EnumMember(Value = "STOP")]
         Stop,
 
-        ///<summary>
+        /// <summary>
         /// A Market-if-touched Order
         /// </summary>
+        [EnumMember(Value = "MARKET_IF_TOUCHED")]
         MarketIfTouched,
 
-        ///<summary>
+        /// <summary>
         /// A Take Profit Order
         /// </summary>
+        [EnumMember(Value = "TAKE_PROFIT")]
         TakeProfit,
 
-        ///<summary>
+        /// <summary>
         /// A Stop Loss Order
         /// </summary>
+        [EnumMember(Value = "STOP_LOSS")]
         StopLoss,
 
-        ///<summary>
+        /// <summary>
         /// A Trailing Stop Loss Order
         /// </summary>
+        [EnumMember(Value = "TRAILING_STOP_LOSS")]
         TrailingStopLoss,
 
-        ///<summary>
+        /// <summary>
         /// A Fixed Price Order
         /// </summary>
-        FixedPrice,
+        [EnumMember(Value = "FIXED_PRICE")]
+        FixedPrice
     }
 }

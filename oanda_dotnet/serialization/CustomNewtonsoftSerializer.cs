@@ -57,7 +57,8 @@ namespace oanda_dotnet.serialization
         public static NewtonsoftJsonSerializer Default
             => new NewtonsoftJsonSerializer(new Newtonsoft.Json.JsonSerializer()
                 {
-                    NullValueHandling = NullValueHandling.Ignore
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
                 });
 
 

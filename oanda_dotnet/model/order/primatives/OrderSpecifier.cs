@@ -3,6 +3,7 @@
     /// <summary>
     /// The specification of an Order as referred to by clients
     /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct OrderSpecifier
     {
         /// <summary>

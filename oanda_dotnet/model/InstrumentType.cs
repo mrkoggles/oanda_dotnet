@@ -20,7 +20,7 @@ namespace oanda_dotnet.model
         /// Contract For Difference
         /// </summary>
         [EnumMember(Value = "CFD")]
-        Cfd,
+        CFD,
 
         /// <summary>
         /// Metal

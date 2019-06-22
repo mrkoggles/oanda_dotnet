@@ -8,6 +8,8 @@ namespace oanda_dotnet.model
         System.DateTime DateTime { get; }
     }
 
+
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct UnixDateTime : IOandaDateTime
     {
         public System.DateTime DateTime { get; private set; }

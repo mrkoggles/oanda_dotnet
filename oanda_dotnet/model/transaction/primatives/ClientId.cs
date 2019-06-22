@@ -3,7 +3,8 @@
     /// <summary>
     /// A client-provided identifier, used by clients to refer to their Orders or Trades with an identifier that they have provided.
     /// </summary>
-    public class ClientId
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
+    public struct ClientId
     {
         private string _clientId;
 

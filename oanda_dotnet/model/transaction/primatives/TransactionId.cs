@@ -5,6 +5,7 @@ namespace oanda_dotnet.model.transaction
     /// <summary>
     /// The unique Transaction identifier within each Account.
     /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct TransactionId
     {
         private ulong _transactionId;

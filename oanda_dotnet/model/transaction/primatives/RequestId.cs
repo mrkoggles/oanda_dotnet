@@ -3,6 +3,7 @@
     /// <summary>
     /// The request identifier.
     /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct RequestId
     {
         private string _requestId;

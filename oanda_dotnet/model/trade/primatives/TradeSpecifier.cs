@@ -3,6 +3,7 @@
     /// <summary>
     /// The identification of a Trade as referred to by clients
     /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct TradeSpecifier
     {
         /// <summary>

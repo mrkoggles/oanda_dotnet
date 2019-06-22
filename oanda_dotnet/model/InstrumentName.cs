@@ -5,6 +5,7 @@ namespace oanda_dotnet.model
     /// <summary>
     /// Instrument name identifier. Used by clients to refer to an Instrument.
     /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct InstrumentName
     {
         public Currency BaseCurrency { get; set; }

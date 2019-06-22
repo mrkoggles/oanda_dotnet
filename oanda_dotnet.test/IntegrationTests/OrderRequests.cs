@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using oanda_dotnet.api;
+using oanda_dotnet.model.order;
 
 namespace oanda_dotnet.test.IntegrationTests
 {
@@ -14,7 +15,14 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void CreateOrder()
         {
-
+            var response = _api.CreateOrder(this.AccountId, new MarketOrderRequest()
+            {
+                Units = 100,
+                Instrument = "EUR_USD",
+                TimeInForce = TimeInForce.FOK,
+                PositionFill = OrderPositionFill.Default
+            });
+            Assert.IsTrue(response.OrderCreateTransaction != null);
         }
 
         [TestMethod]

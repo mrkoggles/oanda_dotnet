@@ -1,13 +1,11 @@
-﻿using RestSharp;
+﻿using oanda_dotnet.serialization;
+using RestSharp;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
-using System.ComponentModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
 
 namespace oanda_dotnet.model
@@ -29,6 +27,7 @@ namespace oanda_dotnet.model
         public IRestRequest GenerateRestRequest()
         {
             RestRequest restRequest = new RestRequest(this.Endpoint, this.Method);
+            restRequest.JsonSerializer = NewtonsoftJsonSerializer.Default;
 
             this.GetType().GetProperties()
                 .Where(property =>

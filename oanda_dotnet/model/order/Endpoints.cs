@@ -110,7 +110,7 @@ namespace oanda_dotnet.model.order
         /// The maximum Order ID to return. If not provided the most recent Orders in the Account are returned 
         /// </summary>
         [EndpointParameter(Name = "beforeID", Type = ParameterType.QueryString)]
-        public OrderId BeforeOrderId { get; set; }
+        public OrderId? BeforeOrderId { get; set; }
     }
 
 
@@ -208,8 +208,13 @@ namespace oanda_dotnet.model.order
         /// Specification of the replacing Order
         /// </summary>
         [Required]
-        [EndpointParameter(Type = ParameterType.RequestBody)]
         public OrderRequest Order { get; set; }
+
+        /// <summary>
+        /// Request Body input for the request
+        /// </summary>
+        [EndpointParameter(Type = ParameterType.RequestBody)]
+        public object RequestBody => new { order = this.Order };
     }
 
 
@@ -283,7 +288,6 @@ namespace oanda_dotnet.model.order
         /// delete clientExtensions if your account is associated with MT4.
         /// </summary>
         [Required]
-        [EndpointParameter(Type = ParameterType.RequestBody)]
         public ClientExtensions ClientExtensions { get; set; }
 
 
@@ -293,7 +297,12 @@ namespace oanda_dotnet.model.order
         /// associated with MT4.
         /// </summary>
         [Required]
-        [EndpointParameter(Type = ParameterType.RequestBody)]
         public ClientExtensions TradeClientExtensions { get; set; }
+
+        /// <summary>
+        /// Request Body input for the request
+        /// </summary>
+        [EndpointParameter(Type = ParameterType.RequestBody)]
+        public object RequestBody => new { clientExtensions = this.ClientExtensions, tradeClientExtensions = this.TradeClientExtensions };
     }
 }

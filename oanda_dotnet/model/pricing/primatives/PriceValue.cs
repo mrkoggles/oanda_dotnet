@@ -5,6 +5,7 @@ namespace oanda_dotnet.model.pricing
     /// <summary>
     /// The string representation of a Price for an Instrument.
     /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct PriceValue
     {
         private decimal _priceValue;

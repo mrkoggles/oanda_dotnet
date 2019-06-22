@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace oanda_dotnet.model.account
 {
+    [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
     public struct AccountId
     {
         public string SiteId { get; set; }

@@ -1,4 +1,8 @@
-﻿namespace oanda_dotnet.model.order
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Runtime.Serialization;
+
+namespace oanda_dotnet.model.order
 {
     /// <summary>
     /// Specification of which price component should be used when determining if an Order should be triggered and filled. 
@@ -10,31 +14,37 @@
     /// In this case the TriggerCondition value must either be “DEFAULT”, or the “natural” trigger side “DEFAULT” results in. 
     /// So for a Stop Loss Order for a long trade valid values are “DEFAULT” and “BID”, and for short trades “DEFAULT” and “ASK” are valid.
     /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum OrderTriggerCondition
     {
-        ///<summary>
+        /// <summary>
         /// Trigger an Order the “natural” way: compare its price to the ask for long Orders and bid for short Orders.
         /// </summary>
+        [EnumMember(Value = "DEFAULT")]
         Default,
 
-        ///<summary>
+        /// <summary>
         /// Trigger an Order the opposite of the “natural” way: compare its price the bid for long Orders and ask for short Orders.
         /// </summary>
+        [EnumMember(Value = "INVERSE")]
         Inverse,
 
-        ///<summary>
+        /// <summary>
         /// Trigger an Order by comparing its price to the bid regardless of whether it is long or short.
         /// </summary>
+        [EnumMember(Value = "BID")]
         Bid,
 
-        ///<summary>
+        /// <summary>
         /// Trigger an Order by comparing its price to the ask regardless of whether it is long or short.
         /// </summary>
+        [EnumMember(Value = "ASK")]
         Ask,
 
-        ///<summary>
+        /// <summary>
         /// Trigger an Order by comparing its price to the midpoint regardless of whether it is long or short.
         /// </summary>
-        Mid,
+        [EnumMember(Value = "MID")]
+        Mid
     }
 }
