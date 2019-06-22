@@ -21,7 +21,7 @@ namespace oanda_dotnet.model.order
         /// price. 
         /// </summary> 
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The time-in-force requested for the Limit Order. 

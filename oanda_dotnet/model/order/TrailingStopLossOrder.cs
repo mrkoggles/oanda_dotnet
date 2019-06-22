@@ -45,6 +45,6 @@ namespace oanda_dotnet.model.order
         /// market price moves to a level that is equal to or worse than the trailing
         /// stop value, the order will be filled and the Trade will be closed.
         /// </summary>
-        public PriceValue TrailingStopValue { get; set; }
+        public PriceValue? TrailingStopValue { get; set; }
     }
 }

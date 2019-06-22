@@ -13,19 +13,19 @@ namespace oanda_dotnet.model
         /// <summary>
         /// Currency
         /// </summary>
-        [EnumMember(Value = "CURRENCY")]
+        [EnumMember(Value ="CURRENCY")]
         Currency,
 
         /// <summary>
         /// Contract For Difference
         /// </summary>
-        [EnumMember(Value = "CFD")]
+        [EnumMember(Value ="CFD")]
         CFD,
 
         /// <summary>
         /// Metal
         /// </summary>
-        [EnumMember(Value = "METAL")]
+        [EnumMember(Value ="METAL")]
         Metal
     }
 }

@@ -25,6 +25,6 @@ namespace oanda_dotnet.model.order
         /// The worst price that the client is willing to have the Market Order 
         /// filled at. 
         /// </summary> 
-        public PriceValue PriceBound { get; set; }
+        public PriceValue? PriceBound { get; set; }
     }
 }

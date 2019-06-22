@@ -36,14 +36,14 @@ namespace oanda_dotnet.model.transaction
         /// price.
         /// </summary>
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary>
         /// The worst market price that may be used to fill this Stop Order. If the
         /// market gaps and crosses through both the price and the priceBound, the
         /// Stop Order will be cancelled instead of being filled.
         /// </summary>
-        public PriceValue PriceBound { get; set; }
+        public PriceValue? PriceBound { get; set; }
 
         /// <summary>
         /// The time-in-force requested for the Stop Order.
@@ -168,14 +168,14 @@ namespace oanda_dotnet.model.transaction
         /// price.
         /// </summary>
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary>
         /// The worst market price that may be used to fill this Stop Order. If the
         /// market gaps and crosses through both the price and the priceBound, the
         /// Stop Order will be cancelled instead of being filled.
         /// </summary>
-        public PriceValue PriceBound { get; set; }
+        public PriceValue? PriceBound { get; set; }
 
         /// <summary>
         /// The time-in-force requested for the Stop Order.

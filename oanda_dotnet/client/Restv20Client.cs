@@ -8,7 +8,7 @@ namespace oanda_dotnet.client
     public class Restv20Client : RestClient
     {
         public string Url => $"https://{SubDomain}.oanda.com/";
-        protected virtual string SubDomain => "api-fxtrade";
+        protected virtual string SubDomain =>"api-fxtrade";
 
         public Restv20Client(string bearerToken)
         {
@@ -24,7 +24,7 @@ namespace oanda_dotnet.client
 
     public sealed class Restv20TestingClient : Restv20Client
     {
-        protected override string SubDomain => "api-fxpractice";
+        protected override string SubDomain =>"api-fxpractice";
         public Restv20TestingClient(string bearerToken) : base(bearerToken) { }
     }
 }

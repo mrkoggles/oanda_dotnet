@@ -13,25 +13,25 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// When the Order is filled, only allow Positions to be opened or extended.
         /// </summary>
-        [EnumMember(Value = "OPEN_ONLY")]
+        [EnumMember(Value ="OPEN_ONLY")]
         OpenOnly,
 
         /// <summary>
         /// When the Order is filled, always fully reduce an existing Position before opening a new Position.
         /// </summary>
-        [EnumMember(Value = "REDUCE_FIRST")]
+        [EnumMember(Value ="REDUCE_FIRST")]
         ReduceFirst,
 
         /// <summary>
         /// When the Order is filled, only reduce an existing Position.
         /// </summary>
-        [EnumMember(Value = "REDUCE_ONLY")]
+        [EnumMember(Value ="REDUCE_ONLY")]
         ReduceOnly,
 
         /// <summary>
         /// When the Order is filled, use REDUCE_FIRST behaviour for non-client hedging Accounts, and OPEN_ONLY behaviour for client hedging Accounts.
         /// </summary>
-        [EnumMember(Value = "DEFAULT")]
+        [EnumMember(Value ="DEFAULT")]
         Default
     }
 }

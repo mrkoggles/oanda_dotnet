@@ -23,7 +23,7 @@ namespace oanda_dotnet.model.transaction
         /// The average price that the units were closed at. This price may be 
         /// clamped for guaranteed Stop Loss Orders. 
         /// </summary> 
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The PL realized when reducing the Trade 

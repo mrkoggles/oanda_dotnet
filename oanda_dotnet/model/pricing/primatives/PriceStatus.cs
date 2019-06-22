@@ -13,19 +13,19 @@ namespace oanda_dotnet.model.pricing
         /// <summary>
         /// The Instrument of the price is invalid or there is no valid Price for the Instrument.
         /// </summary>
-        [EnumMember(Value = "invalid")]
+        [EnumMember(Value ="invalid")]
         Invalid,
 
         /// <summary>
         /// The Instrument’s price is not tradeable.
         /// </summary>
-        [EnumMember(Value = "non-tradeable")]
+        [EnumMember(Value ="non-tradeable")]
         NonTradeable,
 
         /// <summary>
         /// The Instrument’s price is tradeable.
         /// </summary>
-        [EnumMember(Value = "tradeable")]
+        [EnumMember(Value ="tradeable")]
         Tradeable
     }
 }

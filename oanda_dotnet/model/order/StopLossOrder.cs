@@ -43,7 +43,7 @@ namespace oanda_dotnet.model.order
         /// associated Trade will be closed at this price.
         /// </summary>
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary>
         /// Specifies the distance (in price units) from the Account’s current price

@@ -21,7 +21,7 @@ namespace oanda_dotnet.model.position
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -39,7 +39,7 @@ namespace oanda_dotnet.model.position
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -57,7 +57,7 @@ namespace oanda_dotnet.model.position
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -65,7 +65,7 @@ namespace oanda_dotnet.model.position
         /// Name of the Instrument
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="instrument", Type = ParameterType.UrlSegment)]
         public InstrumentName? Instrument { get; set; }
     }
 
@@ -83,7 +83,7 @@ namespace oanda_dotnet.model.position
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -91,7 +91,7 @@ namespace oanda_dotnet.model.position
         /// Format of DateTime fields in the request and response. 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -99,7 +99,7 @@ namespace oanda_dotnet.model.position
         /// Name of the Instrument
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="instrument", Type = ParameterType.UrlSegment)]
         public InstrumentName? Instrument { get; set; }
 
 
@@ -119,7 +119,7 @@ namespace oanda_dotnet.model.position
     public sealed partial class CloseInstrumentPositionEndpoint
     {
         [Obsolete("Needs error handling")]
-        [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
+       [Newtonsoft.Json.JsonConverter(typeof(oanda_dotnet.serialization.ImplicitOperatorConverter))]
         public struct CloseOutUnits
         {
             private CloseOutMethod? _closeOutMethod;
@@ -152,6 +152,21 @@ namespace oanda_dotnet.model.position
             }
 
 
+            public CloseOutUnits(string closeOutUnits)
+            {
+                _closeOutAmount = null;
+                _closeOutMethod = null;
+                if (decimal.TryParse(closeOutUnits, out decimal result)) { _closeOutAmount = result; }
+                else if (Enum.TryParse(closeOutUnits, out CloseOutMethod closeOutMethod)) { _closeOutMethod = closeOutMethod; }
+                else { throw new Exception(); }
+            }
+
+            public CloseOutUnits(decimal closeOutAmount)
+            {
+                _closeOutAmount = closeOutAmount;
+                _closeOutMethod = null;
+            }
+
 
             public static implicit operator CloseOutMethod? (CloseOutUnits closeOutUnits) => closeOutUnits.CloseOutMethod;
             public static implicit operator decimal? (CloseOutUnits closeOutUnits) => closeOutUnits.CloseOutAmount;
@@ -163,13 +178,8 @@ namespace oanda_dotnet.model.position
             }
 
             public static implicit operator CloseOutUnits(CloseOutMethod closeOutMethod) => new CloseOutUnits() { CloseOutMethod = closeOutMethod };
-            public static implicit operator CloseOutUnits(decimal closeOutAmount) => new CloseOutUnits() { CloseOutAmount = closeOutAmount };
-            public static implicit operator CloseOutUnits(string closeOutUnits)
-            {
-                if (decimal.TryParse(closeOutUnits, out decimal result)) { return new CloseOutUnits() { CloseOutAmount = result }; }
-                else if (Enum.TryParse(closeOutUnits, out CloseOutMethod closeOutMethod)) { return new CloseOutUnits() { CloseOutMethod = closeOutMethod }; }
-                else { throw new Exception(); }
-            }
+            public static implicit operator CloseOutUnits(decimal closeOutAmount) => new CloseOutUnits(closeOutAmount);
+            public static implicit operator CloseOutUnits(string closeOutUnits) => new CloseOutUnits(closeOutUnits);
         }
 
         public enum CloseOutMethod

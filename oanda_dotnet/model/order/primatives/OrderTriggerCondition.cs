@@ -20,31 +20,31 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// Trigger an Order the “natural” way: compare its price to the ask for long Orders and bid for short Orders.
         /// </summary>
-        [EnumMember(Value = "DEFAULT")]
+        [EnumMember(Value ="DEFAULT")]
         Default,
 
         /// <summary>
         /// Trigger an Order the opposite of the “natural” way: compare its price the bid for long Orders and ask for short Orders.
         /// </summary>
-        [EnumMember(Value = "INVERSE")]
+        [EnumMember(Value ="INVERSE")]
         Inverse,
 
         /// <summary>
         /// Trigger an Order by comparing its price to the bid regardless of whether it is long or short.
         /// </summary>
-        [EnumMember(Value = "BID")]
+        [EnumMember(Value ="BID")]
         Bid,
 
         /// <summary>
         /// Trigger an Order by comparing its price to the ask regardless of whether it is long or short.
         /// </summary>
-        [EnumMember(Value = "ASK")]
+        [EnumMember(Value ="ASK")]
         Ask,
 
         /// <summary>
         /// Trigger an Order by comparing its price to the midpoint regardless of whether it is long or short.
         /// </summary>
-        [EnumMember(Value = "MID")]
+        [EnumMember(Value ="MID")]
         Mid
     }
 }

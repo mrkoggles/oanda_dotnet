@@ -10,7 +10,12 @@ namespace oanda_dotnet.model
     {
         private decimal _accountUnits;
 
-        public static implicit operator AccountUnits(string accountUnits) => new AccountUnits { _accountUnits = Convert.ToDecimal(accountUnits) };
+        public AccountUnits(string accountUnits)
+        {
+            _accountUnits = Convert.ToDecimal(accountUnits);
+        }
+
+        public static implicit operator AccountUnits(string accountUnits) => new AccountUnits(accountUnits);
         public static implicit operator string(AccountUnits accountUnits) => accountUnits._accountUnits.ToString();
     }
 }

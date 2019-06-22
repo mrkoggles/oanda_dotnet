@@ -14,31 +14,31 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// The Order is “Good unTil Cancelled”
         /// </summary>
-        [EnumMember(Value = "GTC")]
+        [EnumMember(Value ="GTC")]
         GTC,
 
         /// <summary>
         /// The Order is “Good unTil Date” and will be cancelled at the provided time
         /// </summary>
-        [EnumMember(Value = "GTD")]
+        [EnumMember(Value ="GTD")]
         GTD,
 
         /// <summary>
         /// The Order is “Good For Day” and will be cancelled at 5pm New York time
         /// </summary>
-        [EnumMember(Value = "GFD")]
+        [EnumMember(Value ="GFD")]
         GFD,
 
         /// <summary>
         /// The Order must be immediately “Filled Or Killed”
         /// </summary>
-        [EnumMember(Value = "FOK")]
+        [EnumMember(Value ="FOK")]
         FOK,
 
         /// <summary>
         /// The Order must be “Immediatedly paritally filled Or Cancelled”
         /// </summary>
-        [EnumMember(Value = "IOC")]
+        [EnumMember(Value ="IOC")]
         IOC
     }
 }

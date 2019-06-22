@@ -25,7 +25,7 @@ namespace oanda_dotnet.model.trade
         /// <summary> 
         /// The execution price of the Trade. 
         /// </summary> 
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The date/time when the Trade was opened. 
@@ -75,7 +75,7 @@ namespace oanda_dotnet.model.trade
         /// The average closing price of the Trade. Only present if the Trade has 
         /// been closed or reduced at least once. 
         /// </summary> 
-        public PriceValue AverageClosePrice { get; set; }
+        public PriceValue? AverageClosePrice { get; set; }
 
         /// <summary> 
         /// The Ids of the Transactions that have closed portions of this Trade. 

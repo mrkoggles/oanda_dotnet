@@ -13,13 +13,13 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// The Limit Order was initiated at the request of a client
         /// </summary>
-        [EnumMember(Value = "CLIENT_ORDER")]
+        [EnumMember(Value ="CLIENT_ORDER")]
         ClientOrder,
 
         /// <summary>
         /// The Limit Order was initiated as a replacement for an existing Order
         /// </summary>
-        [EnumMember(Value = "REPLACEMENT")]
+        [EnumMember(Value ="REPLACEMENT")]
         Replacement
     }
 }

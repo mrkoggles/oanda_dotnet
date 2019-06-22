@@ -21,7 +21,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -29,28 +29,28 @@ namespace oanda_dotnet.model.transaction
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
         /// <summary>
         /// The starting time (inclusive) of the time range for the Transactions being queried. [default=Account Creation Time] 
         /// </summary>
-        [EndpointParameter(Name = "from", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="from", Type = ParameterType.QueryString)]
         public DateTime? From { get; set; }
 
 
         /// <summary>
         /// The ending time (inclusive) of the time range for the Transactions being queried. [default=Request Time] 
         /// </summary>
-        [EndpointParameter(Name = "to", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="to", Type = ParameterType.QueryString)]
         public DateTime? To { get; set; }
 
 
         /// <summary>
         /// The number of Transactions to include in each page of the results. [default=100, maximum=1000] 
         /// </summary>
-        [EndpointParameter(Name = "pageSize", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="pageSize", Type = ParameterType.QueryString)]
         public uint? PageSize
         {
             get => _pageSize;
@@ -61,7 +61,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// A filter for restricting the types of Transactions to retreive. 
         /// </summary>
-        [EndpointParameter(Name = "type", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="type", Type = ParameterType.QueryString)]
         public TransactionFilter? Type { get; set; }
     }
 
@@ -78,7 +78,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -86,7 +86,7 @@ namespace oanda_dotnet.model.transaction
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -94,7 +94,7 @@ namespace oanda_dotnet.model.transaction
         /// A filter for restricting the types of Transactions to retreive. 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "transactionID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="transactionID", Type = ParameterType.UrlSegment)]
         public TransactionId? TransactionId { get; set; }
     }
 
@@ -111,7 +111,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -119,7 +119,7 @@ namespace oanda_dotnet.model.transaction
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -127,7 +127,7 @@ namespace oanda_dotnet.model.transaction
         /// The starting time (inclusive) of the time range for the Transactions being queried. [default=Account Creation Time] 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "from", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="from", Type = ParameterType.QueryString)]
         public TransactionId? From { get; set; }
 
 
@@ -135,14 +135,14 @@ namespace oanda_dotnet.model.transaction
         /// The ending time (inclusive) of the time range for the Transactions being queried. [default=Request Time] 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "to", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="to", Type = ParameterType.QueryString)]
         public TransactionId? To { get; set; }
 
 
         /// <summary>
         /// A filter for restricting the types of Transactions to retreive. 
         /// </summary>
-        [EndpointParameter(Name = "type", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="type", Type = ParameterType.QueryString)]
         public TransactionFilter? Type { get; set; }
     }
 
@@ -159,7 +159,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -167,7 +167,7 @@ namespace oanda_dotnet.model.transaction
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -175,7 +175,7 @@ namespace oanda_dotnet.model.transaction
         /// A filter for restricting the types of Transactions to retreive. 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "id", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="id", Type = ParameterType.QueryString)]
         public TransactionId? SinceId { get; set; }
     }
 

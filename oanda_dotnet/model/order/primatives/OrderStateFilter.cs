@@ -13,31 +13,31 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// The Order is currently pending execution
         /// </summary>
-        [EnumMember(Value = "PENDING")]
+        [EnumMember(Value ="PENDING")]
         Pending,
 
         /// <summary>
         /// The Order has been filled
         /// </summary>
-        [EnumMember(Value = "FILLED")]
+        [EnumMember(Value ="FILLED")]
         Filled,
 
         /// <summary>
         /// The Order has been triggered
         /// </summary>
-        [EnumMember(Value = "TRIGGERED")]
+        [EnumMember(Value ="TRIGGERED")]
         Triggered,
 
         /// <summary>
         /// The Order has been cancelled
         /// </summary>
-        [EnumMember(Value = "CANCELLED")]
+        [EnumMember(Value ="CANCELLED")]
         Cancelled,
 
         /// <summary>
         /// The Orders that are in any of the possible states listed above
         /// </summary>
-        [EnumMember(Value = "ALL")]
+        [EnumMember(Value ="ALL")]
         All,
 
     }

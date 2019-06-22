@@ -32,7 +32,7 @@ namespace oanda_dotnet.model.transaction
         /// this threshold.
         /// </summary>
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary>
         /// The time-in-force requested for the TakeProfit Order. Restricted to
@@ -129,7 +129,7 @@ namespace oanda_dotnet.model.transaction
         /// this threshold.
         /// </summary>
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary>
         /// The time-in-force requested for the TakeProfit Order. Restricted to

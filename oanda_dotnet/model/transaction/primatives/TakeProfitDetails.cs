@@ -14,7 +14,7 @@ namespace oanda_dotnet.model.transaction
         /// The price that the Take Profit Order will be triggered at. Only one of 
         /// the price and distance fields may be specified. 
         /// </summary> 
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The time in force for the created Take Profit Order. This may only be 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp.Serializers;
+using System;
 
 namespace oanda_dotnet.model.transaction
 {

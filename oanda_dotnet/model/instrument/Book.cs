@@ -22,13 +22,13 @@ namespace oanda_dotnet.model.instrument
         /// The price (midpoint) for the order/position book’s instrument at the time of the 
         /// order/position book snapshot 
         /// </summary> 
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The price width for each bucket. Each bucket covers the price range from 
         /// the bucket’s price to the bucket’s price + bucketWidth. 
         /// </summary> 
-        public PriceValue BucketWidth { get; set; }
+        public PriceValue? BucketWidth { get; set; }
 
         /// <summary> 
         /// The partitioned order/position book, divided into buckets using a default bucket 

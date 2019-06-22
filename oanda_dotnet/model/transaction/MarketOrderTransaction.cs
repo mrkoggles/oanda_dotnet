@@ -43,7 +43,7 @@ namespace oanda_dotnet.model.transaction
         /// The worst price that the client is willing to have the Market Order
         /// filled at.
         /// </summary>
-        public PriceValue PriceBound { get; set; }
+        public PriceValue? PriceBound { get; set; }
 
         /// <summary>
         /// Specification of how Positions in the Account are modified when the Order

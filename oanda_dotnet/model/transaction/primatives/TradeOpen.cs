@@ -22,7 +22,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary> 
         /// The average price that the units were opened at. 
         /// </summary> 
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// This is the fee charged for opening the trade if it has a guaranteed Stop 

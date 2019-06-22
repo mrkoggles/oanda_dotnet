@@ -58,7 +58,7 @@ namespace oanda_dotnet.model.transaction
         /// exact/official price each unit was filled at. 
         /// </summary> 
         [Obsolete("Deprecated: Will be removed in a future API update.")]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The price in effect for the account at the time of the Order fill. 

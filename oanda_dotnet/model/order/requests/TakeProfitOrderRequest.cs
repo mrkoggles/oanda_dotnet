@@ -21,6 +21,6 @@ namespace oanda_dotnet.model.order
         /// this threshold. 
         /// </summary> 
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
     }
 }

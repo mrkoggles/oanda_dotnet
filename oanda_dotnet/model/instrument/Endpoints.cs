@@ -15,7 +15,7 @@ namespace oanda_dotnet.model.instrument
         private uint? _dailyAlignment;
 
 
-        public override string Endpoint => "/v3/instruments/{instrument}/candles";
+        public override string Endpoint =>"/v3/instruments/{instrument}/candles";
         public override Method Method => Method.GET;
 
 
@@ -28,7 +28,7 @@ namespace oanda_dotnet.model.instrument
         /// Format of DateTime fields in the request and response. 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -36,7 +36,7 @@ namespace oanda_dotnet.model.instrument
         /// Name of the Instrument
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="instrument", Type = ParameterType.UrlSegment)]
         public InstrumentName? Instrument { get; set; }
 
 
@@ -46,19 +46,19 @@ namespace oanda_dotnet.model.instrument
         /// “B” (bid candles) and “A” (ask candles). 
         /// [default=M] 
         /// </summary>
-        [EndpointParameter(Name = "price", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="price", Type = ParameterType.QueryString)]
         public string Price =>
             string.Concat(
-                (IncludeAskCandles ? "A" : null),
-                (IncludeBidCandles ? "B": null),
-                (IncludeMidpointCandles ? "M" : null));
+                (IncludeAskCandles ?"A" : null),
+                (IncludeBidCandles ?"B": null),
+                (IncludeMidpointCandles ?"M" : null));
 
 
         /// <summary>
         /// The granularity of the candlesticks to fetch
         /// [default=S5] 
         /// </summary>
-        [EndpointParameter(Name = "granularity", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="granularity", Type = ParameterType.QueryString)]
         public CandlestickGranularity? CandlestickGranularity { get; set; }
 
 
@@ -68,7 +68,7 @@ namespace oanda_dotnet.model.instrument
         /// as the time range combined with the graularity will determine the number of candlesticks to return.
         /// [default=500, maximum=5000] 
         /// </summary>
-        [EndpointParameter(Name = "count", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="count", Type = ParameterType.QueryString)]
         public uint? Count
         {
             get => _count;
@@ -79,14 +79,14 @@ namespace oanda_dotnet.model.instrument
         /// <summary>
         /// The start of the time range to fetch candlesticks for. 
         /// </summary>
-        [EndpointParameter(Name = "from", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="from", Type = ParameterType.QueryString)]
         public System.DateTime? From { get; set; }
 
 
         /// <summary>
         /// The end of the time range to fetch candlesticks for. 
         /// </summary>
-        [EndpointParameter(Name = "to", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="to", Type = ParameterType.QueryString)]
         public System.DateTime? To { get; set; }
 
 
@@ -95,7 +95,7 @@ namespace oanda_dotnet.model.instrument
         /// A smoothed candlestick uses the previous candle’s close price as its open price, 
         /// while an unsmoothed candlestick uses the first price from its time range as its open price. 
         /// </summary>
-        [EndpointParameter(Name = "smooth", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="smooth", Type = ParameterType.QueryString)]
         public bool? Smooth { get; set; }
 
 
@@ -105,7 +105,7 @@ namespace oanda_dotnet.model.instrument
         /// to poll for future candlesticks but avoid receiving the previous candlestick repeatedly.
         /// [default=True] 
         /// </summary>
-        [EndpointParameter(Name = "includeFirst", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="includeFirst", Type = ParameterType.QueryString)]
         public bool? IncludeFirst { get; set; }
 
 
@@ -113,7 +113,7 @@ namespace oanda_dotnet.model.instrument
         /// The hour of the day (in the specified timezone) to use for granularities that have daily alignments. 
         /// [default=17, minimum=0, maximum=23] 
         /// </summary>
-        [EndpointParameter(Name = "dailyAlignment", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="dailyAlignment", Type = ParameterType.QueryString)]
         public uint? DailyAlignment
         {
             get => _dailyAlignment;
@@ -127,7 +127,7 @@ namespace oanda_dotnet.model.instrument
         /// Note that the returned times will still be represented in UTC. 
         /// [default=America/New_York] 
         /// </summary>
-        [EndpointParameter(Name = "alignmentTimezone", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="alignmentTimezone", Type = ParameterType.QueryString)]
         public TimeZone AlignmentTimeZone { get; set; }
 
 
@@ -135,7 +135,7 @@ namespace oanda_dotnet.model.instrument
         /// The day of the week used for granularities that have weekly alignment.
         /// [default=Friday] 
         /// </summary>
-        [EndpointParameter(Name = "weeklyAlignment", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="weeklyAlignment", Type = ParameterType.QueryString)]
         public DayOfWeek? WeeklyAlignment { get; set; }
     }
 
@@ -149,7 +149,7 @@ namespace oanda_dotnet.model.instrument
         /// Format of DateTime fields in the request and response. 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -157,14 +157,14 @@ namespace oanda_dotnet.model.instrument
         /// Name of the Instrument
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "instrument", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="instrument", Type = ParameterType.UrlSegment)]
         public InstrumentName? Instrument { get; set; }
 
 
         /// <summary>
         /// The time of the snapshot to fetch. If not specified, then the most recent snapshot is fetched. 
         /// </summary>
-        [EndpointParameter(Name = "time", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="time", Type = ParameterType.UrlSegment)]
         public System.DateTime? Time { get; set; }
     }
 
@@ -174,7 +174,7 @@ namespace oanda_dotnet.model.instrument
     /// </summary>
     public sealed class GetInstrumentOrderBookEndpoint : GetInstrumentBookEndpoint
     {
-        public override string Endpoint => "/v3/instruments/{instrument}/orderBook";        
+        public override string Endpoint =>"/v3/instruments/{instrument}/orderBook";        
     }
 
 
@@ -183,7 +183,7 @@ namespace oanda_dotnet.model.instrument
     /// </summary>
     public sealed class GetInstrumentPositionBookEndpoint : GetInstrumentBookEndpoint
     {
-        public override string Endpoint => "/v3/instruments/{instrument}/positionBook";
+        public override string Endpoint =>"/v3/instruments/{instrument}/positionBook";
     }
 
     public enum CandleSmoothingMethod

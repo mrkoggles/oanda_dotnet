@@ -11,19 +11,18 @@ namespace oanda_dotnet.model
         public Currency BaseCurrency { get; set; }
         public Currency QuoteCurrency { get; set; }
 
-        /// <summary>
-        /// A string containing the base currency and quote currency delimited by a “_”.
-        /// </summary>
-        public static implicit operator InstrumentName(string instrumentName)
+        public InstrumentName(string instrumentName)
         {
             if (!instrumentName.Contains("_")) { throw new Exception(); }
             string[] currencies = instrumentName.Split('_');
-            return new InstrumentName()
-            {
-                BaseCurrency = (Currency)Enum.Parse(typeof(Currency), currencies[0]),
-                QuoteCurrency = (Currency)Enum.Parse(typeof(Currency), currencies[1])
-            };
+            BaseCurrency = (Currency)Enum.Parse(typeof(Currency), currencies[0]);
+            QuoteCurrency = (Currency)Enum.Parse(typeof(Currency), currencies[1]);
         }
+
+        /// <summary>
+        /// A string containing the base currency and quote currency delimited by a “_”.
+        /// </summary>
+        public static implicit operator InstrumentName(string instrumentName) => new InstrumentName(instrumentName);
 
         public static implicit operator string(InstrumentName instrumentName) => instrumentName.ToString();
         public override string ToString()

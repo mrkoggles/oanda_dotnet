@@ -24,13 +24,13 @@ namespace oanda_dotnet.model.order
         /// behave like a Limit or a Stop Order. 
         /// </summary> 
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The worst market price that may be used to fill this MarketIfTouched 
         /// Order. 
         /// </summary> 
-        public PriceValue PriceBound { get; set; }
+        public PriceValue? PriceBound { get; set; }
 
         /// <summary> 
         /// The time-in-force requested for the MarketIfTouched Order. Restricted to 

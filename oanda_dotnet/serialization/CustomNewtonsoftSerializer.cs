@@ -19,7 +19,7 @@ namespace oanda_dotnet.serialization
 
         public string ContentType
         {
-            get => "application/json";
+            get =>"application/json";
             set { }
         } 
         public string DateFormat { get; set; }

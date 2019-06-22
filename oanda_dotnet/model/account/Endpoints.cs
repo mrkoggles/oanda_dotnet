@@ -31,7 +31,7 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -39,7 +39,7 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -56,7 +56,7 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -64,7 +64,7 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -84,14 +84,14 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
         /// <summary>
         /// List of instruments to query specifically. 
         /// </summary>
-        [EndpointParameter(Name = "instruments", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="instruments", Type = ParameterType.QueryString)]
         public ICollection<InstrumentName> Instruments { get; set; }
     }
 
@@ -108,7 +108,7 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -116,7 +116,7 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -159,7 +159,7 @@ namespace oanda_dotnet.model.account
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -167,7 +167,7 @@ namespace oanda_dotnet.model.account
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -175,7 +175,7 @@ namespace oanda_dotnet.model.account
         /// ID of the Transaction to get Account changes since. 
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "sinceTransactionID", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="sinceTransactionID", Type = ParameterType.QueryString)]
         public TransactionId? SinceTransactionId { get; set; }
     }
 }

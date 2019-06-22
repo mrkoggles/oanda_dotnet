@@ -24,7 +24,7 @@ namespace oanda_dotnet.model.trade
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -32,35 +32,35 @@ namespace oanda_dotnet.model.trade
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
         /// <summary>
         /// List of Trade IDs to retrieve. 
         /// </summary>
-        [EndpointParameter(Name = "ids", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="ids", Type = ParameterType.QueryString)]
         public ICollection<TradeId> Ids { get; set; }
 
 
         /// <summary>
         /// The state to filter the requested Trades by. [default=OPEN] 
         /// </summary>
-        [EndpointParameter(Name = "state", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="state", Type = ParameterType.QueryString)]
         public TradeStateFilter? State { get; set; }
 
 
         /// <summary>
         /// The instrument to filter the requested Trades by. 
         /// </summary>
-        [EndpointParameter(Name = "instrument", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="instrument", Type = ParameterType.QueryString)]
         public InstrumentName? Instrument { get; set; }
 
 
         /// <summary>
         /// The maximum number of Trades to return. [default=50, maximum=500] 
         /// </summary>
-        [EndpointParameter(Name = "count", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="count", Type = ParameterType.QueryString)]
         public uint? Count
         {
             get => _count;
@@ -71,7 +71,7 @@ namespace oanda_dotnet.model.trade
         /// <summary>
         /// The maximum Trade ID to return. If not provided the most recent Trades in the Account are returned. 
         /// </summary>
-        [EndpointParameter(Name = "beforeID", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="beforeID", Type = ParameterType.QueryString)]
         public TradeId? BeforeTradeId { get; set; }
     }
 
@@ -88,7 +88,7 @@ namespace oanda_dotnet.model.trade
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -96,7 +96,7 @@ namespace oanda_dotnet.model.trade
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -113,7 +113,7 @@ namespace oanda_dotnet.model.trade
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -121,7 +121,7 @@ namespace oanda_dotnet.model.trade
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -129,7 +129,7 @@ namespace oanda_dotnet.model.trade
         /// Specifier for the Trade
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "tradeSpecifier", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="tradeSpecifier", Type = ParameterType.UrlSegment)]
         public TradeSpecifier? TradeSpecifier { get; set; }
     }
 
@@ -175,7 +175,7 @@ namespace oanda_dotnet.model.trade
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -183,7 +183,7 @@ namespace oanda_dotnet.model.trade
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -191,7 +191,7 @@ namespace oanda_dotnet.model.trade
         /// Specifier for the Trade
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "tradeSpecifier", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="tradeSpecifier", Type = ParameterType.UrlSegment)]
         public TradeSpecifier? TradeSpecifier { get; set; }
 
 
@@ -206,7 +206,7 @@ namespace oanda_dotnet.model.trade
         [Required]
         [EndpointParameter(Type = ParameterType.RequestBody)]
         public string Units => (CloseAll == null && CloseAmount == null) ? null :
-            CloseAll ?? false ? "ALL" : 
+            CloseAll ?? false ?"ALL" : 
             (CloseAmount ?? 0).ToString(); 
     }
 
@@ -223,7 +223,7 @@ namespace oanda_dotnet.model.trade
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -231,7 +231,7 @@ namespace oanda_dotnet.model.trade
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -239,7 +239,7 @@ namespace oanda_dotnet.model.trade
         /// Specifier for the Trade
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "tradeSpecifier", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="tradeSpecifier", Type = ParameterType.UrlSegment)]
         public TradeSpecifier? TradeSpecifier { get; set; }
 
 
@@ -266,7 +266,7 @@ namespace oanda_dotnet.model.trade
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -274,7 +274,7 @@ namespace oanda_dotnet.model.trade
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -282,7 +282,7 @@ namespace oanda_dotnet.model.trade
         /// Specifier for the Trade
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "tradeSpecifier", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="tradeSpecifier", Type = ParameterType.UrlSegment)]
         public TradeSpecifier? TradeSpecifier { get; set; }
 
 

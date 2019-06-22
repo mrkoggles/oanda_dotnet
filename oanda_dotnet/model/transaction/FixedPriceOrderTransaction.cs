@@ -34,7 +34,7 @@ namespace oanda_dotnet.model.transaction
         /// price that the Fixed Price Order will be filled at.
         /// </summary>
         [Required]
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary>
         /// Specification of how Positions in the Account are modified when the Order

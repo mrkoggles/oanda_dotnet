@@ -13,7 +13,7 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// The Fixed Price Order was created as part of a platform account migration
         /// </summary>
-        [EnumMember(Value = "PLATFORM_ACCOUNT_MIGRATION")]
+        [EnumMember(Value ="PLATFORM_ACCOUNT_MIGRATION")]
         PlatformAccountMigration
     }
 }

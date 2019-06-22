@@ -20,7 +20,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -28,7 +28,7 @@ namespace oanda_dotnet.model.order
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -62,7 +62,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -70,35 +70,35 @@ namespace oanda_dotnet.model.order
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
         /// <summary>
         /// List of Order IDs to retrieve 
         /// </summary>
-        [EndpointParameter(Name = "ids", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="ids", Type = ParameterType.QueryString)]
         public ICollection<OrderId> Ids { get; set; }
 
 
         /// <summary>
         /// The state to filter the requested Orders by [default=PENDING] 
         /// </summary>
-        [EndpointParameter(Name = "state", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="state", Type = ParameterType.QueryString)]
         public OrderStateFilter? State { get; set; }
 
 
         /// <summary>
         /// The instrument to filter the requested orders by 
         /// </summary>
-        [EndpointParameter(Name = "instrument", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="instrument", Type = ParameterType.QueryString)]
         public InstrumentName? Instrument { get; set; }
 
 
         /// <summary>
         /// The maximum number of Orders to return [default=50, maximum=500] 
         /// </summary>
-        [EndpointParameter(Name = "count", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="count", Type = ParameterType.QueryString)]
         public uint? Count
         {
             get => _count;
@@ -109,7 +109,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// The maximum Order ID to return. If not provided the most recent Orders in the Account are returned 
         /// </summary>
-        [EndpointParameter(Name = "beforeID", Type = ParameterType.QueryString)]
+        [EndpointParameter(Name ="beforeID", Type = ParameterType.QueryString)]
         public OrderId? BeforeOrderId { get; set; }
     }
 
@@ -126,7 +126,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -134,7 +134,7 @@ namespace oanda_dotnet.model.order
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
     }
 
@@ -151,7 +151,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -159,7 +159,7 @@ namespace oanda_dotnet.model.order
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -167,7 +167,7 @@ namespace oanda_dotnet.model.order
         /// The Order Specifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "orderSpecifier", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="orderSpecifier", Type = ParameterType.UrlSegment)]
         public OrderSpecifier? OrderSpecifier { get; set; }
     }
 
@@ -184,7 +184,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -192,7 +192,7 @@ namespace oanda_dotnet.model.order
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -200,7 +200,7 @@ namespace oanda_dotnet.model.order
         /// The Order Specifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "orderSpecifier", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="orderSpecifier", Type = ParameterType.UrlSegment)]
         public OrderSpecifier? OrderSpecifier { get; set; }
 
 
@@ -230,7 +230,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -238,7 +238,7 @@ namespace oanda_dotnet.model.order
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -246,7 +246,7 @@ namespace oanda_dotnet.model.order
         /// The Order Specifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "orderSpecifier", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="orderSpecifier", Type = ParameterType.UrlSegment)]
         public OrderSpecifier? OrderSpecifier { get; set; }
     }
 
@@ -263,7 +263,7 @@ namespace oanda_dotnet.model.order
         /// <summary>
         /// Format of DateTime fields in the request and response. 
         /// </summary>
-        [EndpointParameter(Name = "Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
+        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
         public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
@@ -271,7 +271,7 @@ namespace oanda_dotnet.model.order
         /// Account Identifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "accountID", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="accountID", Type = ParameterType.UrlSegment)]
         public AccountId? AccountId { get; set; }
 
 
@@ -279,7 +279,7 @@ namespace oanda_dotnet.model.order
         /// The Order Specifier
         /// </summary>
         [Required]
-        [EndpointParameter(Name = "orderSpecifier", Type = ParameterType.UrlSegment)]
+        [EndpointParameter(Name ="orderSpecifier", Type = ParameterType.UrlSegment)]
         public OrderSpecifier? OrderSpecifier { get; set; }
 
 
