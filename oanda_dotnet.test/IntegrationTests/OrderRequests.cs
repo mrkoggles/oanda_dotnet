@@ -16,9 +16,10 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void CreateOrder()
         {
-            var response = _api.CreateOrder(this.AccountId, new MarketOrderRequest()
+            var response = _api.CreateOrder(this.AccountId, new LimitOrderRequest()
             {
                 Units = 100,
+                Price = 1.13668M,
                 Instrument = "EUR_USD",
                 TimeInForce = TimeInForce.FOK,
                 PositionFill = OrderPositionFill.Default
