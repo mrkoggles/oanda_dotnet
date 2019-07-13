@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,17 +53,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\AccountApi.cs" />
     <Compile Include="api\InstrumentApi.cs" />
+    <Compile Include="api\OrderApi.cs" />
     <Compile Include="api\PositionApi.cs" />
     <Compile Include="api\PricingApi.cs" />
     <Compile Include="api\Restv20Api.cs" />
+    <Compile Include="api\TradeApi.cs" />
+    <Compile Include="api\TransactionApi.cs" />
     <Compile Include="client\Restv20Client.cs" />
+    <Compile Include="model\account\Account.cs" />
+    <Compile Include="model\account\AccountChanges.cs" />
+    <Compile Include="model\account\AccountChangesState.cs" />
+    <Compile Include="model\account\AccountProperties.cs" />
+    <Compile Include="model\account\AccountSummary.cs" />
+    <Compile Include="model\account\primatives\AccountFinancingMode.cs" />
     <Compile Include="model\account\primatives\AccountId.cs" />
+    <Compile Include="model\account\primatives\GuaranteedStopLossOrderMode.cs" />
+    <Compile Include="model\InstrumentCommission.cs" />
+    <Compile Include="model\InstrumentType.cs" />
     <Compile Include="model\instrument\Candlestick.cs" />
     <Compile Include="model\instrument\CandlestickData.cs" />
     <Compile Include="model\instrument\CandlestickGranularity.cs" />
     <Compile Include="model\instrument\Book.cs" />
     <Compile Include="model\instrument\BookBucket.cs" />
+    <Compile Include="model\Instrument.cs" />
+    <Compile Include="model\order\ExitOrder.cs" />
+    <Compile Include="model\order\Order.cs" />
+    <Compile Include="model\order\primatives\DynamicOrderState.cs" />
+    <Compile Include="model\order\primatives\OrderSpecifier.cs" />
+    <Compile Include="model\order\primatives\OrderState.cs" />
+    <Compile Include="model\order\primatives\OrderStateFilter.cs" />
+    <Compile Include="model\order\primatives\OrderTriggerCondition.cs" />
+    <Compile Include="model\order\primatives\OrderType.cs" />
+    <Compile Include="model\order\requests\EntryOrderRequest.cs" />
+    <Compile Include="model\order\requests\ExitOrderRequest.cs" />
+    <Compile Include="model\order\requests\LimitOrderRequest.cs" />
+    <Compile Include="model\order\requests\MarketIfTouchedOrderRequest.cs" />
+    <Compile Include="model\order\requests\MarketOrderRequest.cs" />
+    <Compile Include="model\order\requests\OrderRequest.cs" />
+    <Compile Include="model\order\requests\StopLossOrderRequest.cs" />
+    <Compile Include="model\order\requests\StopOrderRequest.cs" />
+    <Compile Include="model\order\requests\TakeProfitOrderRequest.cs" />
+    <Compile Include="model\order\requests\TrailingStopLossOrderRequest.cs" />
+    <Compile Include="model\order\StopLossOrder.cs" />
+    <Compile Include="model\order\TakeProfitOrder.cs" />
+    <Compile Include="model\order\TrailingStopLossOrder.cs" />
+    <Compile Include="model\position\CalculatedPositionState.cs" />
+    <Compile Include="model\account\Endpoints.cs" />
+    <Compile Include="model\order\Endpoints.cs" />
+    <Compile Include="model\account\Responses.cs" />
+    <Compile Include="model\order\Responses.cs" />
+    <Compile Include="model\trade\CalculatedTradeState.cs" />
+    <Compile Include="model\trade\primatives\TradeSpecifier.cs" />
+    <Compile Include="model\trade\primatives\TradeState.cs" />
+    <Compile Include="model\trade\primatives\TradeStateFilter.cs" />
+    <Compile Include="model\trade\Responses.cs" />
+    <Compile Include="model\trade\Endpoints.cs" />
+    <Compile Include="model\trade\Trade.cs" />
+    <Compile Include="model\trade\TradeSummary.cs" />
+    <Compile Include="model\transaction\AccountTransactions.cs" />
+    <Compile Include="model\transaction\ClientConfigureTransactions.cs" />
+    <Compile Include="model\transaction\DailyFinancingTransaction.cs" />
+    <Compile Include="model\transaction\DelayedTradeClosureTransaction.cs" />
+    <Compile Include="model\transaction\Endpoints.cs" />
+    <Compile Include="model\transaction\primatives\MarketIfTouchedOrderReason.cs" />
+    <Compile Include="model\transaction\primatives\LimitOrderReason.cs" />
+    <Compile Include="model\transaction\primatives\FixedPriceOrderReason.cs" />
+    <Compile Include="model\transaction\FixedPriceOrderTransaction.cs" />
+    <Compile Include="model\transaction\LimitOrderTransaction.cs" />
+    <Compile Include="model\transaction\MarginCallTransactions.cs" />
+    <Compile Include="model\transaction\MarketIfTouchedOrderTransaction.cs" />
+    <Compile Include="model\transaction\OrderClientExtensionsModifyTransaction.cs" />
+    <Compile Include="model\transaction\primatives\FundingReason.cs" />
+    <Compile Include="model\transaction\primatives\OpenTradeFinancing.cs" />
     <Compile Include="model\transaction\primatives\OrderCancelReason.cs" />
     <Compile Include="model\order\primatives\OrderId.cs" />
     <Compile Include="model\order\primatives\OrderPositionFill.cs" />
@@ -75,47 +142,63 @@
     <Compile Include="model\pricing\QuoteHomeConversionFactors.cs" />
     <Compile Include="model\order\UnitsAvailable.cs" />
     <Compile Include="model\order\UnitsAvailableDetails.cs" />
-    <Compile Include="model\primatives\AcceptDateTimeFormat.cs" />
-    <Compile Include="model\primatives\AccountUnits.cs" />
-    <Compile Include="model\primatives\Currency.cs" />
-    <Compile Include="model\primatives\InstrumentName.cs" />
-    <Compile Include="model\primatives\DateTime.cs" />
-    <Compile Include="model\request\InstrumentRequests.cs" />
-    <Compile Include="model\request\PositionRequests.cs" />
-    <Compile Include="model\request\PricingRequests.cs" />
-    <Compile Include="model\request\RequestParameterAttribute.cs" />
-    <Compile Include="model\request\Restv20Request.cs" />
-    <Compile Include="model\response\InstrumentResponses.cs" />
-    <Compile Include="model\response\PositionResponses.cs" />
-    <Compile Include="model\response\PricingResponses.cs" />
-    <Compile Include="model\response\Restv20Response.cs" />
+    <Compile Include="model\AcceptDateTimeFormat.cs" />
+    <Compile Include="model\AccountUnits.cs" />
+    <Compile Include="model\Currency.cs" />
+    <Compile Include="model\InstrumentName.cs" />
+    <Compile Include="model\DateTime.cs" />
+    <Compile Include="model\instrument\Endpoints.cs" />
+    <Compile Include="model\position\Endpoints.cs" />
+    <Compile Include="model\pricing\Endpoints.cs" />
+    <Compile Include="model\RequestParameterAttributes.cs" />
+    <Compile Include="model\Restv20EndpointRequest.cs" />
+    <Compile Include="model\instrument\Responses.cs" />
+    <Compile Include="model\position\Responses.cs" />
+    <Compile Include="model\pricing\Responses.cs" />
+    <Compile Include="model\Restv20EndpointResponse.cs" />
     <Compile Include="model\trade\primatives\TradeId.cs" />
     <Compile Include="model\transaction\primatives\ClientComment.cs" />
-    <Compile Include="model\transaction\ClientExtensions.cs" />
+    <Compile Include="model\transaction\primatives\ClientExtensions.cs" />
     <Compile Include="model\transaction\primatives\ClientId.cs" />
     <Compile Include="model\transaction\primatives\ClientTag.cs" />
-    <Compile Include="model\transaction\MarketOrderDelayedTradeClose.cs" />
-    <Compile Include="model\transaction\MarketOrderMarginCloseout.cs" />
-    <Compile Include="model\transaction\MarketOrderPositionCloseout.cs" />
+    <Compile Include="model\transaction\primatives\MarketOrderDelayedTradeClose.cs" />
+    <Compile Include="model\transaction\primatives\MarketOrderMarginCloseout.cs" />
+    <Compile Include="model\transaction\primatives\MarketOrderPositionCloseout.cs" />
     <Compile Include="model\transaction\primatives\MarketOrderReason.cs" />
-    <Compile Include="model\transaction\MarketOrderRejectTransaction.cs" />
-    <Compile Include="model\transaction\MarketOrderTradeClose.cs" />
+    <Compile Include="model\transaction\primatives\MarketOrderTradeClose.cs" />
     <Compile Include="model\transaction\MarketOrderTransaction.cs" />
     <Compile Include="model\transaction\OrderCancelTransaction.cs" />
     <Compile Include="model\transaction\primatives\OrderFillReason.cs" />
     <Compile Include="model\transaction\OrderFillTransaction.cs" />
     <Compile Include="model\transaction\primatives\MarketOrderMarginCloseoutReason.cs" />
+    <Compile Include="model\transaction\primatives\PositionFinancing.cs" />
     <Compile Include="model\transaction\primatives\RequestId.cs" />
-    <Compile Include="model\transaction\StopLossDetails.cs" />
-    <Compile Include="model\transaction\TakeProfitDetails.cs" />
-    <Compile Include="model\transaction\TradeOpen.cs" />
-    <Compile Include="model\transaction\TradeReduce.cs" />
-    <Compile Include="model\transaction\TrailingStopLossDetails.cs" />
+    <Compile Include="model\transaction\primatives\StopLossOrderReason.cs" />
+    <Compile Include="model\transaction\primatives\TakeProfitOrderReason.cs" />
+    <Compile Include="model\transaction\primatives\TrailingStopLossOrderReason.cs" />
+    <Compile Include="model\transaction\primatives\TransactionFilter.cs" />
+    <Compile Include="model\transaction\ResetResettablePLTransaction.cs" />
+    <Compile Include="model\transaction\Responses.cs" />
+    <Compile Include="model\transaction\primatives\StopLossDetails.cs" />
+    <Compile Include="model\transaction\StopLossOrderTransaction.cs" />
+    <Compile Include="model\transaction\primatives\TakeProfitDetails.cs" />
+    <Compile Include="model\transaction\primatives\StopOrderReason.cs" />
+    <Compile Include="model\transaction\StopOrderTransaction.cs" />
+    <Compile Include="model\transaction\TakeProfitOrderTransaction.cs" />
+    <Compile Include="model\transaction\TradeClientExtensionsModifyTransaction.cs" />
+    <Compile Include="model\transaction\primatives\TradeOpen.cs" />
+    <Compile Include="model\transaction\primatives\TradeReduce.cs" />
+    <Compile Include="model\transaction\primatives\TrailingStopLossDetails.cs" />
     <Compile Include="model\transaction\primatives\TransactionId.cs" />
     <Compile Include="model\transaction\primatives\TransactionRejectReason.cs" />
     <Compile Include="model\transaction\primatives\TransactionType.cs" />
+    <Compile Include="model\transaction\TrailingStopLossOrderTransaction.cs" />
+    <Compile Include="model\transaction\Transaction.cs" />
+    <Compile Include="model\transaction\TransferFundsTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="serialization\CustomNewtonsoftSerializer.cs" />
+    <Compile Include="serialization\ImplicitOperatorConverter.cs" />
+    <Compile Include="serialization\TransactionConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

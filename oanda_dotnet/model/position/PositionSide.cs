@@ -19,7 +19,7 @@ namespace oanda_dotnet.model.position
         /// Volume-weighted average of the underlying Trade open prices for the 
         /// Position. 
         /// </summary> 
-        public PriceValue AveragePrice { get; set; }
+        public PriceValue? AveragePrice { get; set; }
 
         /// <summary> 
         /// List of the open Trade Ids which contribute to the open Position. 

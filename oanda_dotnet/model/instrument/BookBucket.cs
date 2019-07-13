@@ -11,7 +11,7 @@ namespace oanda_dotnet.model.instrument
         /// The lowest price (inclusive) covered by the bucket. The bucket covers the 
         /// price range from the price to price + the position book’s bucketWidth. 
         /// </summary> 
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The percentage of the total number of orders/positions represented by the long 

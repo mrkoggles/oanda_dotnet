@@ -9,44 +9,13 @@ namespace oanda_dotnet.model.transaction
     /// <summary>
     /// An OrderFillTransaction represents the filling of an Order in the client’s Account.
     /// </summary>
-    public class OrderFillTransaction
+    public class OrderFillTransaction : Transaction
     {
-        /// <summary> 
-        /// The Transaction’s Identifier. 
-        /// </summary> 
-        public TransactionId Id { get; set; }
-
-        /// <summary> 
-        /// The date/time when the Transaction was created. 
-        /// </summary> 
-        public System.DateTime Time { get; set; }
-
-        /// <summary> 
-        /// The Id of the user that initiated the creation of the Transaction. 
-        /// </summary> 
-        public int UserId { get; set; }
-
-        /// <summary> 
-        /// The Id of the Account the Transaction was created for. 
-        /// </summary> 
-        public AccountId AccountId { get; set; }
-
-        /// <summary> 
-        /// The Id of the “batch” that the Transaction belongs to. Transactions in 
-        /// the same batch are applied to the Account simultaneously. 
-        /// </summary> 
-        public TransactionId BatchId { get; set; }
-
-        /// <summary> 
-        /// The Request Id of the request which generated the transaction. 
-        /// </summary> 
-        public RequestId RequestId { get; set; }
-
         /// <summary> 
         /// The Type of the Transaction. Always set to “ORDER_FILL” for an 
         /// OrderFillTransaction. 
         /// </summary> 
-        public TransactionType Type => TransactionType.OrderFill;
+        public override TransactionType Type => TransactionType.OrderFill;
 
         /// <summary> 
         /// The Id of the Order filled. 
@@ -88,8 +57,8 @@ namespace oanda_dotnet.model.transaction
         /// tradesClosed, tradeReduced and tradeOpened fields contain the 
         /// exact/official price each unit was filled at. 
         /// </summary> 
-        [Obsolete("Deprecated: Will be removed in a future API update. ")]
-        public PriceValue Price { get; set; }
+        [Obsolete("Deprecated: Will be removed in a future API update.")]
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The price in effect for the account at the time of the Order fill. 

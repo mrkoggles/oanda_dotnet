@@ -3,6 +3,7 @@ using oanda_dotnet.api;
 using oanda_dotnet.model;
 using oanda_dotnet.model.pricing;
 using System.Collections.Generic;
+using System;
 
 namespace oanda_dotnet.test.IntegrationTests
 {
@@ -12,29 +13,8 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetPrices()
         {
-            GetPricingRequest request = new GetPricingRequest
-            {
-                AcceptDateTimeFormat = AcceptDateTimeFormat.RFC3339,
-                AccountId = this.AccountId,
-                Instruments = new List<InstrumentName>()
-                {
-                    new InstrumentName
-                    {
-                        BaseCurrency = Currency.EUR,
-                        QuoteCurrency = Currency.USD
-                    },
-                    new InstrumentName
-                    {
-                        BaseCurrency = Currency.USD,
-                        QuoteCurrency = Currency.CAD
-                    }
-                },
-                IncludeHomeConversions = true,
-                Since = System.DateTime.Now.AddDays(-7)
-            };
-
             PricingApi api = new PricingApi(this.Client);
-            GetPricingResponse response = api.Execute<GetPricingResponse>(request);
+            GetPricingResponse response = api.GetPricing(this.AccountId, new List<InstrumentName>() { "EUR_USD", "USD_CAD" }, DateTime.Now.AddMonths(-1), true);
             Assert.AreEqual(response?.Prices?.Count, 2);
         }
     }

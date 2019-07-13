@@ -1,5 +1,4 @@
-﻿using oanda_dotnet.model.account;
-using oanda_dotnet.model.order;
+﻿using oanda_dotnet.model.order;
 using oanda_dotnet.model.pricing;
 using System.ComponentModel.DataAnnotations;
 
@@ -11,44 +10,13 @@ namespace oanda_dotnet.model.transaction
     /// Market Orders can be specialized when they are created to accomplish a specific task: to close a Trade, 
     /// to closeout a Position or to particiate in in a Margin closeout.
     /// </summary>
-    public class MarketOrderTransaction
+    public class MarketOrderTransaction : Transaction
     {
-        /// <summary>
-        /// The Transaction’s Identifier.
-        /// </summary>
-        public TransactionId Id { get; set; }
-
-        /// <summary>
-        /// The date/time when the Transaction was created.
-        /// </summary>
-        public System.DateTime Time { get; set; }
-
-        /// <summary>
-        /// The Id of the user that initiated the creation of the Transaction.
-        /// </summary>
-        public int UserId { get; set; }
-
-        /// <summary>
-        /// The Id of the Account the Transaction was created for.
-        /// </summary>
-        public AccountId AccountId { get; set; }
-
-        /// <summary>
-        /// The Id of the “batch” that the Transaction belongs to. Transactions in
-        /// the same batch are applied to the Account simultaneously.
-        /// </summary>
-        public TransactionId BatchId { get; set; }
-
-        /// <summary>
-        /// The Request Id of the request which generated the transaction.
-        /// </summary>
-        public RequestId RequestId { get; set; }
-
         /// <summary>
         /// The Type of the Transaction. Always set to “MARKET_ORDER” in a
         /// MarketOrderTransaction.
         /// </summary>
-        public TransactionType Type => TransactionType.MarketOrder;
+        public override TransactionType Type => TransactionType.MarketOrder;
 
         /// <summary>
         /// The Market Order’s Instrument.
@@ -75,7 +43,7 @@ namespace oanda_dotnet.model.transaction
         /// The worst price that the client is willing to have the Market Order
         /// filled at.
         /// </summary>
-        public PriceValue PriceBound { get; set; }
+        public PriceValue? PriceBound { get; set; }
 
         /// <summary>
         /// Specification of how Positions in the Account are modified when the Order
@@ -149,5 +117,22 @@ namespace oanda_dotnet.model.transaction
         /// tradeClientExtensions if your account is associated with MT4.
         /// </summary>
         public ClientExtensions TradeClientExtensions { get; set; }
+    }
+
+    /// <summary>
+    /// A MarketOrderRejectTransaction represents the rejection of the creation of a Market Order.
+    /// </summary>
+    public class MarketOrderRejectTransaction : MarketOrderTransaction
+    {
+        /// <summary>
+        /// The Type of the Transaction. Always set to “MARKET_ORDER_REJECT” in a
+        /// MarketOrderRejectTransaction.
+        /// </summary>
+        public override TransactionType Type => TransactionType.MarketOrderReject;
+        
+        /// <summary>
+        /// The reason that the Reject Transaction was created
+        /// </summary>
+        public TransactionRejectReason RejectReason { get; set; }
     }
 }

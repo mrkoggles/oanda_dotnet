@@ -1,14 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using oanda_dotnet.api;
 using oanda_dotnet.model;
 using oanda_dotnet.model.instrument;
+using System;
+using System.Runtime;
+
 
 namespace oanda_dotnet.test.IntegrationTests
 {
-    [Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
+    [TestClass]
     public class InstrumentRequests : BaseTestClass
     {
         private InstrumentApi _api;
@@ -21,20 +21,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetInstrumentCandlesRequest()
         {
-            GetInstrumentCandlesRequest request = new GetInstrumentCandlesRequest()
-            {
-                Instrument = new InstrumentName()
-                {
-                    BaseCurrency = Currency.USD,
-                    QuoteCurrency = Currency.JPY
-                },
-                IncludeAskCandles = true,
-                IncludeBidCandles = true,
-                IncludeMidpointCandles = true,
-                CandlestickGranularity = CandlestickGranularity.M10
-            };
-
-            GetInstrumentCandlesResponse response = this._api.Execute<GetInstrumentCandlesResponse>(request);
+            GetInstrumentCandlesResponse response = this._api.GetCandles("EUR_USD", from: DateTime.Now.AddDays(-7), includeAskCandles: true);
             Assert.IsTrue(response?.Candles != null && response.Candles.Count > 0);
         }
 
@@ -42,34 +29,32 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetInstrumentOrderBookRequest()
         {
-            GetInstrumentOrderBookRequest request = new GetInstrumentOrderBookRequest()
-            {
-                Instrument = new InstrumentName()
-                {
-                    BaseCurrency = Currency.USD,
-                    QuoteCurrency = Currency.JPY
-                }
-            };
+            GetInstrumentOrderBookResponse response = _api.GetOrderBook("USD_JPY");
+            Assert.IsTrue(response.OrderBook.Buckets.Count > 0);
+        }
 
-            GetInstrumentOrderBookResponse response = this._api.Execute<GetInstrumentOrderBookResponse>(request);
-            Assert.IsTrue(response?.OrderBook?.Buckets != null);
+
+        [TestMethod]
+        public void GetInstrumentOrderBookSnapshotRequest()
+        {
+            GetInstrumentOrderBookResponse response = _api.GetOrderBook("USD_JPY", DateTime.Now.AddYears(-1));
+            Assert.IsTrue(response.OrderBook.Buckets.Count > 0);  //need to fix date time serialization into the request
         }
 
 
         [TestMethod]
         public void GetInstrumentPositionBookRequest()
         {
-            GetInstrumentPositionBookRequest request = new GetInstrumentPositionBookRequest()
-            {
-                Instrument = new InstrumentName()
-                {
-                    BaseCurrency = Currency.USD,
-                    QuoteCurrency = Currency.JPY
-                }
-            };
+            GetInstrumentPositionBookResponse response = _api.GetPositionBook("USD_JPY");
+            Assert.IsTrue(response.PositionBook.Buckets.Count > 0);
+        }
 
-            GetInstrumentPositionBookResponse response = this._api.Execute<GetInstrumentPositionBookResponse>(request);
-            Assert.IsTrue(response?.PositionBook?.Buckets != null);
+
+        [TestMethod]
+        public void GetInstrumentPositionBookSnapshotRequest()
+        {
+            GetInstrumentPositionBookResponse response = _api.GetPositionBook("USD_JPY", DateTime.Now.AddYears(-1));
+            Assert.IsTrue(response.PositionBook.Buckets.Count > 0);  //need to fix date time serialization into the request
         }
     }
 }

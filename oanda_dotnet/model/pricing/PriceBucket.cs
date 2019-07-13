@@ -8,7 +8,7 @@
         /// <summary> 
         /// The Price offered by the PriceBucket 
         /// </summary> 
-        public PriceValue Price { get; set; }
+        public PriceValue? Price { get; set; }
 
         /// <summary> 
         /// The amount of liquidity offered by the PriceBucket 

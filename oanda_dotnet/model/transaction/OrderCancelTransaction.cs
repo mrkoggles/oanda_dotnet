@@ -1,49 +1,17 @@
-﻿using oanda_dotnet.model.account;
-using oanda_dotnet.model.order;
+﻿using oanda_dotnet.model.order;
 
 namespace oanda_dotnet.model.transaction
 {
     /// <summary>
     /// An OrderCancelTransaction represents the cancellation of an Order in the client’s Account.
     /// </summary>
-    public class OrderCancelTransaction
+    public class OrderCancelTransaction : Transaction
     {
-        /// <summary>
-        /// The Transaction’s Identifier.
-        /// </summary>
-        public TransactionId Id { get; set; }
-
-        /// <summary>
-        /// The date/time when the Transaction was created.
-        /// </summary>
-        public System.DateTime Time { get; set; }
-
-        /// <summary>
-        /// The Id of the user that initiated the creation of the Transaction.
-        /// </summary>
-        public int UserId { get; set; }
-
-        /// <summary>
-        /// The Id of the Account the Transaction was created for.
-        /// </summary>
-        public AccountId AccountId { get; set; }
-
-        /// <summary>
-        /// The Id of the “batch” that the Transaction belongs to. Transactions in
-        /// the same batch are applied to the Account simultaneously.
-        /// </summary>
-        public TransactionId BatchId { get; set; }
-
-        /// <summary>
-        /// The Request Id of the request which generated the transaction.
-        /// </summary>
-        public RequestId RequestId { get; set; }
-
         /// <summary>
         /// The Type of the Transaction. Always set to “ORDER_CANCEL” for an
         /// OrderCancelTransaction.
         /// </summary>
-        public TransactionType Type => TransactionType.OrderCancel;
+        public override TransactionType Type => TransactionType.OrderCancel;
 
         /// <summary>
         /// The Id of the Order cancelled
@@ -66,5 +34,34 @@ namespace oanda_dotnet.model.transaction
         /// was cancelled for replacement).
         /// </summary>
         public OrderId ReplacedByOrderId { get; set; }
+    }
+    
+
+    /// <summary>
+    /// An OrderCancelRejectTransaction represents the rejection of the cancellation of an Order in the client’s Account.
+    /// </summary>
+    public class OrderCancelRejectTransaction : Transaction
+    {
+        /// <summary>
+        /// The Type of the Transaction. Always set to “ORDER_CANCEL_REJECT” for an
+        /// OrderCancelRejectTransaction.
+        /// </summary>
+        public override TransactionType Type => TransactionType.OrderCancelReject;
+
+        /// <summary>
+        /// The Id of the Order intended to be cancelled
+        /// </summary>
+        public OrderId OrderId { get; set; }
+
+        /// <summary>
+        /// The client Id of the Order intended to be cancelled (only provIded if the
+        /// Order has a client Order Id).
+        /// </summary>
+        public OrderId ClientOrderId { get; set; }
+
+        /// <summary>
+        /// The reason that the Reject Transaction was created
+        /// </summary>
+        public TransactionRejectReason RejectReason { get; set; }
     }
 }

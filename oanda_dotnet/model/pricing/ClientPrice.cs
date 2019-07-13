@@ -26,14 +26,14 @@ namespace oanda_dotnet.model.pricing
         /// closeout a Position (margin closeout or manual) yet there is no bid 
         /// liquidity. The closeout bid is never used to open a new position. 
         /// </summary> 
-        public PriceValue CloseoutBid { get; set; }
+        public PriceValue? CloseoutBid { get; set; }
 
         /// <summary> 
         /// The closeout ask Price. This Price is used when a ask is required to 
         /// closeout a Position (margin closeout or manual) yet there is no ask 
         /// liquidity. The closeout ask is never used to open a new position. 
         /// </summary> 
-        public PriceValue CloseoutAsk { get; set; }
+        public PriceValue? CloseoutAsk { get; set; }
 
         /// <summary> 
         /// The date/time when the Price was created. 

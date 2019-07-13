@@ -13,13 +13,13 @@ namespace oanda_dotnet.model.transaction
         /// <summary>
         /// Trade closures resulted from violating OANDA’s margin policy
         /// </summary>
-        [EnumMember(Value = "MARGIN_CHECK_VIOLATION ")]
+        [EnumMember(Value ="MARGIN_CHECK_VIOLATION")]
         MarginCheckViolation,
 
         /// <summary>
         /// Trade closures came from a margin closeout event resulting from regulatory conditions placed on the Account’s margin call
         /// </summary>
-        [EnumMember(Value = "REGULATORY_MARGIN_CALL_VIOLATION ")]
+        [EnumMember(Value ="REGULATORY_MARGIN_CALL_VIOLATION")]
         RegulatoryMarginCallViolation
     }
 }

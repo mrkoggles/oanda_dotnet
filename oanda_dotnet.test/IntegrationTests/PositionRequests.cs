@@ -16,12 +16,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetPositions()
         {
-            GetPositionsRequest request = new GetPositionsRequest()
-            {
-                AccountId = this.AccountId
-            };
-
-            GetPositionsResponse response = _api.Execute<GetPositionsResponse>(request);
+            GetPositionsResponse response = _api.GetPositions(this.AccountId);;
             Assert.IsTrue(response.LastTransactionId > 0);
         }
 
@@ -29,12 +24,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetOpenPositions()
         {
-            GetOpenPositionsRequest request = new GetOpenPositionsRequest()
-            {
-                AccountId = this.AccountId
-            };
-
-            GetPositionsResponse response = _api.Execute<GetPositionsResponse>(request);
+            GetPositionsResponse response = _api.GetOpenPositions(this.AccountId);
             Assert.IsTrue(response.LastTransactionId > 0);
         }
 
@@ -42,17 +32,7 @@ namespace oanda_dotnet.test.IntegrationTests
         [TestMethod]
         public void GetInstrumentsPositions()
         {
-            GetInstrumentPositionRequest request = new GetInstrumentPositionRequest()
-            {
-                AccountId = this.AccountId,
-                Instrument = new InstrumentName
-                {
-                    BaseCurrency = Currency.EUR,
-                    QuoteCurrency = Currency.USD
-                }
-            };
-
-            GetPositionResponse response = _api.Execute<GetPositionResponse>(request);
+            GetPositionResponse response = _api.GetInstrumentPosition(this.AccountId, "EUR_USD");
             Assert.IsTrue(response.LastTransactionId > 0);
         }
 
