@@ -7,7 +7,7 @@ namespace oanda_dotnet.client
     public class StreamClient : HttpClient
     {
         public string Url => $"https://{SubDomain}.oanda.com/";
-        protected virtual string SubDomain => "stream-api-fxtrade";
+        protected virtual string SubDomain => "stream-fxtrade";
 
         public StreamClient(string bearerToken) : base()
         {
@@ -19,7 +19,7 @@ namespace oanda_dotnet.client
 
     public sealed class StreamTestingClient : StreamClient
     {
-        protected override string SubDomain => "stream-api-fxpractice";
+        protected override string SubDomain => "stream-fxpractice";
 
         public StreamTestingClient(string bearerToken) : base(bearerToken) { }
     }
