@@ -37,10 +37,13 @@ namespace oanda_dotnet.serialization
         }
 
         public T Deserialize<T>(RestSharp.IRestResponse response)
+            => Deserialize<T>(response.Content);
+
+        public T Deserialize<T>(string response)
         {
             try
             {
-                using (StringReader stringReader = new StringReader(response.Content))
+                using (StringReader stringReader = new StringReader(response))
                 using (JsonTextReader jsonTextReader = new JsonTextReader(stringReader))
                 {
                     return _serializer.Deserialize<T>(jsonTextReader);
@@ -50,7 +53,6 @@ namespace oanda_dotnet.serialization
             {
                 throw e;
             }
-            
         }
 
 

@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using System;
 using System.Text;
+using oanda_dotnet.serialization;
 
 namespace oanda_dotnet.api
 {
@@ -32,17 +33,20 @@ namespace oanda_dotnet.api
             }
         }
 
-        public string Response
+        public T Response
         {
             get
             {
                 string _response = null;
                 while (StreamReader.Peek() != -1)  //.Peek() returns -1 when there is currently nothing to read
                 {
-                    var currentValue = StreamReader.ReadLine();
-                    if (true) { _response = currentValue; } //replace with logic to make sure not a heartbeat object                    
+                    string currentValue = StreamReader.ReadLine();
+                    if (!Heartbeat.ResponseIsHeartBeat(currentValue))
+                    {
+                        _response = currentValue;
+                    }            
                 }
-                return _response;
+                return NewtonsoftJsonSerializer.Default.Deserialize<T>(_response);
             }
         }
 
@@ -57,5 +61,6 @@ namespace oanda_dotnet.api
             _streamReader?.Dispose();
             GC.SuppressFinalize(this);
         }
+
     }
 }
