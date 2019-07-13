@@ -52,6 +52,7 @@ namespace oanda_dotnet.api
         protected StreamApi(StreamClient client, StreamEndpointRequest<T> request)
         {
             _retrieveStreamTask = client.Execute(request);
+            _retrieveStreamTask.Start();
         }
 
         public void Dispose()

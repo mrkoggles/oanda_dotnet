@@ -64,6 +64,7 @@
     <Compile Include="api\TradeApi.cs" />
     <Compile Include="api\TransactionApi.cs" />
     <Compile Include="api\TransactionsStreamApi.cs" />
+    <Compile Include="model\EndpointRequest.cs" />
     <Compile Include="model\transaction\TransactionStreamEndpointRequest.cs" />
     <Compile Include="client\Restv20Client.cs" />
     <Compile Include="client\StreamClient.cs" />

@@ -19,10 +19,8 @@ namespace oanda_dotnet.client
             this.BaseAddress = new Uri(Url);
         }
 
-        internal Task<Stream> Execute<T>(StreamEndpointRequest<T> request)
-        {
-            return null;
-        }
+        internal Task<Stream> Execute<T>(StreamEndpointRequest<T> request) => this.GetStreamAsync(request.Resource());
+        
     }
 
     public sealed class StreamTestingClient : StreamClient

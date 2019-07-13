@@ -1,6 +1,5 @@
 ﻿using oanda_dotnet.model.account;
 using RestSharp;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
