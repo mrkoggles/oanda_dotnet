@@ -9,9 +9,8 @@ using oanda_dotnet.serialization;
 namespace oanda_dotnet.api
 {
     public abstract class StreamApi<T> : IDisposable
-        where T : StreamEndpointRequest<T>, new()
     {
-        private Task<Stream> _retrieveStreamTask;
+        private readonly Task<Stream> _retrieveStreamTask;
         private Stream _stream;
         private StreamReader _streamReader;
 
@@ -19,7 +18,7 @@ namespace oanda_dotnet.api
         {
             get
             {
-                if(_stream == null) { _stream = _retrieveStreamTask.Result; }
+                if (_stream == null) { _stream = _retrieveStreamTask.Result; }
                 return _stream;
             }
         }
@@ -50,7 +49,7 @@ namespace oanda_dotnet.api
             }
         }
 
-        public StreamApi(StreamClient client, StreamEndpointRequest<T> request)
+        protected StreamApi(StreamClient client, StreamEndpointRequest<T> request)
         {
             _retrieveStreamTask = client.Execute(request);
         }

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RestSharp;
 
 namespace oanda_dotnet.model
 {
-    public abstract class StreamEndpointRequest<T> //where clause? 
+    public abstract class StreamEndpointRequest<T>
     {
-
+        public abstract string Endpoint { get; }
+        public abstract Method Method { get; }
     }
 }
