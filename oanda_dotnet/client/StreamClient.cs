@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.IO;
+using oanda_dotnet.model;
+using System.Threading.Tasks;
 
 namespace oanda_dotnet.client
 {
@@ -14,6 +17,11 @@ namespace oanda_dotnet.client
             this.DefaultRequestHeaders.Add("Authorization", $"Bearer {bearerToken}");
             this.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/octet-stream"));
             this.BaseAddress = new Uri(Url);
+        }
+
+        internal Task<Stream> Execute<T>(StreamEndpointRequest<T> request)
+        {
+            return null;
         }
     }
 
