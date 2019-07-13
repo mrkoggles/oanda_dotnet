@@ -58,10 +58,16 @@
     <Compile Include="api\OrderApi.cs" />
     <Compile Include="api\PositionApi.cs" />
     <Compile Include="api\PricingApi.cs" />
+    <Compile Include="api\PricingStreamApi.cs" />
     <Compile Include="api\Restv20Api.cs" />
+    <Compile Include="api\StreamApi.cs" />
     <Compile Include="api\TradeApi.cs" />
     <Compile Include="api\TransactionApi.cs" />
+    <Compile Include="api\TransactionsStreamApi.cs" />
+    <Compile Include="model\EndpointRequest.cs" />
+    <Compile Include="model\transaction\TransactionStreamEndpointRequest.cs" />
     <Compile Include="client\Restv20Client.cs" />
+    <Compile Include="client\StreamClient.cs" />
     <Compile Include="model\account\Account.cs" />
     <Compile Include="model\account\AccountChanges.cs" />
     <Compile Include="model\account\AccountChangesState.cs" />
@@ -70,6 +76,7 @@
     <Compile Include="model\account\primatives\AccountFinancingMode.cs" />
     <Compile Include="model\account\primatives\AccountId.cs" />
     <Compile Include="model\account\primatives\GuaranteedStopLossOrderMode.cs" />
+    <Compile Include="model\Heartbeat.cs" />
     <Compile Include="model\InstrumentCommission.cs" />
     <Compile Include="model\InstrumentType.cs" />
     <Compile Include="model\instrument\Candlestick.cs" />
@@ -104,6 +111,8 @@
     <Compile Include="model\order\Endpoints.cs" />
     <Compile Include="model\account\Responses.cs" />
     <Compile Include="model\order\Responses.cs" />
+    <Compile Include="model\pricing\PricingStreamEndpoint.cs" />
+    <Compile Include="model\StreamEndpointRequest.cs" />
     <Compile Include="model\trade\CalculatedTradeState.cs" />
     <Compile Include="model\trade\primatives\TradeSpecifier.cs" />
     <Compile Include="model\trade\primatives\TradeState.cs" />
