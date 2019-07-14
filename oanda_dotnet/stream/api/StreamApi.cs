@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using System;
 using System.Text;
 using oanda_dotnet.serialization;
+using oanda_dotnet.stream.client;
+using oanda_dotnet.stream.model;
 
-namespace oanda_dotnet.api
+namespace oanda_dotnet.stream.api
 {
     public abstract class StreamApi<T> : IDisposable
     {

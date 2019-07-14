@@ -18,7 +18,7 @@ namespace oanda_dotnet.api
         }
 
         [Obsolete("Unfinished method. Needs error handling")]
-        public V Execute<V>(T request)
+        protected V Execute<V>(T request)
             where V : U, new() 
         {
             if (!request.IsValid()) { /*throw custom exception*/ }

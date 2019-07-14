@@ -18,13 +18,6 @@ namespace oanda_dotnet.model.pricing
 
 
         /// <summary>
-        ///  Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]

@@ -8,7 +8,7 @@ namespace oanda_dotnet.model.transaction
     /// This may happen when an Order is filled that opens a Trade requiring a Stop Loss, or when a 
     /// Trade’s dependent Stop Loss Order is modified directly through the Trade.
     /// </summary>
-    public class StopLossDetails
+    public class StopLossDetails : IExitOrderDetail
     {
         /// <summary> 
         /// The price that the Stop Loss Order will be triggered at. Only one of the 

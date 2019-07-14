@@ -1,8 +1,9 @@
-﻿using oanda_dotnet.client;
-using oanda_dotnet.model.account;
+﻿using oanda_dotnet.model.account;
 using oanda_dotnet.model.transaction;
+using oanda_dotnet.stream.model.transaction;
+using oanda_dotnet.stream.client;
 
-namespace oanda_dotnet.api
+namespace oanda_dotnet.stream.api
 {
     public class TransactionsStreamApi : StreamApi<Transaction>
     {

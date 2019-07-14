@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 
-namespace oanda_dotnet.model
+namespace oanda_dotnet.stream.model
 {
     public abstract class Heartbeat
     {

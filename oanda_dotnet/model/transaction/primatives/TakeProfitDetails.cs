@@ -8,7 +8,7 @@ namespace oanda_dotnet.model.transaction
     /// This may happen when an Order is filled that opens a Trade requiring a Take Profit, or when a 
     /// Trade’s dependent Take Profit Order is modified directly through the Trade.
     /// </summary>
-    public class TakeProfitDetails
+    public class TakeProfitDetails : IExitOrderDetail
     {
         /// <summary> 
         /// The price that the Take Profit Order will be triggered at. Only one of 

@@ -22,13 +22,6 @@ namespace oanda_dotnet.model.trade
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -86,13 +79,6 @@ namespace oanda_dotnet.model.trade
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -108,13 +94,6 @@ namespace oanda_dotnet.model.trade
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/trades/{tradeSpecifier}";
         public override Method Method => Method.GET;
-
-
-        /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
         /// <summary>
@@ -173,13 +152,6 @@ namespace oanda_dotnet.model.trade
         
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -221,13 +193,6 @@ namespace oanda_dotnet.model.trade
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -261,13 +226,6 @@ namespace oanda_dotnet.model.trade
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/trades/{tradeSpecifier}/orders";
         public override Method Method => Method.PUT;
-
-
-        /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
         /// <summary>

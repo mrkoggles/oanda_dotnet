@@ -1,10 +1,11 @@
-﻿using oanda_dotnet.client;
-using oanda_dotnet.model;
+﻿using oanda_dotnet.model;
 using oanda_dotnet.model.account;
 using oanda_dotnet.model.pricing;
+using oanda_dotnet.stream.client;
+using oanda_dotnet.stream.model.pricing;
 using System.Collections.Generic;
 
-namespace oanda_dotnet.api
+namespace oanda_dotnet.stream.api
 {
     public class PricingStreamApi : StreamApi<Price>
     {
