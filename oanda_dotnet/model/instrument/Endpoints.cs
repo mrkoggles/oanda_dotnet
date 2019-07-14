@@ -25,14 +25,6 @@ namespace oanda_dotnet.model.instrument
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [Required]
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Name of the Instrument
         /// </summary>
         [Required]
@@ -143,14 +135,6 @@ namespace oanda_dotnet.model.instrument
     public abstract class GetInstrumentBookEndpoint : InstrumentRestv20EndpointRequest
     {
         public override Method Method => Method.GET;
-
-
-        /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [Required]
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
         /// <summary>

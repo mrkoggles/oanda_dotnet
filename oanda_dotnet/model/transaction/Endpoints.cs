@@ -19,13 +19,6 @@ namespace oanda_dotnet.model.transaction
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -76,13 +69,6 @@ namespace oanda_dotnet.model.transaction
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -106,13 +92,6 @@ namespace oanda_dotnet.model.transaction
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/transactions/idrange";
         public override Method Method => Method.GET;
-
-
-        /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
         /// <summary>
@@ -157,13 +136,6 @@ namespace oanda_dotnet.model.transaction
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -178,5 +150,4 @@ namespace oanda_dotnet.model.transaction
         [EndpointParameter(Name ="id", Type = ParameterType.QueryString)]
         public TransactionId? SinceId { get; set; }
     }
-
 }

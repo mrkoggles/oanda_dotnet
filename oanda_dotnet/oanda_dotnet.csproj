@@ -152,11 +152,9 @@
     <Compile Include="model\pricing\QuoteHomeConversionFactors.cs" />
     <Compile Include="model\order\UnitsAvailable.cs" />
     <Compile Include="model\order\UnitsAvailableDetails.cs" />
-    <Compile Include="model\AcceptDateTimeFormat.cs" />
     <Compile Include="model\AccountUnits.cs" />
     <Compile Include="model\Currency.cs" />
     <Compile Include="model\InstrumentName.cs" />
-    <Compile Include="model\DateTime.cs" />
     <Compile Include="model\instrument\Endpoints.cs" />
     <Compile Include="model\position\Endpoints.cs" />
     <Compile Include="model\pricing\Endpoints.cs" />

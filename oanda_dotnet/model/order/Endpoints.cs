@@ -18,13 +18,6 @@ namespace oanda_dotnet.model.order
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -57,13 +50,6 @@ namespace oanda_dotnet.model.order
 
         public override string Endpoint => @"/v3/accounts/{accountID}/orders";
         public override Method Method => Method.GET;
-
-
-        /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
         /// <summary>
@@ -124,13 +110,6 @@ namespace oanda_dotnet.model.order
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -146,13 +125,6 @@ namespace oanda_dotnet.model.order
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}";
         public override Method Method => Method.GET;
-
-
-        /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
         /// <summary>
@@ -179,13 +151,6 @@ namespace oanda_dotnet.model.order
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}";
         public override Method Method => Method.PUT;
-
-
-        /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
         /// <summary>
@@ -228,13 +193,6 @@ namespace oanda_dotnet.model.order
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Account Identifier
         /// </summary>
         [Required]
@@ -258,13 +216,6 @@ namespace oanda_dotnet.model.order
     {
         public override string Endpoint => @"/v3/accounts/{accountID}/orders/{orderSpecifier}/clientExtensions";
         public override Method Method => Method.PUT;
-
-
-        /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
 
 
         /// <summary>

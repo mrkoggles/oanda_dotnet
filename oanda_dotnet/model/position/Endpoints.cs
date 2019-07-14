@@ -88,14 +88,6 @@ namespace oanda_dotnet.model.position
 
 
         /// <summary>
-        /// Format of DateTime fields in the request and response. 
-        /// </summary>
-        [Required]
-        [EndpointParameter(Name ="Accept-Datetime-Format", Type = ParameterType.HttpHeader)]
-        public AcceptDateTimeFormat? AcceptDateTimeFormat { get; set; }
-
-
-        /// <summary>
         /// Name of the Instrument
         /// </summary>
         [Required]
