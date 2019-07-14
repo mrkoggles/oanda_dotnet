@@ -7,7 +7,7 @@ namespace oanda_dotnet.model.transaction
     /// This may happen when an Order is filled that opens a Trade requiring a Trailing Stop Loss, or when a 
     /// Trade’s dependent Trailing Stop Loss Order is modified directly through the Trade.
     /// </summary>
-    public class TrailingStopLossDetails
+    public class TrailingStopLossDetails : IExitOrderDetail
     {
         /// <summary> 
         /// The distance (in price units) from the Trade’s fill price that the 
