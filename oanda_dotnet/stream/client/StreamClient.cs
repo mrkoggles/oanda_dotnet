@@ -1,11 +1,11 @@
-﻿using System;
+﻿using oanda_dotnet.stream.model;
+using System;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.IO;
-using oanda_dotnet.model;
 using System.Threading.Tasks;
 
-namespace oanda_dotnet.client
+namespace oanda_dotnet.stream.client
 {
     public class StreamClient : HttpClient
     {

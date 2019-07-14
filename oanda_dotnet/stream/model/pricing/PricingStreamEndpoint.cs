@@ -1,9 +1,11 @@
-﻿using oanda_dotnet.model.account;
+﻿using oanda_dotnet.model;
+using oanda_dotnet.model.account;
+using oanda_dotnet.model.pricing;
 using RestSharp;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace oanda_dotnet.model.pricing
+namespace oanda_dotnet.stream.model.pricing
 {
     /// <summary>
     /// Get a stream of Account Prices starting from when the request is made.
