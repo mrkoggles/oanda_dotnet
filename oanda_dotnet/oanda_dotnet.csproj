@@ -77,7 +77,7 @@
     <Compile Include="model\account\primatives\AccountFinancingMode.cs" />
     <Compile Include="model\account\primatives\AccountId.cs" />
     <Compile Include="model\account\primatives\GuaranteedStopLossOrderMode.cs" />
-    <Compile Include="model\Heartbeat.cs" />
+    <Compile Include="stream\model\Heartbeat.cs" />
     <Compile Include="model\InstrumentCommission.cs" />
     <Compile Include="model\InstrumentType.cs" />
     <Compile Include="model\instrument\Candlestick.cs" />
